@@ -9,7 +9,7 @@ public class customerLoginDaoImpl implements customerLoginDao {
 	public static String nameSpace = "com.springlec.base.dao.customerLoginDao";
 	
 	@Override
-	public int usercheckDao() throws Exception {
+	public int usercheckDao(String customerId, String customerPw) throws Exception {
 		return sqlSession.selectOne(nameSpace + ".usercheckDao");
 	}
 

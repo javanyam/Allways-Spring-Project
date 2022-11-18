@@ -2,7 +2,7 @@ package com.springlec.base.model;
 
 import java.sql.Timestamp;
 
-public class CCustomerUserinfoDto {
+public class customerUserinfoDto {
 
 	// F
 	String customerId;
@@ -24,13 +24,13 @@ public class CCustomerUserinfoDto {
 	
 	
 	// C
-	public CCustomerUserinfoDto() {
+	public customerUserinfoDto() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	
 
-	public CCustomerUserinfoDto(String customerPw, String customerName, String customerGender,
+	public customerUserinfoDto(String customerPw, String customerName, String customerGender,
 			String customerPhone, String customerBirthday, String customerPostcode,
 			String customerAddress, String customerAddressDetail) {
 		super();
@@ -47,7 +47,7 @@ public class CCustomerUserinfoDto {
 	
 
 
-	public CCustomerUserinfoDto(String customerEmailId, String customerEmailDomain) {
+	public customerUserinfoDto(String customerEmailId, String customerEmailDomain) {
 		super();
 		this.customerEmailId = customerEmailId;
 		this.customerEmailDomain = customerEmailDomain;
