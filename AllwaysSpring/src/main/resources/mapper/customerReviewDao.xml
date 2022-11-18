@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.springlec.base.dao.customerReviewDao">
+
+	<select id="customerReviewList" resultType="com.springlec.base.model.customerReviewDto">
+		SELECT * FROM (SELECT row_number() OVER(ORDER BY oreviewId) AS rownum,
+						or_customerId, oreviewContent, oreviewInitdate, oreviewImage, oreviewStarrating, oreviewId FROM ordersreview WHERE oreviewDeletedate is null ORDER BY oreviewId DESC) o
+						WHERE ${combo} LIKE #{searchContent} ORDER BY #{sort} desc
+	</select>
+
+</mapper>
