@@ -18,9 +18,8 @@ public class customerReviewController {
 	@Autowired
 	customerReviewDaoService service;
 	
-	
 	// 리뷰 리스트 출력
-	@RequestMapping("/customerOrdersReview")
+	@RequestMapping("/customer/customerOrdersReview")
 	public String list(HttpServletRequest request, Model model) throws Exception {
 
 		List<customerReviewDto> dtos = service.customerReviewList(request);

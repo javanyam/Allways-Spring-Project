@@ -11,7 +11,7 @@ import com.springlec.base.dao.customerReviewDao;
 import com.springlec.base.model.customerReviewDto;
 
 @Service
-public abstract class customerReviewDaoServiceImpl implements customerReviewDaoService {
+public class customerReviewDaoServiceImpl implements customerReviewDaoService {
 
 	@Autowired
 	customerReviewDao dao;
@@ -30,5 +30,4 @@ public abstract class customerReviewDaoServiceImpl implements customerReviewDaoS
 		
 		return dao.customerReviewList(combo, searchContent, sort);
 	}
-	
 }
