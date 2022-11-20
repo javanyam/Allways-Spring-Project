@@ -125,6 +125,7 @@ position: absolute;
 <script type="text/javascript">
 	function logout() {
 		var form = document.loginokay;
+
 		form.action = "customerAbout";
 		form.submit();
 	}
@@ -134,6 +135,7 @@ position: absolute;
 <script type="text/javascript">
 function signup() {
 	var form=document.loginbtn;
+
 	form.action="http://localhost:8080/Allways/Customer/customerJoin";
 	form.submit();
 }</script>
@@ -154,6 +156,7 @@ function signup() {
             </div>
             <div class="col-lg-6 text-right">
                 <div class="d-inline-flex align-items-center">
+
                 	<a class="text-primary pl-2" href="customerJoinPage">
                         <i class="text-primary pl-2">JOIN</i>
                     </a>
@@ -173,6 +176,7 @@ function signup() {
 	        </button>
 	        <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
 	            <div class="navbar-nav m-auto py-0">
+
 		            <a href="customerAbout" class="navbar-brand ml-lg-3">
 		       			 <img src="./images/HeaderLogo.png"><!-- style="padding-left: 90px;" -->
 		        	</a>
@@ -195,14 +199,18 @@ function signup() {
 							<form name="loginokay" method="post" style="position: absolute; right: 0px; top: 30px;">
 								<%=session.getAttribute("NAME") %>님, 안녕하세요! 
 								<input id="center" type="submit" class="nav-item nav-link" onclick="mypage()" value="마이페이지">
+
 								<input id="center" type="submit" class="nav-item nav-link" onclick="javascript: form.action='CustomerMain'" value="로그아웃">
+
 							</form>
 						<%} %>
 					</div>
 	                 --%>
 	                	
+
 	               <!--  <a href="customerJoin" id="center" class="nav-item nav-link">JOIN</a>
 	                <a href="customerLoginPage" id="center" class="nav-item nav-link">LOGIN</a> -->
+
 	                
 	            </div>
 	            	<!-- <a href="" class="btn btn-primary d-none d-lg-block">Book Now</a> -->
@@ -226,7 +234,9 @@ function signup() {
             </div>
             <div class="col-lg-6 text-right">
                 <div class="d-inline-flex align-items-center">
+
                     <a class="text-primary pl-2" href="customerMypage">
+
                         <i class="">${NAME}님 환영합니다!&nbsp;&nbsp;&nbsp;</i>
                     </a>
                     <input type="button" class="text-primary pl-2" onclick="logout()" value="LOGOUT">
@@ -243,6 +253,7 @@ function signup() {
 	        </button>
 	       	 	<div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
 	            <div class="navbar-nav m-auto py-0">
+
 		            <a href="customerAbout" class="navbar-brand ml-lg-3">
 		       			 <img src="./images/HeaderLogo.png"><!--  style="padding-left: 90px;"></img> -->
 		        	</a>
@@ -252,6 +263,7 @@ function signup() {
 	                <a href="customerLocation" id="center" class="nav-item nav-link" >LOCATION</a>
 	                <!-- <a href="" id="center" class="nav-item nav-link" style="width: 300px;"></a> -->
 	                <a href="customerCartList" id="center" class="nav-item nav-link">CART</a>
+
 	                
 	              
 						<%-- <%if (session.getAttribute("ID") == null) { %>
@@ -263,11 +275,13 @@ function signup() {
 						 --%>
 					<%-- <%=session.getAttribute("NAME") %>님, 안녕하세요!  --%>
 					
+
 <!-- 					<a href="customerMypage" id="center" class="nav-item nav-link" onclick="mypage()">MYPAGE</a>
  -->                	<!-- <a href="customerLogout" id="center" class="nav-item nav-link" onclick="logout()">LOGOUT</a> -->
 	                
 			               <!--  <a href="customerJoin" id="center" class="nav-item nav-link">JOIN</a>
 			                <a href="customerLoginPage" id="center" class="nav-item nav-link">LOGIN</a> -->
+
 	            </div>
 	            	<!-- <a href="" class="btn btn-primary d-none d-lg-block">Book Now</a> -->
 	        </div>
