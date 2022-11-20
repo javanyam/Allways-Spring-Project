@@ -5,6 +5,11 @@
 						
 <mapper namespace="com.springlec.base.dao.customerReviewDao">
 
+	<!-- <select id="customerReviewList" resultType="com.springlec.base.model.customerReviewDto">
+		SELECT * FROM (SELECT row_number() OVER(ORDER BY oreviewId) AS rownum,
+						or_customerId, oreviewContent, oreviewInitdate, oreviewImage, oreviewStarrating, oreviewId FROM ordersreview WHERE oreviewDeletedate is null ORDER BY oreviewId DESC) o
+	</select> -->
+
 	<select id="customerReviewList" resultType="com.springlec.base.model.customerReviewDto">
 		SELECT * FROM (SELECT row_number() OVER(ORDER BY oreviewId) AS rownum,
 						or_customerId, oreviewContent, oreviewInitdate, oreviewImage, oreviewStarrating, oreviewId FROM ordersreview WHERE oreviewDeletedate is null ORDER BY oreviewId DESC) o

@@ -17,6 +17,12 @@ public class customerReviewDaoImpl implements customerReviewDao {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(nameSpace + ".customerReviewList");
 	}
+//	
+//	@Override
+//	public List<customerReviewDto> customerReviewList(String combo, String searchContent, String sort) throws Exception {
+//		// TODO Auto-generated method stub
+//		return sqlSession.selectList(nameSpace + ".customerReviewList");
+//	}
 	
 	
 	
