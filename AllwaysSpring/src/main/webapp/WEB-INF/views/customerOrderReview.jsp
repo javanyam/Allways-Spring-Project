@@ -85,7 +85,7 @@
 function review() {
 	var form = document.myform;
 	form.method = "post";
-	form.action = "customerOrdersReview.do";
+	form.action = "customerOrdersReview";
 }
 
 function ordersList1() {
@@ -94,13 +94,13 @@ function ordersList1() {
 
 function ordersList2() {
 	var form = document.myform;
-	form.action = "customerOrdersList.do";
+	form.action = "customerOrdersList";
 	form.submit();
 }
 
 function searchList() {
 	var form = document.myform;
-	form.action = "customerOrdersReview.do";
+	form.action = "customerOrdersReview";
 	form.submit();
 }
 
@@ -113,13 +113,13 @@ function searchList() {
 				
 				<tr>
 					<td>
-						<a href = "customerWriteList.do"><button type = "button" name = "buttons" id="button_group">BOARD</button></a>&nbsp;
+						<a href = "customerWriteList"><button type = "button" name = "buttons" id="button_group">BOARD</button></a>&nbsp;
 					</td>
 					<td>
-						<a href = "customerOrdersReview.do"><button type = "button" name = "buttons" id="button_group" onclick = "reviewList();">REVIEW</button></a>&nbsp;
+						<a href = "customerOrdersReview"><button type = "button" name = "buttons" id="button_group" onclick = "reviewList();">REVIEW</button></a>&nbsp;
 					</td>
 					<td>
-						<a href = "customerQuestionList.do"><button type = "button" name = "buttons" id="button_group" onclick = "QNA();">Q&A</button></a>
+						<a href = "customerQuestionList"><button type = "button" name = "buttons" id="button_group" onclick = "QNA();">Q&A</button></a>
 					</td>
 				</tr>
 				
@@ -142,8 +142,8 @@ function searchList() {
 				Sort
 			  </button>
 			  <ul class="dropdown-menu">
-			    <li><a class="dropdown-item" href="customerOrdersReview.do?sort=oreviewInitdate&index=${pageNum }">Newest</a></li>
-			    <li><a class="dropdown-item" href="customerOrdersReview.do?sort=oreviewStarrating&index=${pageNum }">Star Rating</a></li>
+			    <li><a class="dropdown-item" href="customerOrdersReview?sort=oreviewInitdate&index=${pageNum }">Newest</a></li>
+			    <li><a class="dropdown-item" href="customerOrdersReview?sort=oreviewStarrating&index=${pageNum }">Star Rating</a></li>
 			  </ul>
 			</div>
 			
@@ -173,8 +173,8 @@ function searchList() {
 						<th>작성일</th>
 					</tr>
 				</thead>
-				
-				<c:forEach var = "dto" items="${reviewList }" begin="${(index - 1) * rowcount }" end="${(index) * rowcount - 1}">
+				<%--  begin="${(index - 1) * rowcount }" end="${(index) * rowcount - 1}" --%>
+				<c:forEach var = "dto" items="${reviewList }">
 					<c:if test="${dto != null }">
 						<c:choose>
 							<c:when test="${CUSTOMERID == dto.or_customerId }">
@@ -194,7 +194,7 @@ function searchList() {
 										</td>
 										<td>${dto.or_customerId }</td>
 										<td>${dto.oreviewInitdate }</td>
-										<td><a href = "customerReviewDelete.do?oreviewId=${dto.oreviewId }">X</a></td>
+										<td><a href = "customerReviewDelete?oreviewId=${dto.oreviewId }">X</a></td>
 									</tr>
 								</tbody>
 							</c:when>
@@ -237,18 +237,18 @@ function searchList() {
 					</c:if>
 				
 					<c:if test="${index != 1 }">
-						<a href="customerOrdersReview.do?index=${index-1 }&sort=${sort }">이전</a>&nbsp;
+						<a href="customerOrdersReview?index=${index-1 }&sort=${sort }">이전</a>&nbsp;
 					</c:if> 
 			
 					<c:forEach var="cnt" begin="${pagecount * pagepage + 1}" end="${pagecount * (pagepage + 1)}">
 						<c:if test="${cnt <= Math.ceil(arrsize / rowcount)}">
 						
 							<c:if test="${cnt == index }">
-								<a href="customerOrdersReview.do?index=${cnt }&sort=${sort }" style="font-size:1.3em">[${cnt }]</a>
+								<a href="customerOrdersReview?index=${cnt }&sort=${sort }" style="font-size:1.3em">[${cnt }]</a>
 							</c:if>
 					
 							<c:if test = "${cnt != index }">
-								<a href="customerOrdersReview.do?index=${cnt }&sort=${sort }" style="font-size:0.9em">[${cnt }]</a>&nbsp;
+								<a href="customerOrdersReview?index=${cnt }&sort=${sort }" style="font-size:0.9em">[${cnt }]</a>&nbsp;
 							</c:if>
 							
 						</c:if>
@@ -259,7 +259,7 @@ function searchList() {
 					</c:if>
 					
 					<c:if test="${index < Math.ceil(arrsize / rowcount)}">
-						<a href="customerOrdersReview.do?index=${index+1 }&sort=${sort }">다음</a>&nbsp;
+						<a href="customerOrdersReview?index=${index+1 }&sort=${sort }">다음</a>&nbsp;
 					</c:if>
 					
 				</td>

@@ -23,11 +23,34 @@ public class customerReviewDaoServiceImpl implements customerReviewDaoService {
 		String searchContent = request.getParameter("searchContent");
 		String sort = request.getParameter("sort");
 		
-		searchContent = '%' + searchContent + '%';
 		if(sort == null) {
 			sort = "oreviewInitdate";
+		}
+		if(combo == null) {
+			combo = "or_customerId";
+		}
+		if(searchContent == null) {
+			searchContent = '%' + "" + '%';
+		}else {
+			searchContent = '%' + searchContent + '%';
+			
 		}
 		
 		return dao.customerReviewList(combo, searchContent, sort);
 	}
+//	
+//	@Override
+//	public List<customerReviewDto> customerReviewList(HttpServletRequest request) throws Exception {
+//		
+//		String combo = request.getParameter("combo");
+//		String searchContent = request.getParameter("searchContent");
+//		String sort = request.getParameter("sort");
+//		
+//		searchContent = '%' + searchContent + '%';
+//		if(sort == null) {
+//			sort = "oreviewInitdate";
+//		}
+//		
+//		return dao.customerReviewList(combo, searchContent, sort);
+//	}
 }
