@@ -9,5 +9,6 @@ import com.springlec.base.model.customerReviewDto;
 public interface customerReviewDaoService {
 
 	public List<customerReviewDto> customerReviewList(HttpServletRequest request) throws Exception;
+//	public List<customerReviewDto> customerReviewList(HttpServletRequest request) throws Exception;
 	
 }
