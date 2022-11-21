@@ -109,7 +109,7 @@ function searchList() {
 				
 				<tr>
 					<td>
-						<a href = "customerWriteList"><button type = "button" name = "buttons" id="button_group">BOARD</button></a>&nbsp;
+						<a href = "customerBoardList"><button type = "button" name = "buttons" id="button_group">BOARD</button></a>&nbsp;
 					</td>
 					<td>
 						<a href = "customerOrdersReview"><button type = "button" name = "buttons" id="button_group">REVIEW</button></a>&nbsp;

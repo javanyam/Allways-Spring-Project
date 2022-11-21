@@ -35,21 +35,21 @@
 function login(customerId) {
 	
 	var form = document.myform;
-	form.action = "customerBoardWritePage.do";
+	form.action = "customerBoardWritePage";
 	form.submit();
 	
 }
 
 function searchList() {
 	var form = document.myform;
-	form.action = "customerWriteList.do";
+	form.action = "customerBoardList";
 	form.submit();
 }
 
 function next(commentId, index) {
 	 if(confirm("삭제를 원하시면 예를 누르시고 원하지 않으시면 아니오를 눌러주세요")) {
 		 
-		location.href="customerBoardDelete.do?commentId=" + commentId + "&index=" + index;
+		location.href="customerBoardDelete?commentId=" + commentId + "&index=" + index;
 		
 	 } else {
 		 
@@ -70,13 +70,13 @@ function next(commentId, index) {
 				
 				<tr>
 					<td>
-						<a href = "customerWriteList.do"><button type = "button" name = "buttons" id="button_group">BOARD</button></a>&nbsp;
+						<a href = "customerBoardList"><button type = "button" name = "buttons" id="button_group">BOARD</button></a>&nbsp;
 					</td>
 					<td>
-						<a href = "customerOrdersReview.do"><button type = "button" name = "buttons" id="button_group">REVIEW</button></a>&nbsp;
+						<a href = "customerOrdersReview"><button type = "button" name = "buttons" id="button_group">REVIEW</button></a>&nbsp;
 					</td>
 					<td>
-						<a href = "customerQuestionList.do"><button type = "button" name = "buttons" id="button_group">Q&A</button></a>
+						<a href = "customerQuestionList"><button type = "button" name = "buttons" id="button_group">Q&A</button></a>
 					</td>
 				</tr>
 				
@@ -123,7 +123,7 @@ function next(commentId, index) {
 					</tr>
 				</thead>
 				
-				<c:forEach var = "dto" items="${writeList }" begin="${(index - 1) * rowcount }" end="${(index) * rowcount - 1}">
+				<c:forEach var = "dto" items="${BoardList }" begin="${(index - 1) * rowcount }" end="${(index) * rowcount - 1}">
 					<c:if test="${dto != null }">
 					
 						<c:choose>
@@ -135,7 +135,7 @@ function next(commentId, index) {
 											<tbody>
 												<tr>
 													<td>${dto.rowNum }</td>
-													<td style = "text-align: left"><a href = "customerBoardDetail.do?writeId=${dto.writeId }">${dto.writeTitle }</a></td>
+													<td style = "text-align: left"><a href = "customerBoardDetail?writeId=${dto.writeId }">${dto.writeTitle }</a></td>
 													<td>${dto.w_customerId }</td>
 													<td>${dto.writeInitdate }</td>
 													<td><a href = "" onclick = "next(${dto.commentId}, ${index })" data-bs-toggle="modal" data-bs-target="#exampleModal">X</a></td>
@@ -151,7 +151,7 @@ function next(commentId, index) {
 													<td style = "text-align: left">${dto.writeContent }</td>
 													<td>${dto.w_customerId }</td>
 													<td>${dto.writeInitdate }</td>
-													<td><a href = "customerBoardCommentDelete.do?WRITEID=${dto.writeId }">X</a></td>
+													<td><a href = "customerBoardCommentDelete?WRITEID=${dto.writeId }">X</a></td>
 												</tr>
 											</tbody>
 										</c:if>
@@ -163,7 +163,7 @@ function next(commentId, index) {
 											<tbody>
 												<tr>
 													<td>${dto.rowNum }</td>
-													<td style = "text-align: left"><a href = "customerBoardDetail.do?writeId=${dto.writeId }">${dto.writeTitle }</a></td>
+													<td style = "text-align: left"><a href = "customerBoardDetail?writeId=${dto.writeId }">${dto.writeTitle }</a></td>
 													<td>${dto.w_customerId }</td>
 													<td>${dto.writeInitdate }</td>
 												</tr>
@@ -227,7 +227,7 @@ function next(commentId, index) {
 					</c:if>
 				
 					<c:if test="${index != 1 }">
-						<a href = "customerWriteList.do?index=1">[처음]</a>&nbsp;
+						<a href = "customerBoardList?index=1">[처음]</a>&nbsp;
 					</c:if> 
 					
 					<c:if test="${index <= 1}">
@@ -235,18 +235,18 @@ function next(commentId, index) {
 					</c:if>
 				
 					<c:if test="${index != 1 }">
-						<a href="customerWriteList.do?index=${index-1 }">이전</a>&nbsp;
+						<a href="customerBoardList?index=${index-1 }">이전</a>&nbsp;
 					</c:if> 
 			
 					<c:forEach var="cnt" begin="${pagecount * pagepage + 1}" end="${pagecount * (pagepage + 1)}">
 						<c:if test="${cnt <= Math.ceil(arrsize / rowcount)}">
 						
 							<c:if test="${cnt == index }">
-								<a href="customerWriteList.do?index=${cnt }" style="font-size:1.3em">[${cnt }]</a>
+								<a href="customerBoardList?index=${cnt }" style="font-size:1.3em">[${cnt }]</a>
 							</c:if>
 					
 							<c:if test = "${cnt != index }">
-								<a href="customerWriteList.do?index=${cnt }" style="font-size:0.9em">[${cnt }]</a>&nbsp;
+								<a href="customerBoardList?index=${cnt }" style="font-size:0.9em">[${cnt }]</a>&nbsp;
 							</c:if>
 							
 						</c:if>
@@ -257,7 +257,7 @@ function next(commentId, index) {
 					</c:if>
 					
 					<c:if test="${index < Math.ceil(arrsize / rowcount)}">
-						<a href="customerWriteList.do?index=${index+1 }">다음</a>&nbsp;
+						<a href="customerBoardList?index=${index+1 }">다음</a>&nbsp;
 					</c:if>
 					
 					<c:if test="${index >= maxpage }">
@@ -265,7 +265,7 @@ function next(commentId, index) {
 					</c:if>
 					
 					<c:if test="${index < Math.ceil(arrsize / rowcount)}">
-						<a href = "customerWriteList.do?index=${maxpage}">[끝]</a>&nbsp;
+						<a href = "customerBoardList?index=${maxpage}">[끝]</a>&nbsp;
 					</c:if>
 					
 					
