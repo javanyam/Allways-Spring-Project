@@ -24,7 +24,6 @@ public class customerReviewController {
 	@RequestMapping("/customerOrdersReview")
 	public String customerOrderReview(HttpServletRequest request, Model model) throws Exception {
 		HttpSession session = request.getSession();
-		session.setAttribute("ID", "gksquf");
 		
 		List<customerReviewDto> dtos = service.customerReviewList(request, model);
 
