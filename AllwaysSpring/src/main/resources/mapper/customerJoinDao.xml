@@ -10,7 +10,7 @@
 	</select>
 	
 	<insert id="joinDao">
-		insert into customer (customerId, customerPw, customerName, customerGender, customerPhone, customerEmail, customerBirthday, customerPostcode, customerAddress, customerAddressDetail, customerInitdate) values (#{customerId}, #{customerPw}, #{customerName}, #{customerGender}, #{customerPhone}, #{customerEamil}, #{customerBirthday}, #{customerPostcode}, #{customerAddress}, #{customerAddressDetail}, now())
+		insert into customer (customerId, customerPw, customerName, customerGender, customerPhone, customerEmail, customerBirthday, customerPostcode, customerAddress, customerAddressDetail, customerInitdate) values (#{customerId}, #{customerPw}, #{customerName}, #{customerGender}, #{customerPhone}, #{customerEmail}, #{customerBirthday}, #{customerPostcode}, #{customerAddress}, #{customerAddressDetail}, now())
 	</insert>
 
 </mapper>

@@ -41,10 +41,16 @@ public class customerLoginController {
 	
 	// 메인페이지
 	@RequestMapping("/customerAboutPage")
-	public String main() throws Exception{
+	public String main(HttpSession session) throws Exception{
 		return "customerAbout";
 	}
 	
+	// 로그아웃
+		@RequestMapping("/customerLogout")
+		public String logout(HttpSession session) throws Exception{
+			session.invalidate();
+			return "customerAbout";
+		}
 
 	
 	
