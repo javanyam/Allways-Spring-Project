@@ -56,7 +56,7 @@ public class customerJoinController {
 		
 		service.joinDao(customerId, customerPw, customerName, customerGender, customerPhone, customerEmail, customerBirthday, customerPostcode, customerAddress, customerAddressDetail);
 		
-		return "customerLoginPage";
+		return "redirect:customerLoginPage";
 	}
 	
 } // End

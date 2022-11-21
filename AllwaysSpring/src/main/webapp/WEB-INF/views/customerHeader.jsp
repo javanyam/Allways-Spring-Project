@@ -125,7 +125,7 @@ position: absolute;
 <script type="text/javascript">
 	function logout() {
 		var form = document.loginokay;
-		form.action = "customerAbout";
+		form.action = "customerLogout";
 		form.submit();
 	}
 	
