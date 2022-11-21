@@ -39,6 +39,12 @@ public class customerReviewDaoImpl implements customerReviewDao {
 		sqlSession.insert(nameSpace + ".customerWriteReview");
 	}
 
+	@Override
+	public void writeReviewUpdate(int or_ordersId) {
+		
+		sqlSession.update(nameSpace + ".writeReviewUpdate");
+	}
+
 	
 
 	

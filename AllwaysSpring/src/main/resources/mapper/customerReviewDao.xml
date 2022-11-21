@@ -18,16 +18,19 @@
 	</select>
 
 	<select id="customerOrderList" resultType="com.springlec.base.model.customerOrderListDto">
-		SELECT @rownum:=@rownum+1, o.ordersId, ANY_VALUE(c.cakeName), ANY_VALUE(o.o_customerId), ANY_VALUE(o.ordersSalePrice), 
-		ANY_VALUE(o.ordersQuantity), ANY_VALUE(o.ordersDate), ANY_VALUE(o_cakeId)
+		SELECT @rownum:=@rownum+1 AS ROWNUM, o.ordersId, c.cakeName, o.o_customerId, o.ordersSalePrice, o.ordersQuantity, o.ordersDate, o_cakeId
 		FROM orders o, cake c
 		WHERE (@rownum:=0)=0 AND o.ordersReviewstatus IS NULL AND o.o_customerId = #{customerId} AND o.ordersStatus = '제작완료' AND o.o_cakeId = c.cakeId 
-		GROUP BY o.ordersId
+		GROUP BY o.ordersId, c.cakeName, o.o_customerId, o.ordersSalePrice, o.ordersQuantity, o.ordersDate, o_cakeId
 	</select>
 
 	<insert id="customerWriteReview">
 		INSERT INTO ordersreview (or_customerId, or_ordersId, or_ordersStatus, oreviewContent, oreviewStarRating, oreviewImage, or_cakeId, oreviewInitdate, or_goodsId) 
-		VALUES (#{or_customerId}, #{or_ordersId}, '제작완료', #{oreviewContent}, #oreviewStarRating}, #{oreviewImage}, #{or_cakeId}, NOW(), 1)
+		VALUES (#{or_customerId}, #{or_ordersId}, '제작완료', #{oreviewContent}, #{oreviewStarRating}, #{oreviewImage}, #{or_cakeId}, NOW(), 1)
 	</insert>
+
+	<update id="writeReviewUpdate">
+		UPDATE orders SET ordersReviewstatus = '작성완료' WHERE ordersId = #{or_ordersId} AND ordersStatus = '제작완료'
+	</update>
 
 </mapper>

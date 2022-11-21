@@ -13,5 +13,6 @@ public interface customerReviewDao {
 	public List<customerOrderListDto> customerOrderList(String customerId) throws Exception;
 	public void customerWriteReview(String or_customerId, int or_ordersId, String oreviewContent, 
 			String oreviewStarRating, String oreviewImage, int or_cakeId) throws Exception;
+	public void writeReviewUpdate(int or_ordersId);
 	
 }
