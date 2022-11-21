@@ -314,7 +314,7 @@ color: #FFFDFD;
 			<div class="col" align="center">
 			<br>
 				<div>
-					<img alt="" src="./cakeListImage/${cakeInfo.cakeImage}" width="500px">
+					<img alt="" src="/cakeListImage/${cakeInfo.cakeImage}" width="500px">
 				</div>
 				<div align="center">
 					<hr id="line2">
@@ -351,7 +351,7 @@ color: #FFFDFD;
 				
 				
 				
-				<div id="cake_option" align="left">
+ 				<div id="cake_option" align="left">
 				Shape
 				</div>
 				
@@ -509,7 +509,7 @@ color: #FFFDFD;
 
 <!--  -->
 
-  <div align="center" class="container text-center">
+<%--   <div align="center" class="container text-center">
 		<form action = "" name = "list" method = "post">
 			<table class="table">
 				
@@ -583,7 +583,7 @@ color: #FFFDFD;
 			</tr>
 		</table>
 	</div>
-	</div>
+	</div> --%>
 	
 	<!--  -->
 
