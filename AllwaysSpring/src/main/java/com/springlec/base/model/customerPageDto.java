@@ -50,16 +50,22 @@ public class customerPageDto {
 	private void setBlockRange() {
 		// 현재 페이지가 몇번째 페이지 블록에 속하는지 계산
 		curBlock = (int)Math.ceil((curPage - 1) / BLOCK_SCALE + 1);
-		// 현재 페이지 블록의 시작, 끝 번호 계산
+		
+		// 현재 페이지 블록의 시작
 		blockBegin = (curBlock - 1) * BLOCK_SCALE + 1;
+		
 		// 페이지 블록의 끝 번호
 		blockEnd = blockBegin + BLOCK_SCALE - 1;
+		
 		// 마지막 블록의 범위를 초과하지 않도록 계산
 		if(blockEnd > totPage) blockEnd = totPage;
+		
 		// 이전을 눌렀을 때 이동할 페이지 번호
 		prevPage = (curPage == 1)? 1:(curBlock - 1) * BLOCK_SCALE;
+		
 		// 다음을 눌렀을 때 이동할 페이지 번호
 		nextPage = curBlock > totBlock ? (curBlock * BLOCK_SCALE) : (curBlock * BLOCK_SCALE) + 1;
+		
 		// 마지막 페이지가 범위를 초과하지 않도록 처리
 		if(nextPage >= totPage) nextPage = totPage;
 		
