@@ -11,9 +11,24 @@
 	</select> -->
 
 	<select id="customerReviewList" resultType="com.springlec.base.model.customerReviewDto">
-		SELECT * FROM (SELECT row_number() OVER(ORDER BY oreviewId) AS rownum,
-						or_customerId, oreviewContent, oreviewInitdate, oreviewImage, oreviewStarrating, oreviewId FROM ordersreview WHERE oreviewDeletedate is null ORDER BY oreviewId DESC) o
-						WHERE ${combo} LIKE #{searchContent} ORDER BY #{sort} desc
+		SELECT * FROM (
+			SELECT row_number() OVER(ORDER BY oreviewId) AS rownum, or_customerId, oreviewContent, oreviewInitdate, oreviewImage, oreviewStarrating, oreviewId 
+			FROM ordersreview 
+			WHERE oreviewDeletedate is null ORDER BY oreviewId DESC) o
+		WHERE ${combo} LIKE #{searchContent} ORDER BY ${sort} DESC
 	</select>
+
+	<select id="customerOrderList" resultType="com.springlec.base.model.customerOrderListDto">
+		select @rownum:=@rownum+1, o.ordersId, ANY_VALUE(c.cakeName), ANY_VALUE(o.o_customerId), ANY_VALUE(o.ordersSalePrice), 
+		ANY_VALUE(o.ordersQuantity), ANY_VALUE(o.ordersDate), ANY_VALUE(o_cakeId)
+		from orders o, cake c
+		where (@rownum:=0)=0 and o.ordersReviewstatus is null and o.o_customerId = #{customerId} and o.ordersStatus = '제작완료' and o.o_cakeId = c.cakeId 
+		group by o.ordersId
+	</select>
+
+	<insert id="customerWriteReview">
+		INSERT INTO ordersreview (or_customerId, or_ordersId, or_ordersStatus, oreviewContent, oreviewStarRating, oreviewImage, or_cakeId, oreviewInitdate, or_goodsId) 
+		VALUES (#{or_customerId}, #{or_ordersId}, '제작완료', #{oreviewContent}, #oreviewStarRating}, #{oreviewImage}, #{or_cakeId}, now(), 1)
+	</insert>
 
 </mapper>

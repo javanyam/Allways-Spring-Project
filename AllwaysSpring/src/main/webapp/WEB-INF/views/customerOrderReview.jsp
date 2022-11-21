@@ -88,13 +88,9 @@ function review() {
 	form.action = "customerOrdersReview";
 }
 
-function ordersList1() {
-	alert('');
-}
-
 function ordersList2() {
 	var form = document.myform;
-	form.action = "customerOrdersList";
+	form.action = "customerOrderList";
 	form.submit();
 }
 
@@ -116,7 +112,7 @@ function searchList() {
 						<a href = "customerWriteList"><button type = "button" name = "buttons" id="button_group">BOARD</button></a>&nbsp;
 					</td>
 					<td>
-						<a href = "customerOrdersReview"><button type = "button" name = "buttons" id="button_group" onclick = "reviewList();">REVIEW</button></a>&nbsp;
+						<a href = "customerOrdersReview"><button type = "button" name = "buttons" id="button_group">REVIEW</button></a>&nbsp;
 					</td>
 					<td>
 						<a href = "customerQuestionList"><button type = "button" name = "buttons" id="button_group" onclick = "QNA();">Q&A</button></a>
@@ -142,8 +138,8 @@ function searchList() {
 				Sort
 			  </button>
 			  <ul class="dropdown-menu">
-			    <li><a class="dropdown-item" href="customerOrdersReview?sort=oreviewInitdate&index=${pageNum }">Newest</a></li>
-			    <li><a class="dropdown-item" href="customerOrdersReview?sort=oreviewStarrating&index=${pageNum }">Star Rating</a></li>
+			    <li><a class="dropdown-item" href="customerOrdersReview?sort=oreviewInitdate&index=${index }">Newest</a></li>
+			    <li><a class="dropdown-item" href="customerOrdersReview?sort=oreviewStarrating&index=${index }">Star Rating</a></li>
 			  </ul>
 			</div>
 			
@@ -173,15 +169,15 @@ function searchList() {
 						<th>작성일</th>
 					</tr>
 				</thead>
-				<%--  begin="${(index - 1) * rowcount }" end="${(index) * rowcount - 1}" --%>
-				<c:forEach var = "dto" items="${reviewList }">
+
+				<c:forEach var = "dto" items="${reviewList }" begin="${(index - 1) * rowcount }" end="${(index) * rowcount - 1}">
 					<c:if test="${dto != null }">
 						<c:choose>
 							<c:when test="${CUSTOMERID == dto.or_customerId }">
 								<tbody>
 									<tr>
 										<td>${dto.rowNum }</td>
-										<td><img name="img" src="./reviewImageFile/${dto.oreviewImage }" style = "width: 75px; height: 75px;"></td>
+										<td><img name="img" src="/reviewImageFile/${dto.oreviewImage }" style = "width: 75px; height: 75px;"></td>
 										<td>${dto.oreviewContent }</td>
 										<td>
 											<c:forEach begin = "1" end = "${dto.oreviewStarrating }">

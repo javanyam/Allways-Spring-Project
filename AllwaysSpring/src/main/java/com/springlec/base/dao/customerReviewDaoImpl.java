@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.springlec.base.model.customerOrderListDto;
 import com.springlec.base.model.customerReviewDto;
 
 public class customerReviewDaoImpl implements customerReviewDao {
@@ -17,12 +18,21 @@ public class customerReviewDaoImpl implements customerReviewDao {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(nameSpace + ".customerReviewList");
 	}
-//	
-//	@Override
-//	public List<customerReviewDto> customerReviewList(String combo, String searchContent, String sort) throws Exception {
-//		// TODO Auto-generated method stub
-//		return sqlSession.selectList(nameSpace + ".customerReviewList");
-//	}
+
+	@Override
+	public List<customerOrderListDto> customerOrderList(String customerId) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(nameSpace + ".customerOrderList");
+	}
+
+	@Override
+	public void customerWriteReview(String or_customerId, int or_ordersId, String oreviewContent,
+			String oreviewStarRating, String oreviewImage, int or_cakeId) throws Exception {
+
+		sqlSession.insert(nameSpace + ".customerWriteReview");
+	}
+
+	
 	
 	
 	
