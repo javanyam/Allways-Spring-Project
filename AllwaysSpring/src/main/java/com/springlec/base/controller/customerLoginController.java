@@ -40,42 +40,12 @@ public class customerLoginController {
 	}
 	
 	// 메인페이지
-	@RequestMapping("/customerAbout")
+	@RequestMapping("/customerAboutPage")
 	public String main() throws Exception{
-		return "customerLogin";
+		return "customerAbout";
 	}
 	
-	// 회원가입 페이지 이동
-	@RequestMapping("/customerJoinPage")
-	public String joinpage() throws Exception{
-		return "customerJoin";
-	}
-	
-	// 회원가입시 아이디 중복체크
-	@RequestMapping("/idcheck")
-	public String idcheck(HttpServletRequest request, Model model) throws Exception{
-		String customerId = request.getParameter("customerId");
-		boolean chk = service.idcheckDao(customerId);
 
-		if(customerId.length() > 0) {
-			model.addAttribute("CHECK", chk);
-			model.addAttribute("CHECKID", customerId);
-			model.addAttribute("NAME", request.getParameter("customerName"));
-			model.addAttribute("PHONE", request.getParameter("customerPhone"));
-			model.addAttribute("EMAIL", request.getParameter("customeremail1"));
-			model.addAttribute("BIRTH", request.getParameter("customerBirth"));
-		}else {
-			request.setAttribute("CHECK", null);
-		}
-		return "customerJoin";
-	}
-	
-	// 회원가입
-	@RequestMapping("/customerJoin")
-	public String join(HttpServletRequest request) throws Exception{
-		
-		return "customerLoginPage";
-	}
 	
 	
 	
