@@ -31,10 +31,8 @@ public class customerBoardDeleteController {
 	@RequestMapping("/customerBoardDetailCommentDelete")
 	public String customerBoardDetailCommentDelete(HttpServletRequest request, Model model, RedirectAttributes attributes) throws Exception {
 		
-		int writeId = Integer.parseInt(request.getParameter("writeId"));
-
 		service.customerBoardDetailCommentDelete(request);
-		attributes.addAttribute("writeId", writeId);
+		attributes.addAttribute("writeId", Integer.parseInt(request.getParameter("writeId")));
 		
 		return "redirect:customerBoardDetail";
 	}

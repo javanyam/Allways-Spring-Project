@@ -18,15 +18,12 @@ public class customerBoardDaoServiceImpl implements customerBoardDaoService {
 
 	@Autowired
 	customerBoardDao dao;
+	@Autowired
+	HttpSession session;
 	
+	// 게시판 리스트 출력
 	@Override
-	public int selectWriteId() throws Exception {
-		// TODO Auto-generated method stub
-		return dao.selectWriteId();
-	}
-	
-	@Override
-	public List<customerBoardDto> customerBoardList(HttpServletRequest request) throws Exception {
+	public void customerBoardList(HttpServletRequest request, Model model) throws Exception {
 
 		String combo = request.getParameter("combo");
 		String searchContent = request.getParameter("searchContent");
@@ -40,11 +37,46 @@ public class customerBoardDaoServiceImpl implements customerBoardDaoService {
 			searchContent = '%' + searchContent + '%';
 		}
 		
-		return dao.customerBoardList(combo, searchContent);
+		List<customerBoardDto> dtos = dao.customerBoardList(combo, searchContent);
+		
+		int index = 1; // 시작 페이지 번호
+		int rowcount = 10; // 한 페이지에 출력할 리스트 개수
+		int pagecount = 10; // 한 페이지에 출력할 페이지 개수
+		int pagepage = 0; // ??
+		
+		int maxpage = (dtos.size() % rowcount) != 0 ? (dtos.size() / rowcount) + 1 : (dtos.size() / rowcount);
+
+		if (request.getParameter("index")!=null) {
+			index = (int)Float.parseFloat(request.getParameter("index"));
+		}
+		
+		if (index % pagecount == 0) {
+			pagepage = index / pagecount - 1;
+		} else {
+			pagepage = index / pagecount;
+		}
+		
+		model.addAttribute("CUSTOMERID", session.getAttribute("ID"));
+		model.addAttribute("maxpage", maxpage);
+		model.addAttribute("BoardList", dtos);
+		model.addAttribute("arrsize", dtos.size());
+		model.addAttribute("index", index);
+		model.addAttribute("rowcount", rowcount);
+		model.addAttribute("pagecount", pagecount);
+		model.addAttribute("pagepage", pagepage);
+		
 	}
 
+	// 게시판 작성할 때 필요한 writeId값 가져오기
 	@Override
-	public void customerBoardWrite(HttpSession session, HttpServletRequest request, int writeId) throws Exception {
+	public int selectWriteId() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectWriteId();
+	}
+	
+	// 게시판 작성하기
+	@Override
+	public void customerBoardWrite(HttpServletRequest request, int writeId) throws Exception {
 
 		String customerId = (String)session.getAttribute("ID");
 		String writeTitle = request.getParameter("writeTitle");
@@ -53,27 +85,34 @@ public class customerBoardDaoServiceImpl implements customerBoardDaoService {
 		dao.customerBoardWrite(customerId, writeTitle, writeContent, writeId);
 	}
 
+	// 게시판 클릭( 게시판 디테일 )
 	@Override
-	public customerBoardDetailDto customerBoardDetail(HttpServletRequest request, HttpSession session) throws Exception {
+	public void customerBoardDetail(HttpServletRequest request, Model model) throws Exception {
 		
 		String customerId = (String)session.getAttribute("ID");
 		int writeId = Integer.parseInt(request.getParameter("writeId"));
 		
-		return dao.customerBoardDetail(customerId, writeId);
+		customerBoardDetailDto dto = dao.customerBoardDetail(customerId, writeId);
+		model.addAttribute("boardDetail", dto);
 	}
 
+	// 게시판 클릭( 해당 게시판의 답글, 댓글 가져오기 )
 	@Override
-	public List<customerBoardDetailDto> customerboardCommentList(HttpServletRequest request, Model model, HttpSession session) throws Exception {
+	public void customerboardCommentList(HttpServletRequest request, Model model) throws Exception {
 
 		String customerId = (String)session.getAttribute("ID");
 		int writeId = Integer.parseInt(request.getParameter("writeId"));
 		
 		model.addAttribute("CUSTOMERID", customerId);
-		return dao.customerboardCommentList(writeId);
+		List<customerBoardDetailDto> dtos = dao.customerboardCommentList(writeId);
+		
+		model.addAttribute("boardComment", dtos);
+		model.addAttribute("boardlength", dtos.size());
 	}
 
+	// 게시판 답글달기
 	@Override
-	public void customerwriteComment(HttpSession session, HttpServletRequest request) throws Exception {
+	public void customerwriteComment(HttpServletRequest request) throws Exception {
 
 		String customerId = (String)session.getAttribute("ID");
 		int writeId = Integer.parseInt(request.getParameter("writeId"));
