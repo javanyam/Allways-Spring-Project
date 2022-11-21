@@ -173,12 +173,12 @@ function signup() {
 	        </button>
 	        <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
 	            <div class="navbar-nav m-auto py-0">
-		            <a href="customerAbout" class="navbar-brand ml-lg-3">
+		            <a href="customerAboutPage" class="navbar-brand ml-lg-3">
 		       			 <img src="./images/HeaderLogo.png"><!-- style="padding-left: 90px;" -->
 		        	</a>
-	                <a href="customerAbout" id="center" class="nav-item nav-link active">HOME</a>
+	                <a href="customerAboutPage" id="center" class="nav-item nav-link active">HOME</a>
 	                <a href="customerCakeList" id="center" class="nav-item nav-link active">CAKE</a>
-	                <a href="customerWriteList" id="center" class="nav-item nav-link">BOARD</a>
+	                <a href="customerBoardList" id="center" class="nav-item nav-link">BOARD</a>
 	                <a href="customerLocation" id="center" class="nav-item nav-link">LOCATION</a>
 	          		<!--   <a href="" id="center" class="nav-item nav-link" style="width: 300px;"></a> -->
 	                <a href="customerCartList" id="center" class="nav-item nav-link">CART</a>
@@ -243,12 +243,12 @@ function signup() {
 	        </button>
 	       	 	<div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
 	            <div class="navbar-nav m-auto py-0">
-		            <a href="customerAbout" class="navbar-brand ml-lg-3">
+		            <a href="customerAboutPage" class="navbar-brand ml-lg-3">
 		       			 <img src="./images/HeaderLogo.png"><!--  style="padding-left: 90px;"></img> -->
 		        	</a>
-	                <a href="customerAbout" id="center" class="nav-item nav-link active">HOME</a>
+	                <a href="customerAboutPage" id="center" class="nav-item nav-link active">HOME</a>
 	                <a href="customerCakeList" id="center" class="nav-item nav-link active">CAKE</a>
-	                <a href="customerWriteList" id="center" class="nav-item nav-link">BOARD</a>
+	                <a href="customerBoardList" id="center" class="nav-item nav-link">BOARD</a>
 	                <a href="customerLocation" id="center" class="nav-item nav-link" >LOCATION</a>
 	                <!-- <a href="" id="center" class="nav-item nav-link" style="width: 300px;"></a> -->
 	                <a href="customerCartList" id="center" class="nav-item nav-link">CART</a>
