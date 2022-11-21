@@ -13,4 +13,14 @@ public class customerLoginDaoImpl implements customerLoginDao {
 		return sqlSession.selectOne(nameSpace + ".usercheckDao");
 	}
 
+	@Override
+	public String usernameDao(String customerId, String customerPw) throws Exception {
+		return sqlSession.selectOne(nameSpace + ".usernameDao");
+	}
+
+	@Override
+	public int idcheckDao(String customerId) throws Exception {
+		return sqlSession.selectOne(nameSpace + ".idcheckDao");
+	}
+
 }

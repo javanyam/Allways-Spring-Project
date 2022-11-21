@@ -12,8 +12,22 @@ public class customerLoginDaoServiceImpl implements customerLoginDaoService {
 	customerLoginDao dao;
 	
 	@Override
-	public int usecheckDao(String customerId, String customerPw) throws Exception {
+	public int usercheckDao(String customerId, String customerPw) throws Exception {
 		return dao.usercheckDao(customerId, customerPw);
+	}
+
+	@Override
+	public String usernameDao(String customerId, String customerPw) throws Exception {
+		return dao.usernameDao(customerId, customerPw);
+	}
+
+	@Override
+	public boolean idcheckDao(String customerId) throws Exception {
+		if(dao.idcheckDao(customerId) == 1) {
+			return true;
+		}else {
+			return false; 
+		}
 	}
 
 }

@@ -55,7 +55,7 @@ input::placeholder {
 <script type="text/javascript">
 	function loginAction(){
 		var form = document.customerLogin;
-		form.action="customerLogin.do";
+		form.action="customerLogin";
 		form.submit();
 	}
 	
@@ -144,7 +144,7 @@ function kakaoLogout() {
 				<div class="col">
 				</div>
 				<div class="col">
-				<img src="./images/LOGO.png"><br></img>
+				<img src="./images/LOGO.png"><br>
 				<input style="padding-left: 20px;" id="IDandPW" type="text" name="customerId" placeholder="ID"><br>
 				<input style="padding-left: 20px;" id="IDandPW" type="password" name="customerPw" placeholder="PASSWORD"><br>
 				<button id="LoginBtn" type="button" name="Login" onclick="loginAction()">
@@ -158,7 +158,7 @@ function kakaoLogout() {
 						<p class="danger-text" style="color:blue; margin-top: 5px;"></p>
 					</c:otherwise> 
 				</c:choose>
-								
+			<!-- 					
 				<ul>
 	<li onclick="kakaoLogin();">
       <a href="javascript:void(0)">
@@ -170,14 +170,14 @@ function kakaoLogout() {
           <span>카카오 로그아웃</span>
       </a>
 	</li>
-</ul>
+</ul> -->
 			
 								
-				<a href="customerJoin.jsp" id="TextColor">ALLWAYS 첫 방문이신가요? ▶ JOIN</a><br>
-				<a href="customerFindId.jsp" id="TextColor" >ID/PASSWORD를 잊어버리셨나요? ▶ ID찾기 / </a>
-				<a href="customerFindPw.jsp" id="TextColor" >PASSWORD 찾기</a><br>
+				<a href="customerJoinPage" id="TextColor">ALLWAYS 첫 방문이신가요? ▶ JOIN</a><br>
+				<a href="customerFindId" id="TextColor" >ID/PASSWORD를 잊어버리셨나요? ▶ ID찾기 / </a>
+				<a href="customerFindPw" id="TextColor" >PASSWORD 찾기</a><br>
 				
-				<a href="customerAbout.jsp" id="TextColor" style="font-size: 21px;">GO HOME</a>
+				<a href="customerAbout" id="TextColor" style="font-size: 21px;">GO HOME</a>
 				
 				</div>
 			<div class="col">
