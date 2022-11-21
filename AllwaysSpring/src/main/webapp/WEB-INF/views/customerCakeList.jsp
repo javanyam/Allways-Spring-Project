@@ -65,15 +65,61 @@ color: #766262;
 
 	<main>
 	
+
+<!-- 		<div class="btn-group dropend" style="margin: 30px;">
+		  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+		    Sort
+		  </button>
+		  <ul class="dropdown-menu">
+		  	<li><a class="dropdown-item" href="customerCakeList?sort1=cakePrice&sort2=asc">Price Row - High</a></li>
+		    <li><a class="dropdown-item" href="customerCakeList?sort1=cakePrice&sort2=desc">Price High - Row</a></li>
+		    <li><a class="dropdown-item" href="customerCakeList?sort1=cakeLike&sort2=desc">Likes</a></li>
+		    <li><a class="dropdown-item" href="customerCakeList?sort1=cakeViews&sort2=desc">Views</a></li>
+		  </ul>
+		</div> -->
+
+		<div class="row" style="padding-left: 35px; margin-right: 0px;">
+			
+			<c:forEach items="${cakeList}" var="dto">
+				<div class="col-lg-3 col-md-6" style="padding-bottom: 20px;" id="cakeList">
+					<div class="card" style="width: 20rem;">
+					<a href="customerCakeDetail?cakeId=${dto.cakeId}">
+						<img src="/cakeListImage/${dto.cakeImage}" class="card-img-top"
+							alt="yo${dto.cakeId}">
+					</a>
+						<div class="card-body">
+							<table>
+								<tr>
+									<td align="left" width="170px">${dto.cakeName}</td><td align="right" width="120px">￦ <fmt:formatNumber value="${dto.cakePrice}"/></td>
+								</tr>
+								<tr>
+									<td align="left">&hearts; ${dto.cakeLike}</td><td align="right">Views ${dto.cakeViews}</td>
+								</tr>
+							</table> 						
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+			
+			
+		</div>
+
+	</main>
+<%-- 
+	<main>
+	
+
 		<div class="btn-group dropend" style="margin: 30px;">
 		  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 		    Sort
 		  </button>
 		  <ul class="dropdown-menu">
-		  	<li><a class="dropdown-item" href="customerCakeList.do?sort1=cakePrice&sort2=asc&index=${index }">Price Row - High</a></li>
-		    <li><a class="dropdown-item" href="customerCakeList.do?sort1=cakePrice&sort2=desc&index=${index }">Price High - Row</a></li>
-		    <li><a class="dropdown-item" href="customerCakeList.do?sort1=cakeLike&sort2=desc&index=${index }">Likes</a></li>
-		    <li><a class="dropdown-item" href="customerCakeList.do?sort1=cakeViews&sort2=desc&index=${index }">Views</a></li>
+
+		  	<li><a class="dropdown-item" href="customerCakeList?sort1=cakePrice&sort2=asc&index=${index }">Price Row - High</a></li>
+		    <li><a class="dropdown-item" href="customerCakeList?sort1=cakePrice&sort2=desc&index=${index }">Price High - Row</a></li>
+		    <li><a class="dropdown-item" href="customerCakeList?sort1=cakeLike&sort2=desc&index=${index }">Likes</a></li>
+		    <li><a class="dropdown-item" href="customerCakeList?sort1=cakeViews&sort2=desc&index=${index }">Views</a></li>
+
 		  </ul>
 		</div>
 
@@ -82,7 +128,9 @@ color: #766262;
 			<c:forEach items="${cakeList}" var="dto" begin="${(index - 1) * rowcount }" end="${(index) * rowcount - 1}">
 				<div class="col-lg-3 col-md-6" style="padding-bottom: 20px;" id="cakeList">
 					<div class="card" style="width: 20rem;">
-					<a href="customerCakeDetail.do?cakeId=${dto.cakeId}">
+
+					<a href="customerCakeDetail?cakeId=${dto.cakeId}">
+
 						<img src="./cakeListImage/${dto.cakeImage}" class="card-img-top"
 							alt="${dto.cakeId}">
 					</a>
@@ -103,9 +151,11 @@ color: #766262;
 			
 		</div>
 
-	</main>
+
+	</main> --%>
 	
-	<div align="center">
+<%-- 	<div align="center">
+
 			<table>
 				<tr align="center" height="20">
 					<td>
@@ -115,18 +165,22 @@ color: #766262;
 						</c:if>
 					
 						<c:if test="${index != 1 }">
-							<a href="customerCakeList.do?index=${index-1 }&sort1=${sort1}&sort2=${sort2}">이전</a>&nbsp;
+
+							<a href="customerCakeList?index=${index-1 }&sort1=${sort1}&sort2=${sort2}">이전</a>&nbsp;
+
 						</c:if> 
 				
 						<c:forEach var="cnt" begin="${pagecount * pagepage + 1}" end="${pagecount * (pagepage + 1)}">
 							<c:if test="${cnt <= Math.ceil(arrsize / rowcount)}">
 							
 								<c:if test="${cnt == index }">
-									<a href="customerCakeList.do?index=${cnt }&sort1=${sort1}&sort2=${sort2}" style="font-size:1.3em">[${cnt }]</a>
+
+									<a href="customerCakeList?index=${cnt }&sort1=${sort1}&sort2=${sort2}" style="font-size:1.3em">[${cnt }]</a>
 								</c:if>
 						
 								<c:if test = "${cnt != index }">
-									<a href="customerCakeList.do?index=${cnt }&sort1=${sort1}&sort2=${sort2}" style="font-size:0.9em">[${cnt }]</a>&nbsp;
+									<a href="customerCakeList?index=${cnt }&sort1=${sort1}&sort2=${sort2}" style="font-size:0.9em">[${cnt }]</a>&nbsp;
+
 								</c:if>
 								
 							</c:if>
@@ -137,13 +191,13 @@ color: #766262;
 						</c:if>
 						
 						<c:if test="${index < Math.ceil(arrsize / rowcount)}">
-							<a href="customerCakeList.do?index=${index+1 }&sort1=${sort1}&sort2=${sort2}">다음</a>&nbsp;
+							<a href="customerCakeList?index=${index+1 }&sort1=${sort1}&sort2=${sort2}">다음</a>&nbsp;
 						</c:if>
 						
 					</td>
 				</tr>
 			</table>
-		</div>
+		</div> --%>
 
 	<script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
