@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.springlec.base.dao.customerCakeCartInsertDao">
+
+	
+	<insert id="cakeCartInsert">
+		insert into orders (ordersStatus, o_customerId, o_cakeId, o_goodsId, ordersSalePrice, ordersQuantity, ordersDate) 
+		values ('장바구니', #{o_customerId}, #{o_cakeId}, 1, #{ordersSalePrice}, #{ordersQuantity}, now())
+	</insert>
+	
+
+</mapper>
