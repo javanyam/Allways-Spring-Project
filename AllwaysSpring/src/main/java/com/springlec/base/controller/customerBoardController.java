@@ -60,10 +60,7 @@ public class customerBoardController {
 	@RequestMapping("/customerWriteComment")
 	public String customerWriteComment(HttpServletRequest request, RedirectAttributes attributes) throws Exception {
 		
-		service.customerwriteComment(request);
-		int writeId = Integer.parseInt(request.getParameter("writeId"));
-		
-		attributes.addAttribute("writeId", writeId);
+		service.customerwriteComment(request, attributes);
 		
 		return "redirect:customerBoardDetail";
 	}

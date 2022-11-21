@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.springlec.base.model.customerPageDto;
 import com.springlec.base.service.customerReviewDaoService;
@@ -44,8 +46,8 @@ public class customerReviewController {
 	
 	// 리뷰작성하기
 	@RequestMapping("/customerWriteReview")
-	public String customerWriteReview(HttpServletRequest request) throws Exception {
-		service.customerWriteReview(request);
+	public String customerWriteReview(MultipartHttpServletRequest request, MultipartFile file) throws Exception {
+		service.customerWriteReview(request, file);
 		return "redirect:customerOrdersReview";
 	}
 	

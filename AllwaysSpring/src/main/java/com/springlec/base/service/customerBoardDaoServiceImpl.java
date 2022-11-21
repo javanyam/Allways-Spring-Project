@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springlec.base.dao.customerBoardDao;
 import com.springlec.base.model.customerBoardDetailDto;
@@ -112,11 +113,13 @@ public class customerBoardDaoServiceImpl implements customerBoardDaoService {
 
 	// 게시판 답글달기
 	@Override
-	public void customerwriteComment(HttpServletRequest request) throws Exception {
+	public void customerwriteComment(HttpServletRequest request, RedirectAttributes attributes) throws Exception {
 
 		String customerId = (String)session.getAttribute("ID");
 		int writeId = Integer.parseInt(request.getParameter("writeId"));
 		String writeContent = request.getParameter("writeContent");
+		
+		attributes.addAttribute("writeId", writeId);
 		
 		dao.customerwriteComment(customerId, writeId, writeContent);
 		
