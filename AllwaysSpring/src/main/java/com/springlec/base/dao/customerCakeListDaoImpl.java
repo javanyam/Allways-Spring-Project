@@ -2,15 +2,20 @@ package com.springlec.base.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+
 import com.springlec.base.model.customerCakeListDto;
 
 public class customerCakeListDaoImpl implements customerCakeListDao {
 
+	SqlSession sqlSession;
+
+	public static String namespace = "com.springlec.base.dao.customerCakeListDao";
+
 	@Override
-	public List<customerCakeListDto> customerCakeList(int cakeId, String cakeName, int cakePrice, int cakeViews,
-			int cakeLike) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<customerCakeListDto> customerCakeList() throws Exception {
+
+		return sqlSession.selectList(namespace + ".customerCakeList");
 	}
 
 }

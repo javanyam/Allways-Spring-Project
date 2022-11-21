@@ -5,6 +5,7 @@ public class customerCakeListDto {
 	int cakeId;
 	String cakeName;
 	int cakePrice;
+	String cakeImage;
 	int cakeViews;
 	int cakeLike;
 
@@ -12,20 +13,15 @@ public class customerCakeListDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public customerCakeListDto(int cakeId, String cakeName, int cakePrice, int cakeViews, int cakeLike) {
+	public customerCakeListDto(int cakeId, String cakeName, int cakePrice, String cakeImage, int cakeViews,
+			int cakeLike) {
 		super();
 		this.cakeId = cakeId;
 		this.cakeName = cakeName;
 		this.cakePrice = cakePrice;
+		this.cakeImage = cakeImage;
 		this.cakeViews = cakeViews;
 		this.cakeLike = cakeLike;
-	}
-
-	public customerCakeListDto(int cakeId, String cakeName, int cakePrice) {
-		super();
-		this.cakeId = cakeId;
-		this.cakeName = cakeName;
-		this.cakePrice = cakePrice;
 	}
 
 	public int getCakeId() {
@@ -50,6 +46,14 @@ public class customerCakeListDto {
 
 	public void setCakePrice(int cakePrice) {
 		this.cakePrice = cakePrice;
+	}
+
+	public String getCakeImage() {
+		return cakeImage;
+	}
+
+	public void setCakeImage(String cakeImage) {
+		this.cakeImage = cakeImage;
 	}
 
 	public int getCakeViews() {

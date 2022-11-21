@@ -65,7 +65,7 @@ color: #766262;
 
 	<main>
 	
-		<div class="btn-group dropend" style="margin: 30px;">
+<!-- 		<div class="btn-group dropend" style="margin: 30px;">
 		  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 		    Sort
 		  </button>
@@ -75,7 +75,7 @@ color: #766262;
 		    <li><a class="dropdown-item" href="customerCakeList?sort1=cakeLike&sort2=desc">Likes</a></li>
 		    <li><a class="dropdown-item" href="customerCakeList?sort1=cakeViews&sort2=desc">Views</a></li>
 		  </ul>
-		</div>
+		</div> -->
 
 		<div class="row" style="padding-left: 35px; margin-right: 0px;">
 			
@@ -83,8 +83,8 @@ color: #766262;
 				<div class="col-lg-3 col-md-6" style="padding-bottom: 20px;" id="cakeList">
 					<div class="card" style="width: 20rem;">
 					<a href="customerCakeDetail?cakeId=${dto.cakeId}">
-						<img src="./cakeListImage/${dto.cakeImage}" class="card-img-top"
-							alt="${dto.cakeId}">
+						<img src="/cakeListImage/${dto.cakeImage}" class="card-img-top"
+							alt="yo${dto.cakeId}">
 					</a>
 						<div class="card-body">
 							<table>
