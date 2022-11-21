@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.springlec.base.dao.customerBoardDao;
+import com.springlec.base.model.customerBoardDetailDto;
 import com.springlec.base.model.customerBoardDto;
 
 @Service
@@ -25,7 +26,7 @@ public class customerBoardDaoServiceImpl implements customerBoardDaoService {
 	}
 	
 	@Override
-	public List<customerBoardDto> customerBoardList(HttpServletRequest request, Model model) throws Exception {
+	public List<customerBoardDto> customerBoardList(HttpServletRequest request) throws Exception {
 
 		String combo = request.getParameter("combo");
 		String searchContent = request.getParameter("searchContent");
@@ -52,6 +53,35 @@ public class customerBoardDaoServiceImpl implements customerBoardDaoService {
 		dao.customerBoardWrite(customerId, writeTitle, writeContent, writeId);
 	}
 
+	@Override
+	public customerBoardDetailDto customerBoardDetail(HttpServletRequest request, HttpSession session) throws Exception {
+		
+		String customerId = (String)session.getAttribute("ID");
+		int writeId = Integer.parseInt(request.getParameter("writeId"));
+		
+		return dao.customerBoardDetail(customerId, writeId);
+	}
+
+	@Override
+	public List<customerBoardDetailDto> customerboardCommentList(HttpServletRequest request, Model model, HttpSession session) throws Exception {
+
+		String customerId = (String)session.getAttribute("ID");
+		int writeId = Integer.parseInt(request.getParameter("writeId"));
+		
+		model.addAttribute("CUSTOMERID", customerId);
+		return dao.customerboardCommentList(writeId);
+	}
+
+	@Override
+	public void customerwriteComment(HttpSession session, HttpServletRequest request) throws Exception {
+
+		String customerId = (String)session.getAttribute("ID");
+		int writeId = Integer.parseInt(request.getParameter("writeId"));
+		String writeContent = request.getParameter("writeContent");
+		
+		dao.customerwriteComment(customerId, writeId, writeContent);
+		
+	}
 
 
 
