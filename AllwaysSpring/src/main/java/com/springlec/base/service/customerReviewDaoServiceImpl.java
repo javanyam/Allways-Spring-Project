@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 
 import com.springlec.base.dao.customerReviewDao;
 import com.springlec.base.model.customerOrderListDto;
+import com.springlec.base.model.customerPageDto;
 import com.springlec.base.model.customerReviewDto;
 
 @Service
@@ -19,8 +20,11 @@ public class customerReviewDaoServiceImpl implements customerReviewDaoService {
 	@Autowired
 	customerReviewDao dao;
 	
+	@Autowired
+	HttpSession session;
+	
 	@Override
-	public List<customerReviewDto> customerReviewList(HttpServletRequest request, Model model) throws Exception {
+	public void customerReviewList(HttpServletRequest request, Model model, customerPageDto page) throws Exception {
 
 		String combo = request.getParameter("combo");
 		String searchContent = request.getParameter("searchContent");
@@ -37,21 +41,40 @@ public class customerReviewDaoServiceImpl implements customerReviewDaoService {
 		}else {
 			searchContent = '%' + searchContent + '%';
 		}
+
+		List<customerReviewDto> dtos = dao.customerReviewList(combo, searchContent, sort);
 		
+		model.addAttribute("CUSTOMERID", session.getAttribute("ID"));
+		model.addAttribute("maxpage", page.getMaxpage());
+		model.addAttribute("index", page.getIndex());
+		model.addAttribute("rowcount", page.getRowcount());
+		model.addAttribute("pagecount", page.getPagecount());
+		model.addAttribute("pagepage", page.getPagepage());
 		model.addAttribute("sort", sort);
-		return dao.customerReviewList(combo, searchContent, sort);
+		
+		model.addAttribute("reviewList", dtos);
+		model.addAttribute("arrsize", dtos.size());
+		
 	}
 
 	@Override
-	public List<customerOrderListDto> customerOrderList(HttpSession session) throws Exception {
+	public customerPageDto customerReviewListCount() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.customerReviewListCount();
+	}
+	
+	@Override
+	public void customerOrderList(Model model) throws Exception {
 
 		String customerId = (String) session.getAttribute("ID");
 		
-		return dao.customerOrderList(customerId);
+		List<customerOrderListDto> dtos = dao.customerOrderList(customerId);
+		
+		model.addAttribute("orderList", dtos);
 	}
 
 	@Override
-	public void customerWriteReview(HttpServletRequest request, HttpSession session) throws Exception {
+	public void customerWriteReview(HttpServletRequest request) throws Exception {
 
 		String or_customerId = (String) session.getAttribute("ID");
 		int or_ordersId = Integer.parseInt(request.getParameter("ordersId"));
@@ -63,6 +86,8 @@ public class customerReviewDaoServiceImpl implements customerReviewDaoService {
 		dao.customerWriteReview(or_customerId, or_ordersId, oreviewContent, oreviewStarRating, oreviewImage, or_cakeId);
 		
 	}
+
+	
 
 
 

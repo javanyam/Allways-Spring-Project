@@ -190,7 +190,7 @@ function searchList() {
 										</td>
 										<td>${dto.or_customerId }</td>
 										<td>${dto.oreviewInitdate }</td>
-										<td><a href = "customerReviewDelete?oreviewId=${dto.oreviewId }">X</a></td>
+										<td><a href = "customerReviewDelete?oreviewId=${dto.oreviewId }&index=${index}">X</a></td>
 									</tr>
 								</tbody>
 							</c:when>
