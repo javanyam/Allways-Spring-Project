@@ -65,6 +65,7 @@ color: #766262;
 
 	<main>
 	
+
 <!-- 		<div class="btn-group dropend" style="margin: 30px;">
 		  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 		    Sort
@@ -107,15 +108,18 @@ color: #766262;
 <%-- 
 	<main>
 	
+
 		<div class="btn-group dropend" style="margin: 30px;">
 		  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 		    Sort
 		  </button>
 		  <ul class="dropdown-menu">
+
 		  	<li><a class="dropdown-item" href="customerCakeList?sort1=cakePrice&sort2=asc&index=${index }">Price Row - High</a></li>
 		    <li><a class="dropdown-item" href="customerCakeList?sort1=cakePrice&sort2=desc&index=${index }">Price High - Row</a></li>
 		    <li><a class="dropdown-item" href="customerCakeList?sort1=cakeLike&sort2=desc&index=${index }">Likes</a></li>
 		    <li><a class="dropdown-item" href="customerCakeList?sort1=cakeViews&sort2=desc&index=${index }">Views</a></li>
+
 		  </ul>
 		</div>
 
@@ -124,7 +128,9 @@ color: #766262;
 			<c:forEach items="${cakeList}" var="dto" begin="${(index - 1) * rowcount }" end="${(index) * rowcount - 1}">
 				<div class="col-lg-3 col-md-6" style="padding-bottom: 20px;" id="cakeList">
 					<div class="card" style="width: 20rem;">
+
 					<a href="customerCakeDetail?cakeId=${dto.cakeId}">
+
 						<img src="./cakeListImage/${dto.cakeImage}" class="card-img-top"
 							alt="${dto.cakeId}">
 					</a>
@@ -145,9 +151,11 @@ color: #766262;
 			
 		</div>
 
+
 	</main> --%>
 	
 <%-- 	<div align="center">
+
 			<table>
 				<tr align="center" height="20">
 					<td>
@@ -157,18 +165,22 @@ color: #766262;
 						</c:if>
 					
 						<c:if test="${index != 1 }">
+
 							<a href="customerCakeList?index=${index-1 }&sort1=${sort1}&sort2=${sort2}">이전</a>&nbsp;
+
 						</c:if> 
 				
 						<c:forEach var="cnt" begin="${pagecount * pagepage + 1}" end="${pagecount * (pagepage + 1)}">
 							<c:if test="${cnt <= Math.ceil(arrsize / rowcount)}">
 							
 								<c:if test="${cnt == index }">
+
 									<a href="customerCakeList?index=${cnt }&sort1=${sort1}&sort2=${sort2}" style="font-size:1.3em">[${cnt }]</a>
 								</c:if>
 						
 								<c:if test = "${cnt != index }">
 									<a href="customerCakeList?index=${cnt }&sort1=${sort1}&sort2=${sort2}" style="font-size:0.9em">[${cnt }]</a>&nbsp;
+
 								</c:if>
 								
 							</c:if>
