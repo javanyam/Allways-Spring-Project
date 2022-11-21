@@ -5,8 +5,20 @@
 						
 <mapper namespace="com.springlec.base.dao.customerLoginDao">
 
-	<select id="usercheckDao">
-		select count(*) from customer where customerId = #{customerId} and customerPw = ${customerPw} and customerDeletedate is null"
+	<select id="usercheckDao" resultType="int">
+		select count(*) from customer where customerId = #{customerId} and customerPw = #{customerPw} and customerDeletedate is null
 	</select>
-
+	
+	<select id="usernameDao" resultType="String">
+		select customerName from customer where customerId = #{customerId} and customerPw = #{customerPw} and customerDeletedate is null
+	</select>
+	
+	<select id="idcheckDao" resultType="int">
+		select count(*) from customer where customerId = #{customerId} and customerDeletedate is null
+	</select>
+	
+	<insert id="">
+		insert into customer (customerId, customerPw, customerName, customerGender, customerPhone, customerEmail, customerBirthday, customerPostcode, customerAddress, customerAddressDetail, customerInitdate) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())
+	</insert>
+	
 </mapper>
