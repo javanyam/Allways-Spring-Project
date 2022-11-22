@@ -1,19 +1,19 @@
 package com.springlec.base.service;
 
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.springlec.base.model.customerOrderListDto;
-import com.springlec.base.model.customerReviewDto;
+import com.springlec.base.model.customerPageDto;
 
 public interface customerReviewDaoService {
 
-	public List<customerReviewDto> customerReviewList(HttpServletRequest request, Model model) throws Exception;
-	public List<customerOrderListDto> customerOrderList(HttpSession session) throws Exception;
-	public void customerWriteReview(HttpServletRequest request, HttpSession session) throws Exception;
+	public void customerReviewList(HttpServletRequest request, Model model, customerPageDto page) throws Exception;
+	public customerPageDto customerReviewListCount() throws Exception;
+	public void customerOrderList(Model model) throws Exception;
+	public void customerWriteReview(MultipartHttpServletRequest request, MultipartFile file, MultipartHttpServletRequest multi) throws Exception;
 	
 }

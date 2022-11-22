@@ -46,10 +46,15 @@ function searchList() {
 	form.submit();
 }
 
-function next(commentId, index) {
+function next(writeId, index, result) {
+	
 	 if(confirm("삭제를 원하시면 예를 누르시고 원하지 않으시면 아니오를 눌러주세요")) {
-		 
-		location.href="customerBoardDelete?commentId=" + commentId + "&index=" + index;
+		if(result == 'writeId') {
+			location.href="customerBoardDelete?writeId=" + writeId + "&index=" + index + "&result=1";
+		} else if(result == 'commentId') {
+			location.href="customerBoardDelete?writeId=" + writeId + "&index=" + index + "&result=2";
+			
+		}
 		
 	 } else {
 		 
@@ -119,7 +124,7 @@ function next(commentId, index) {
 						<th width="400" style = "text-align: left">제목 + 답글</th>
 						<th width="100">작성자</th>
 						<th width="100">작성일</th>
-						<th width="100"></th>
+						<th width="100">삭제</th>
 					</tr>
 				</thead>
 				
@@ -138,7 +143,7 @@ function next(commentId, index) {
 													<td style = "text-align: left"><a href = "customerBoardDetail?writeId=${dto.writeId }">${dto.writeTitle }</a></td>
 													<td>${dto.w_customerId }</td>
 													<td>${dto.writeInitdate }</td>
-													<td><a href = "" onclick = "next(${dto.commentId}, ${index })" data-bs-toggle="modal" data-bs-target="#exampleModal">X</a></td>
+													<td><a href = "" onclick = "next(${dto.commentId}, ${index }, 'commentId')" data-bs-toggle="modal" data-bs-target="#exampleModal">X</a></td>
 												</tr>
 											</tbody>
 										</c:if>
@@ -151,7 +156,8 @@ function next(commentId, index) {
 													<td style = "text-align: left">${dto.writeContent }</td>
 													<td>${dto.w_customerId }</td>
 													<td>${dto.writeInitdate }</td>
-													<td><a href = "customerBoardCommentDelete?WRITEID=${dto.writeId }">X</a></td>
+													<td><a href = "" onclick = "next(${dto.writeId}, ${index }, 'writeId')">X</a></td>
+<%-- 													<td><a href = "customerBoardCommentDelete?WRITEID=${dto.writeId }">X</a></td> --%>
 												</tr>
 											</tbody>
 										</c:if>
