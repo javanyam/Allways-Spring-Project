@@ -19,4 +19,10 @@ public class customerLoginDaoImpl implements customerLoginDao {
 	}
 
 
+	@Override
+	public int idcheckDao(String customerId) throws Exception {
+		return sqlSession.selectOne(nameSpace + ".idcheckDao");
+	}
+
+
 }

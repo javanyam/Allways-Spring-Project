@@ -48,7 +48,7 @@
 				return;
 			}
 			alert("set in cartlist.");
-			form.action = "customerCakeCart.do";
+			form.action = "cakeCartInsert";
 		}
 		if (index == 2) {
 			if (form.detailoptionPickupDate.value.length == 0) {
@@ -309,7 +309,6 @@ color: #FFFDFD;
 	crossorigin="anonymous">
 </head>
 <body>
-
 		<div class="row">
 			<div class="col" align="center">
 			<br>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.springlec.base.dao.customerCakeCartInsertDao">
+
+	
+	<insert id="cakeCartInsert">
+		insert into orders (ordersStatus, o_customerId, o_cakeId, o_goodsId, ordersSalePrice, ordersQuantity, ordersDate) 
+		values ('장바구니', #{o_customerId}, #{o_cakeId}, 1, #{ordersSalePrice}, #{ordersQuantity}, now())
+	</insert>
+	
+	<select id="cakeOrdersInfo" resultType="int">
+		select ordersId from orders where ordersStatus = '장바구니' and o_customerId = #{customerId} order by ordersDate desc limit 1
+	</select>
+	
+	<insert id="detailOptionInsert">
+		insert into detailoption (d_ordersId, d_ordersStatus, d_cakeoptionId, d_customerId, d_cakeId, d_goodsId, detailoptionLettering, 
+		detailoptionPickupDate) values (#{ordersId}, '장바구니', #{cakeoptionId}, #{customerId}, #{cakeId}, 1, #{detailoptionLettering}, #{detailoptionPickupDate})
+	</insert>
+	
+	<select id="selectOptionPrice" resultType="int">
+		select sum(co.cakeoptionPrice) from cake c, cakeoption co, orders o, detailoption d 
+		where cakeoptionId = d.d_cakeoptionId and c.cakeId = d.d_cakeId and d.d_ordersId = o.ordersId 
+		and o.ordersStatus = '장바구니' and o.ordersId = #{ordersId} group by o.ordersId, c.cakePrice
+	</select>
+	
+	<update id="salePriceUpdate">
+		update orders set ordersSalePrice = #{ordersSalePrice} where ordersId = #{ordersId}
+	</update>
+	
+</mapper>

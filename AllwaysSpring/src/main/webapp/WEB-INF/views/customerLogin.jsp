@@ -177,7 +177,9 @@ function kakaoLogout() {
 				<a href="customerFindId" id="TextColor" >ID/PASSWORD를 잊어버리셨나요? ▶ ID찾기 / </a>
 				<a href="customerFindPw" id="TextColor" >PASSWORD 찾기</a><br>
 				
+
 				<a href="customerAboutPage" id="TextColor" style="font-size: 21px;">GO HOME</a>
+
 				
 				</div>
 			<div class="col">

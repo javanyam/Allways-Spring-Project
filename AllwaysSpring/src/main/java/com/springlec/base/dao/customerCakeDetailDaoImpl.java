@@ -10,30 +10,30 @@ public class customerCakeDetailDaoImpl implements customerCakeDetailDao {
 	
 	SqlSession sqlSession;
 	
-	public static String nameSpace = "com.springlec.base.dao.customerCakeDetailDao";
+	public static String namespace = "com.springlec.base.dao.customerCakeDetailDao";
 
 	@Override
 	public customerCakeDetailDto customerCakeDetail(int cakeId) throws Exception {
 		// TODO Auto-generated method stub
-		return (customerCakeDetailDto) sqlSession.selectList(nameSpace + ".customerCakeDetail");
+		return (customerCakeDetailDto) sqlSession.selectList(namespace + ".customerCakeDetail");
 	}
 
 	@Override
 	public List<customerCakeDetailDto> customerCakeShape() throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(nameSpace + ".customerCakeShape");
+		return sqlSession.selectList(namespace + ".customerCakeShape");
 	}
 
 	@Override
 	public List<customerCakeDetailDto> customerCakeSize() throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(nameSpace + ".customerCakeSize");
+		return sqlSession.selectList(namespace + ".customerCakeSize");
 	}
 
 	@Override
 	public List<customerCakeDetailDto> customerCakeFlavor() throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(nameSpace + ".customerCakeFlavor");
+		return sqlSession.selectList(namespace + ".customerCakeFlavor");
 	}
 
 }

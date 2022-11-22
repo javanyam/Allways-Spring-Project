@@ -22,4 +22,14 @@ public class customerLoginDaoServiceImpl implements customerLoginDaoService {
 	}
 
 
+	@Override
+	public boolean idcheckDao(String customerId) throws Exception {
+		if(dao.idcheckDao(customerId) == 1) {
+			return true;
+		}else {
+			return false; 
+		}
+	}
+
+
 }
