@@ -205,7 +205,7 @@ color: #FFFDFD;
 				</div>
 				 <div class="split"></div>
 				</div>
-		<c:forEach var = "dto" items="${cartList }">
+		<c:forEach var = "dto" items="${cakeCartList }">
 			<div class="row data" align="center">
 				<div class="subdiv">
 					<div class="check"><input type="checkbox" name="ordersId" value="${dto.ordersId }" onclick="javascript:basket.checkItem();">&nbsp;</div>
@@ -218,7 +218,7 @@ color: #FFFDFD;
 					<div><input type="text" id="p_num2" class="p_num" size="2" maxlength="4" value="${dto.ordersQuantity }" onkeyup="javascript:basket.changePNum(${i});" style="padding-top: 7px;"></div>
 					</div>
 					<div class="subdiv">
-					<div><a href="/Allways/Customer/customerCartDelete.do?ordersId=${dto.ordersId}" onclick="javascript:basket.delItem();" style="margin-left: 45px;">X</a></div>
+					<div><a href="/Allways/Customer/customerCartDelete?ordersId=${dto.ordersId}" onclick="javascript:basket.delItem();" style="margin-left: 45px;">X</a></div>
 					</div>
 				</div>
 			</div>
