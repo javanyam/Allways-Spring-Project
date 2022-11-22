@@ -12,10 +12,10 @@ pageEncoding="UTF-8"%>
 function order(index){
 	var form = document.detail;
 	if (index == 1) {
-		form.action = "customerCartList.do";
+		form.action = "customerCartList";
 	}
 	if (index == 2) {
-		form.action = "customerOrder.do";
+		form.action = "customerPay";
 		alert("Order complete.")
 	}
 		form.submit();
@@ -210,7 +210,7 @@ color: #FFFDFD;
 		</tr>
 		<tr align="center">
 			<td><input id="util_box" type="button" value="Cancle" style="width: 150px;" onclick="order(1)"></td>
-			<td><input id="util_box" type="button" value="Buy Now" style="width: 150px;" onclick="order(2)"></td>
+			<td><input id="util_box" type="button" value="Pay" style="width: 150px;" onclick="order(2)"></td>
 		</tr>
 	</table>
 </div>
