@@ -24,7 +24,6 @@ public class customerBoardDeleteDaoServiceImpl implements customerBoardDeleteDao
 		}else {
 			result = "commentId";
 		}
-		
 		dao.customerBoardDelete(writeId, result);
 	}
 
@@ -39,6 +38,8 @@ public class customerBoardDeleteDaoServiceImpl implements customerBoardDeleteDao
 		}else {
 			result = "recommentId";
 		}
+		System.out.println("commentId: " + commentId);
+		System.out.println("result: " + result);
 		
 		dao.customerBoardDetailCommentDelete(commentId, result);
 		

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.springlec.base.dao.managerMainDao">
+
+	<select id="makeXAxis" resultType="String">
+		SELECT DISTINCT MONTH(ordersDate), DAY(ordersDate), DATE(ordersDate) 
+		FROM orders 
+		WHERE ordersStatus = '구매' AND DATE(ordersDate) >= CURDATE()-5 ORDER BY DATE(ordersDate)
+	</select>
+
+	<select id="makeSalesPrice" resultType="Integer">
+		SELECT SUM(ordersSalePrice) FROM orders 
+		WHERE ordersStatus = '구매' AND DATE(ordersDate) >= CURDATE() - 5 
+		GROUP BY DATE(ordersDate) ORDER BY DATE(ordersDate)
+	</select>
+
+	<select id="makeSalesQuantity" resultType="Integer">
+		SELECT COUNT(*) FROM orders 
+		WHERE ordersStatus='구매' AND DATE(ordersDate) >= CURDATE()-5 
+		GROUP BY DATE(ordersDate) ORDER BY DATE(ordersDate)
+	</select>
+
+	<select id="orderStautsList" resultType="com.springlec.base.model.managerOrderStatusDto">
+		SELECT ordersId, ordersStatus, o_customerId, o_cakeId,cakeName, o_goodsId, goodsName, ordersSalePrice, ordersQuantity, ordersPoint
+		FROM orders AS o, cake AS c, goods AS g 
+		WHERE o.o_cakeId = c.cakeId AND g.goodsId = o.o_goodsId AND ordersStatus = '구매'
+		AND ordersDeletedate IS NULL AND ordersSoldOutdate IS NULL AND ordersMakedate IS NULL
+	</select>
+
+	<select id="showOrdersReviewOnMain" resultType="com.springlec.base.model.ordersReviewDto">
+		SELECT or_customerId, oreviewStarrating, oreviewInitdate FROM ordersreview where oreviewDeletedate IS NULL 
+		ORDER BY oreviewInitdate DESC
+	</select>
+
+</mapper>
