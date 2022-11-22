@@ -1,45 +1,19 @@
 package com.springlec.base.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.springlec.base.service.customerLoginDaoService;
+import com.springlec.base.service.customerJoinDaoService;
 
 @Controller
-public class customerLoginController {
+public class customerJoinController {
 
 	@Autowired
-	customerLoginDaoService service;
-	
-	// 로그인 페이지
-	@RequestMapping("/customerLoginPage")
-	public String loginpage() throws Exception{
-		return "customerLogin";
-	}
-	
-	// 로그인 액션
-	@RequestMapping("/customerLogin")
-	public String usercheck(HttpServletRequest request, Model model, HttpSession session) throws Exception{
-		int chk = service.usercheckDao(request.getParameter("customerId"), request.getParameter("customerPw"));
-		String name = service.usernameDao(request.getParameter("customerId"), request.getParameter("customerPw"));
-		
-		if(chk == 1) {
-			session.setAttribute("NAME", name);
-			session.setAttribute("ID", request.getParameter("customerId"));
-			return "customerAbout";
-		}else {
-			model.addAttribute("CHECK", false);
-			return "redirect:customerLoginPage";
-		}
-			
-	}
-	
-	// 메인페이지
+	customerJoinDaoService service;
 	
 	// 회원가입 페이지 이동
 	@RequestMapping("/customerJoinPage")
@@ -69,24 +43,20 @@ public class customerLoginController {
 	// 회원가입
 	@RequestMapping("/customerJoin")
 	public String join(HttpServletRequest request) throws Exception{
+		String customerId = request.getParameter("customerId");
+		String customerPw = request.getParameter("customerPw");
+		String customerName = request.getParameter("customerName");
+		String customerGender = request.getParameter("customerGender");
+		String customerPhone = request.getParameter("customerPhone");
+		String customerEmail = request.getParameter("email1") + "@" + request.getParameter("email2");
+		String customerBirthday= request.getParameter("customerBirth");
+		String customerPostcode = request.getParameter("postcode");
+		String customerAddress = request.getParameter("address");
+		String customerAddressDetail = request.getParameter("addressDetail");
 		
-		return "customerLoginPage";
+		service.joinDao(customerId, customerPw, customerName, customerGender, customerPhone, customerEmail, customerBirthday, customerPostcode, customerAddress, customerAddressDetail);
+		
+		return "redirect:customerLoginPage";
 	}
-
-	@RequestMapping("/customerAboutPage")
-	public String main(HttpSession session) throws Exception{
-		return "customerAbout";
-	}
-	
-	// 로그아웃
-		@RequestMapping("/customerLogout")
-		public String logout(HttpSession session) throws Exception{
-			session.invalidate();
-			return "customerAbout";
-		}
-
-
-	
-	
 	
 } // End

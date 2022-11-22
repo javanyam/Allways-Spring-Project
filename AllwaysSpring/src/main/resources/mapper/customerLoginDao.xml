@@ -13,6 +13,10 @@
 		select customerName from customer where customerId = #{customerId} and customerPw = #{customerPw} and customerDeletedate is null
 	</select>
 	
+	<select id="usernameDao" resultType="String">
+		select customerName from customer where customerId = #{customerId} and customerPw = #{customerPw} and customerDeletedate is null
+	</select>
+	
 	<select id="idcheckDao" resultType="int">
 		select count(*) from customer where customerId = #{customerId} and customerDeletedate is null
 	</select>
