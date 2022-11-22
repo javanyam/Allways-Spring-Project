@@ -77,7 +77,7 @@
 		}
 		
 		alert("변경되었습니다.");
-		form.action="customerPwReset.do";
+		form.action="customerPwReset";
 		form.submit();
 	}
 	
@@ -89,7 +89,7 @@
 	
 	function home(){
 		var form = document.customerShowPw;
-		form.action="customerAbout.do";
+		form.action="customerAbout";
 		form.submit();
 	}
 	
@@ -141,7 +141,7 @@
 	
 <body>
 
-	<form action="customerShowPw.do" name="customerShowPw" method="post" style="height: 1400px;">
+	<form action="customerShowPw" name="customerShowPw" method="post" style="height: 1400px;">
 		<div class="container text-center">
 			<div class="row">
 				<div class="col">
