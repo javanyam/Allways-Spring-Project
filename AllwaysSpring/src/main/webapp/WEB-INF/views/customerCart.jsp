@@ -12,7 +12,7 @@ pageEncoding="UTF-8"%>
 function mySubmit(index){
 	var form = document.orderform;
 	if (index == 1) {
-		form.action = "customerCartSelectDelete";
+		form.action = "customerCartDelete";
 	}
 	if (index == 2) {
 		form.action = "customerCakeList";
@@ -218,7 +218,7 @@ color: #FFFDFD;
 					<div><input type="text" id="p_num2" class="p_num" size="2" maxlength="4" value="${dto.ordersQuantity }" onkeyup="javascript:basket.changePNum(${i});" style="padding-top: 7px;"></div>
 					</div>
 					<div class="subdiv">
-					<div><a href="/Allways/Customer/customerCartDelete.do?ordersId=${dto.ordersId}" onclick="javascript:basket.delItem();" style="margin-left: 45px;">X</a></div>
+					<div><a href="/customerCartDelete?ordersId=${dto.ordersId}" onclick="javascript:basket.delItem();" style="margin-left: 45px;">X</a></div>
 					</div>
 				</div>
 			</div>
