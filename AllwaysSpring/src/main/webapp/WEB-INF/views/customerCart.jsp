@@ -12,13 +12,13 @@ pageEncoding="UTF-8"%>
 function mySubmit(index){
 	var form = document.orderform;
 	if (index == 1) {
-		form.action = "customerCartSelectDelete.do";
+		form.action = "customerCartSelectDelete";
 	}
 	if (index == 2) {
-		form.action = "customerCakeList.do";
+		form.action = "customerCakeList";
 	}
 	if (index == 3) {
-		form.action = "customerOrderPage.do";
+		form.action = "customerOrderPage";
 	}
 		form.submit();
 }
