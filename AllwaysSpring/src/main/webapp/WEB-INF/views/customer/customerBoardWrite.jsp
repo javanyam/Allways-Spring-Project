@@ -52,7 +52,7 @@ function writeAction(){
 		
 	}else {
 		alert("게시글이 등록 되었습니다.");
-		form.action = "customerBoardWrite";
+		form.action = "customerBoardWrite.do";
 		form.submit();
 	}
 	
@@ -71,13 +71,13 @@ function writeAction(){
 				
 				<tr>
 					<td>
-						<a href = "customerBoardList"><button type = "button" name = "buttons" id="button_group">BOARD</button></a>&nbsp;
+						<a href = "customerWriteList.do"><button type = "button" name = "buttons" id="button_group">BOARD</button></a>&nbsp;
 					</td>
 					<td>
-						<a href = "customerOrdersReview"><button type = "button" name = "buttons" id="button_group" onclick = "reviewList();">REVIEW</button></a>&nbsp;
+						<a href = "customerOrdersReview.do"><button type = "button" name = "buttons" id="button_group" onclick = "reviewList();">REVIEW</button></a>&nbsp;
 					</td>
 					<td>
-						<a href = "customerQuestionList"><button type = "button" name = "buttons" id="button_group" onclick = "QNA();">Q&A</button></a>
+						<a href = "customerQuestionList.do"><button type = "button" name = "buttons" id="button_group" onclick = "QNA();">Q&A</button></a>
 					</td>
 				</tr>
 				

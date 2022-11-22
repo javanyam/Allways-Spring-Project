@@ -28,10 +28,8 @@
 					</tr>
 				</thead>
 				
-				 <%-- begin = "${(index - 1) * rowcount }" end = "${(index) * rowcount - 1}" --%>
-				<c:if test="${arrsize != 0 }">
-					<c:forEach var = "dto" items = "${orderList}">
-					
+				<c:forEach var = "dto" items = "${orderList}" begin = "${(index - 1) * rowcount }" end = "${(index) * rowcount - 1}">
+					<c:if test="${arrsize != 0 }">
 						<tbody>
 							<tr>
 								<td>${dto.ROWNUM}</td>
@@ -40,20 +38,19 @@
 								<td><fmt:formatNumber value="${dto.ordersSalePrice}"/></td>
 								<td>${dto.ordersQuantity}</td>
 								<td>${dto.ordersDate}</td>
-								<td><a href = "customerWriteReviewPage?ordersId=${dto.ordersId }&o_cakeId=${dto.o_cakeId}"><button type = "button">리뷰작성</button></a>
+								<td><a href = "customerWriteReview.jsp?ordersId=${dto.ordersId }&o_cakeId=${dto.o_cakeId}"><button type = "button">리뷰작성</button></a>
 							</tr>
 						</tbody>
-						
-					</c:forEach>
-				</c:if>
+					</c:if>
+					
+					<c:if test = "${arrsize == 0 }">
+						<h5>리뷰 작성 가능한 상품이 없습니다.</h5>
+					</c:if>
+				</c:forEach>
 			</table>
 		</form>
 		
-		<c:if test = "${arrsize == 0 }">
-			<h5>리뷰 작성 가능한 상품이 없습니다.</h5>
-		</c:if>
-		
-		<%-- <div align="center">
+		<div align="center">
 		<table>
 			<tr align="center" height="20">
 				<td>
@@ -94,7 +91,7 @@
 				</td>
 			</tr>
 		</table>
-	</div> --%>
+	</div>
 		
 	</div>
 	

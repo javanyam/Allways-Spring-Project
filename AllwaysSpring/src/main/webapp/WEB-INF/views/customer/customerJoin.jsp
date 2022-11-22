@@ -185,7 +185,7 @@
 
 	function CheckId(){
 		var form = document.customerJoin;
-		form.action="idcheck";
+		form.action="idcheck.do";
 		form.submit();
 		/* var id = document.customerJoin.customerId.value;
 		var regExId=/^[a-z|0-9]+$/; */
@@ -290,7 +290,7 @@
 </head>
 <body>
 	
-	<form action="customerJoin" name="customerJoin" method="post" style="height: 1400px;">
+	<form action="customerJoin.do" name="customerJoin" method="post" style="height: 1400px;">
 		<div class="container text-center">
 			<div class="row">
 				<div class="col">
