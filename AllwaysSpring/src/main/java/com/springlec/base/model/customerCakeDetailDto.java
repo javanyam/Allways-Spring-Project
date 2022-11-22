@@ -1,7 +1,7 @@
 package com.springlec.base.model;
 
 public class customerCakeDetailDto {
-	
+
 	int cakeId;
 	String cakeName;
 	int cakePrice;
@@ -9,15 +9,15 @@ public class customerCakeDetailDto {
 	int cakeLike;
 	int cakeViews;
 	String cakeDetail;
-	
+
 	int cakeoptionId;
 	String cakeoptionCategory;
 	String cakeoptionValue;
 	int cakeoptionPrice;
-	
+
 	int ordersId;
 	String ordersStatus;
-	
+
 	public customerCakeDetailDto(int cakeId, String cakeName, int cakePrice, String cakeImage, int cakeLike,
 			int cakeViews, String cakeDetail) {
 		super();
@@ -37,6 +37,14 @@ public class customerCakeDetailDto {
 		this.cakeoptionCategory = cakeoptionCategory;
 		this.cakeoptionValue = cakeoptionValue;
 		this.cakeoptionPrice = cakeoptionPrice;
+	}
+
+	public int getOrdersId() {
+		return ordersId;
+	}
+
+	public void setOrdersId(int ordersId) {
+		this.ordersId = ordersId;
 	}
 
 	public int getCakeId() {
@@ -127,6 +135,4 @@ public class customerCakeDetailDto {
 		this.cakeoptionPrice = cakeoptionPrice;
 	}
 
-	
-	
 }

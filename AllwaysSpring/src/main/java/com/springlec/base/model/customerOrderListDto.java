@@ -34,13 +34,12 @@ public class customerOrderListDto {
 
 
 
-	
 	public int getROWNUM() {
 		return ROWNUM;
 	}
 
-	public void setROWNUM(int rOWNUM) {
-		ROWNUM = rOWNUM;
+	public void setROWNUM(int ROWNUM) {
+		this.ROWNUM = ROWNUM;
 	}
 
 	public int getOrdersId() {

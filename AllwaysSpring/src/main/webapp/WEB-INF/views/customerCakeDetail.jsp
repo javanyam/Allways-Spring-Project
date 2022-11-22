@@ -309,7 +309,6 @@ color: #FFFDFD;
 	crossorigin="anonymous">
 </head>
 <body>
-
 		<div class="row">
 			<div class="col" align="center">
 			<br>

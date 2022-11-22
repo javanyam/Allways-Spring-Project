@@ -21,7 +21,6 @@ public class customerLoginDaoServiceImpl implements customerLoginDaoService {
 		return dao.usernameDao(customerId, customerPw);
 	}
 
-
 	@Override
 	public boolean idcheckDao(String customerId) throws Exception {
 		if(dao.idcheckDao(customerId) == 1) {
@@ -30,6 +29,5 @@ public class customerLoginDaoServiceImpl implements customerLoginDaoService {
 			return false; 
 		}
 	}
-
 
 }

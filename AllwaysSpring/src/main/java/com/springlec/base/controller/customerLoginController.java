@@ -40,6 +40,10 @@ public class customerLoginController {
 	}
 	
 	// 메인페이지
+	@RequestMapping("/customerAbout")
+	public String main() throws Exception{
+		return "customerLogin";
+	}
 	
 	// 회원가입 페이지 이동
 	@RequestMapping("/customerJoinPage")
@@ -72,20 +76,6 @@ public class customerLoginController {
 		
 		return "customerLoginPage";
 	}
-
-	@RequestMapping("/customerAboutPage")
-	public String main(HttpSession session) throws Exception{
-		return "customerAbout";
-	}
-	
-	// 로그아웃
-		@RequestMapping("/customerLogout")
-		public String logout(HttpSession session) throws Exception{
-			session.invalidate();
-			return "customerAbout";
-		}
-
-
 	
 	
 	
