@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.springlec.base.dao.customerLoginDao">
+
+	<select id="usercheckDao" resultType="int">
+		select count(*) from customer where customerId = #{customerId} and customerPw = #{customerPw} and customerDeletedate is null
+	</select>
+	
+	<select id="usernameDao" resultType="String">
+		select customerName from customer where customerId = #{customerId} and customerPw = #{customerPw} and customerDeletedate is null
+	</select>
+
+</mapper>
