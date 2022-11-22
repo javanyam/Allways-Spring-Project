@@ -15,30 +15,4 @@ public class customerCakeCartInsertDaoImpl implements customerCakeCartInsertDao 
 		sqlSession.insert(namespace + ".cakeCartInsert");
 	}
 
-	@Override
-	public int cakeOrdersInfo(String customerId) throws Exception {
-
-		return sqlSession.selectOne(customerId);
-	}
-
-	@Override
-	public void detailOptionInsert(int ordersId, int cakeoptionId, String customerId, int cakeId,
-			String detailoptionLettering, String detailoptionPickupDate) throws Exception {
-		// TODO Auto-generated method stub
-		
-		sqlSession.insert(namespace + ".detailOptionInsert");
-	}
-
-	@Override
-	public int selectOptionPrice(int ordersId) throws Exception {
-		// TODO Auto-generated method stub
-		return sqlSession.selectOne(namespace + ".selectOptionPrice");
-	}
-
-	@Override
-	public void salePriceUpdate(int ordersId, int optionPrice, int cakePrice, int ordersQuantity, int ordersSalePrice) throws Exception {
-		// TODO Auto-generated method stub
-		sqlSession.update(namespace + ".salePriceUpdate");
-	}
-
 }
