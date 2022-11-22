@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.springlec.base.dao.customerBoardDao">
+
+	<select id="customerBoardList" resultType="com.springlec.base.model.customerBoardDto">
+		SELECT * FROM ( 
+			SELECT row_number() OVER(ORDER BY commentId) AS rownum,
+			writeTitle, writeContent, w_customerId, writeInitdate, distinguish, writeId, writeDeletedate, commentId
+			FROM `write` where ${combo} like #{searchContent}
+			ORDER BY commentId DESC, writeInitdate ASC) w
+	</select>
+	
+	<select id="selectWriteId" resultType="int">
+		SELECT MAX(writeId) FROM `write`
+	</select>
+	
+	<insert id="customerBoardWrite">
+		INSERT INTO `write` (writeId, w_customerId, commentId, distinguish, writeTitle, writeContent, writeInitdate)
+		VALUES (#{writeId} + 1, #{customerId}, #{writeId} + 1, 0, #{writeTitle}, #{writeContent}, now())
+	</insert>
+
+	<select id="customerBoardDetail" resultType="com.springlec.base.model.customerBoardDetailDto">
+		SELECT w.writeId, c.customerName, w.writeTitle, w.writeContent, w.writeInitdate
+		FROM `write` w, customer c 
+		WHERE w.w_customerId = c.customerId AND w.writeId = #{writeId}
+	</select>
+
+	<select id="customerboardCommentList" resultType="com.springlec.base.model.customerBoardDetailDto">
+		SELECT * FROM ( 
+			SELECT row_number() OVER(ORDER BY commentId) as rownum, c.customerName, w.writeContent, w.writeInitdate, w.w_customerId, distinguish, recommentId, writeDeletedate, writeId 
+			FROM `write` w, customer c 
+			WHERE commentId = #{writeId} AND distinguish > 0 AND w.w_customerId = c.customerId 
+			ORDER BY recommentId) w
+	</select>
+
+	<insert id="customerwriteComment">
+		insert into `write` (w_customerId, distinguish, commentId, recommentId, writeContent, writeInitdate)
+		VALUES (#{customerId}, 1, #{commentId}, 0, #{writeContent}, now())
+	</insert>
+
+</mapper>

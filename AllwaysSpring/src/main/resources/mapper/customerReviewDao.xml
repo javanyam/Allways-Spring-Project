@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.springlec.base.dao.customerReviewDao">
+
+	<select id="customerReviewList" resultType="com.springlec.base.model.customerReviewDto">
+		SELECT * FROM (
+			SELECT row_number() OVER(ORDER BY oreviewId) AS rownum, or_customerId, oreviewContent, oreviewInitdate, oreviewImage, oreviewStarrating, oreviewId 
+			FROM ordersreview 
+			WHERE oreviewDeletedate is null ORDER BY oreviewId DESC) o
+		WHERE ${combo} LIKE #{searchContent} ORDER BY ${sort} DESC
+	</select>
+
+	<select id="customerReviewListCount" resultType="com.springlec.base.model.customerPageDto">
+		SELECT COUNT(*) FROM ordersreview WHERE oreviewDeletedate IS NULL
+	</select>
+
+	<select id="customerOrderList" resultType="com.springlec.base.model.customerOrderListDto">
+		SELECT @rownum:=@rownum+1 AS ROWNUM, o.ordersId, c.cakeName, o.o_customerId, o.ordersSalePrice, o.ordersQuantity, o.ordersDate, o_cakeId
+		FROM orders o, cake c
+		WHERE (@rownum:=0)=0 AND o.ordersReviewstatus IS NULL AND o.o_customerId = #{customerId} AND o.ordersStatus = '제작완료' AND o.o_cakeId = c.cakeId 
+		GROUP BY o.ordersId, c.cakeName, o.o_customerId, o.ordersSalePrice, o.ordersQuantity, o.ordersDate, o_cakeId
+	</select>
+
+	<insert id="customerWriteReview">
+		INSERT INTO ordersreview (or_customerId, or_ordersId, or_ordersStatus, oreviewContent, oreviewStarRating, oreviewImage, or_cakeId, oreviewInitdate, or_goodsId) 
+		VALUES (#{or_customerId}, #{or_ordersId}, '제작완료', #{oreviewContent}, #{oreviewStarRating}, #{oreviewImage}, #{or_cakeId}, NOW(), 1)
+	</insert>
+
+	<update id="writeReviewUpdate">
+		UPDATE orders SET ordersReviewstatus = '작성완료' WHERE ordersId = #{or_ordersId} AND ordersStatus = '제작완료'
+	</update>
+
+</mapper>
