@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.springlec.base.dao.customerCartListDao">
+
+	<select id="cakeCartList" resultType="com.springlec.base.model.customerCartListDto">
+		select o.ordersId, c.cakeName, o.ordersQuantity, o.ordersSalePrice from cake c, orders o
+		where o.o_cakeId = c.cakeId and ordersStatus = '장바구니' and o.o_customerId = #{customerId} and ordersPoint is null
+	</select>
+	
+<!-- 	<select id="optionCartList" resultType="com.springlec.base.model.customerCartListDto">
+		select co.cakeoptionCategory, co.cakeoptionValue, co.cakeoptionPrice, d.detailoptionLettering from cakeoption co, detailoption d
+		where d.d_cakeoptionId = co.cakeoptionId and d.d_ordersId in (select ordersId from orders where o_customerId = #{customerId} and ordersPoint is null)
+	</select> -->
+	
+</mapper>

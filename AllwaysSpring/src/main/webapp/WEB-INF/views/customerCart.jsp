@@ -205,7 +205,7 @@ color: #FFFDFD;
 				</div>
 				 <div class="split"></div>
 				</div>
-		<c:forEach var = "dto" items="${cartList }">
+		<c:forEach var = "dto" items="${cakeCartList }">
 			<div class="row data" align="center">
 				<div class="subdiv">
 					<div class="check"><input type="checkbox" name="ordersId" value="${dto.ordersId }" onclick="javascript:basket.checkItem();">&nbsp;</div>
