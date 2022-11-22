@@ -219,7 +219,7 @@ color: #FFFDFD;
 					</div>
 					<div class="subdiv">
 					<div><a href="/Allways/Customer/customerCartDelete?ordersId=${dto.ordersId}" onclick="javascript:basket.delItem();" style="margin-left: 45px;">X</a></div>
-					</div>
+					</div> 
 				</div>
 			</div>
 		</c:forEach>
