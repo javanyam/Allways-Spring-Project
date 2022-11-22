@@ -5,27 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
 
-#title {
-	text-align: left;
-}
-
-</style>
-</head>
-<body>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-/* 
-function writeComment(index) {
-	var form = document.myform;
-	if (index == 1) {
-		form.method = "post";
-		form.action = "customerWriteComment";
-	}
-	form.submit();
-} */
 
 function writeComment() {
 	var form = document.myform;
@@ -43,18 +24,31 @@ function writeComment() {
 
 function next(commentId, writeId, result) {
 	
-	 if(confirm("삭제를 원하시면 예를 누르시고 원하지 않으시면 아니오를 눌러주세요")) {
-		if(result == 'comment') {
+	 if(confirm("삭제를 원하시면 예를 누르시고 원하지 않으시면 아니오를 눌러주세요!")) {
+		 if(result == 'comment') {
 			location.href="customerBoardDetailCommentDelete?commentId=" + commentId + "&writeId=" + writeId + "&result=commentId";
-		} else if(result == 'recomment') {
+		 } else if(result == 'recomment') {
 			location.href="customerBoardDetailCommentDelete?commentId=" + commentId + "&writeId=" + writeId + "&result=recommentId";
-			
-		}
-		
+				
+			}
+	 }else {
+		 
 	 }
 }
 
 </script>
+
+<title>Insert title here</title>
+<style>
+
+#title {
+	text-align: left;
+}
+
+</style>
+</head>
+<body>
+
 
 	<%@include file="customerHeader.jsp" %>
 
@@ -97,7 +91,7 @@ function next(commentId, writeId, result) {
 												<td width="110">${dto.customerName }</td>
 												<td width="120">${dto.writeInitdate }</td>
 												<c:if test="${CUSTOMERID == dto.w_customerId }">
-													<td><a href = "" onclick = "next(${dto.recommentId}, ${boardDetail.writeId }, 'recomment')">X</a></td>
+													<td><a href = "" onclick = "next(${dto.recommentId}, ${boardDetail.writeId }, 'recomment')" data-bs-toggle="modal" data-bs-target="#exampleModal">X</a></td>
 												</c:if>
 											</tr>
 										</tbody>
@@ -112,7 +106,7 @@ function next(commentId, writeId, result) {
 									          <td width="110">${dto.customerName }</td>
 									          <td width="120">${dto.writeInitdate }</td>
 												<c:if test="${CUSTOMERID == dto.w_customerId }">
-									       		   <td><a href = "" onclick = "next(${dto.writeId}, ${boardDetail.writeId }, 'comment')">X</a></td>
+									       		   <td><a href = "" onclick = "next(${dto.writeId}, ${boardDetail.writeId }, 'comment')" data-bs-toggle="modal" data-bs-target="#exampleModal">X</a></td>
 												</c:if>
 									        </tr>
 										</tbody>

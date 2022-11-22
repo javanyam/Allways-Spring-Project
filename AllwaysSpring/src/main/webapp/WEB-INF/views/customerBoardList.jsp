@@ -48,7 +48,7 @@ function searchList() {
 
 function next(writeId, index, result) {
 	
-	 if(confirm("삭제를 원하시면 예를 누르시고 원하지 않으시면 아니오를 눌러주세요")) {
+	 if(confirm("삭제를 원하시면 예를 누르시고 원하지 않으시면 아니오를 눌러주세요!!")) {
 		if(result == 'writeId') {
 			location.href="customerBoardDelete?writeId=" + writeId + "&index=" + index + "&result=1";
 		} else if(result == 'commentId') {
@@ -156,8 +156,7 @@ function next(writeId, index, result) {
 													<td style = "text-align: left">${dto.writeContent }</td>
 													<td>${dto.w_customerId }</td>
 													<td>${dto.writeInitdate }</td>
-													<td><a href = "" onclick = "next(${dto.writeId}, ${index }, 'writeId')">X</a></td>
-<%-- 													<td><a href = "customerBoardCommentDelete?WRITEID=${dto.writeId }">X</a></td> --%>
+													<td><a href = "" onclick = "next(${dto.writeId}, ${index }, 'writeId')" data-bs-toggle="modal" data-bs-target="#exampleModal">X</a></td>
 												</tr>
 											</tbody>
 										</c:if>

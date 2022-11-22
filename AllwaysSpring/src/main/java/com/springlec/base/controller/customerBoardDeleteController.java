@@ -20,7 +20,6 @@ public class customerBoardDeleteController {
 	// 게시판 or 게시판 답글 삭제
 	@RequestMapping("/customerBoardDelete")
 	public String customerBoardDelete(HttpServletRequest request, Model model, RedirectAttributes attributes) throws Exception {
-		
 		service.customerBoardDelete(request);
 		attributes.addAttribute("index", Integer.parseInt(request.getParameter("index")));
 		
@@ -31,8 +30,11 @@ public class customerBoardDeleteController {
 	@RequestMapping("/customerBoardDetailCommentDelete")
 	public String customerBoardDetailCommentDelete(HttpServletRequest request, Model model, RedirectAttributes attributes) throws Exception {
 		
+		System.out.println("1");
 		service.customerBoardDetailCommentDelete(request);
+		System.out.println("2");
 		attributes.addAttribute("writeId", Integer.parseInt(request.getParameter("writeId")));
+		System.out.println("3");
 		
 		return "redirect:customerBoardDetail";
 	}
