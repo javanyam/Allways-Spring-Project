@@ -22,7 +22,7 @@ function writeComment(index) {
 	var form = document.myform;
 	if (index == 1) {
 		form.method = "post";
-		form.action = "customerWriteComment";
+		form.action = "customerWriteComment.do";
 	}
 	form.submit();
 } */
@@ -34,24 +34,11 @@ function writeComment() {
 		form.writeContent.focus();
 		return;
 	}else {
-			form.action = "customerWriteComment";
+			form.action = "customerWriteComment.do";
 			form.submit();
 	}
 		
 	
-}
-
-function next(commentId, writeId, result) {
-	
-	 if(confirm("삭제를 원하시면 예를 누르시고 원하지 않으시면 아니오를 눌러주세요")) {
-		if(result == 'comment') {
-			location.href="customerBoardDetailCommentDelete?commentId=" + commentId + "&writeId=" + writeId + "&result=commentId";
-		} else if(result == 'recomment') {
-			location.href="customerBoardDetailCommentDelete?commentId=" + commentId + "&writeId=" + writeId + "&result=recommentId";
-			
-		}
-		
-	 }
 }
 
 </script>
@@ -67,6 +54,11 @@ function next(commentId, writeId, result) {
 			<th><h6>작성자: ${boardDetail.customerName}&nbsp;&nbsp;&nbsp;</h6></th>
 			<th><h6>제목: ${boardDetail.writeTitle}&nbsp;&nbsp;&nbsp;</h6></th>
 			<th><h6>작성일자: ${boardDetail.writeInitdate}</h6></th>
+<%-- 			<th width = "50">
+			<th width="50" style = "text-align: left"><h6>No.${boardDetail.writeId}</h6></th>
+			<th width="110" style = "text-align: left"><h6>작성자: ${boardDetail.customerName}</h6></th>
+			<th width="300" style = "text-align: left"><h6>제목: ${boardDetail.writeTitle}</h6></th>
+			<th width="850" style = "text-align: right"><h6>작성일자: ${boardDetail.writeInitdate}</h6></th> --%>
 		</tr>
 	</table>
 	
@@ -91,32 +83,53 @@ function next(commentId, writeId, result) {
 							
 								<c:choose>
 									<c:when test="${dto.distinguish == 2 }">
-										<tbody>
-											<tr>
-												<td width="300">&nbsp;&nbsp;↳ ${dto.writeContent }</td>
-												<td width="110">${dto.customerName }</td>
-												<td width="120">${dto.writeInitdate }</td>
-												<c:if test="${CUSTOMERID == dto.w_customerId }">
-													<td><a href = "" onclick = "next(${dto.recommentId}, ${boardDetail.writeId }, 'recomment')">X</a></td>
-												</c:if>
-											</tr>
-										</tbody>
+										<c:choose>
+											<c:when test="${CUSTOMERID == dto.w_customerId }">
+												<tbody>
+											        <tr>
+											          <td width="300">&nbsp;&nbsp;↳ ${dto.writeContent }</td>
+											          <td width="110">${dto.customerName }</td>
+											          <td width="120">${dto.writeInitdate }</td>
+											          <td><a href = "customerBoardReCommentDelete.do?recommentId=${dto.recommentId }&writeId=${boardDetail.writeId}">X</a></td>
+											        </tr>
+										      </tbody>
+											</c:when>
 											
+											<c:otherwise>
+												<tbody>
+											        <tr>
+											          <td width="300">&nbsp;&nbsp;↳ ${dto.writeContent }</td>
+											          <td width="110">${dto.customerName }</td>
+											          <td width="120">${dto.writeInitdate }</td>
+											        </tr>
+										      </tbody>
+											</c:otherwise>
+										</c:choose>
 									</c:when>
 									
 									<c:otherwise>
-										
-										<tbody>
-									        <tr>
-									          <td width="300">${dto.writeContent }</td>
-									          <td width="110">${dto.customerName }</td>
-									          <td width="120">${dto.writeInitdate }</td>
-												<c:if test="${CUSTOMERID == dto.w_customerId }">
-									       		   <td><a href = "" onclick = "next(${dto.writeId}, ${boardDetail.writeId }, 'comment')">X</a></td>
-												</c:if>
-									        </tr>
-										</tbody>
+										<c:choose>
+											<c:when test="${CUSTOMERID == dto.w_customerId }">
+												<tbody>
+											        <tr>
+											          <td width="300">${dto.writeContent }</td>
+											          <td width="110">${dto.customerName }</td>
+											          <td width="120">${dto.writeInitdate }</td>
+											          <td><a href = "customerBoardCommentDelete.do?WRITEID=${dto.writeId }&writeId=${boardDetail.writeId}">X</a></td>
+											        </tr>
+										      </tbody>
+											</c:when>
 											
+											<c:otherwise>
+												<tbody>
+											        <tr>
+											          <td width="300">${dto.writeContent }</td>
+											          <td width="110">${dto.customerName }</td>
+											          <td width="120">${dto.writeInitdate }</td>
+											        </tr>
+										     	</tbody>
+											</c:otherwise> 
+										</c:choose>
 									</c:otherwise>
 									
 								</c:choose>
@@ -124,24 +137,57 @@ function next(commentId, writeId, result) {
 								
 							<c:otherwise>
 							
-									
-								<tbody>
-							        <tr>
-									<c:choose>
-										<c:when test="${dto.distinguish == 2 }">
-							      		    <td width="300">&nbsp;&nbsp;↳ 삭제된 글 입니다.</td>
-										</c:when>
-										
-										<c:otherwise>
-											 <td width="300">삭제된 글 입니다.</td>
-										</c:otherwise>
-										
-									</c:choose>
-							          <td width="110">${dto.customerName }</td>
-							          <td width="120">${dto.writeInitdate }</td>
-							        </tr>
-					    	  </tbody>
+								<c:choose>
+									<c:when test="${dto.distinguish == 2 }">
+										<c:choose>
+											<c:when test="${CUSTOMERID == dto.w_customerId }">
+												<tbody>
+											        <tr>
+											          <td width="300">&nbsp;&nbsp;↳ 삭제된 글 입니다.</td>
+											          <td width="110">${dto.customerName }</td>
+											          <td width="120">${dto.writeInitdate }</td>
+											        </tr>
+										      </tbody>
+											</c:when>
 											
+											<c:otherwise>
+												<tbody>
+											        <tr>
+											          <td width="300">&nbsp;&nbsp;↳ ${dto.writeContent }</td>
+											          <td width="110">${dto.customerName }</td>
+											          <td width="120">${dto.writeInitdate }</td>
+											        </tr>
+										      </tbody>
+											</c:otherwise>
+										</c:choose>
+									</c:when>
+									
+									<c:otherwise>
+										<c:choose>
+											<c:when test="${CUSTOMERID == dto.w_customerId }">
+												<tbody>
+											        <tr>
+											          <td width="300">삭제된 글 입니다.</td>
+											          <td width="110">${dto.customerName }</td>
+											          <td width="120">${dto.writeInitdate }</td>
+											        </tr>
+										      </tbody>
+											</c:when>
+											
+											<c:otherwise>
+												<tbody>
+											        <tr>
+											          <td width="300">${dto.writeContent }</td>
+											          <td width="110">${dto.customerName }</td>
+											          <td width="120">${dto.writeInitdate }</td>
+											        </tr>
+										     	</tbody>
+											</c:otherwise> 
+										</c:choose>
+									</c:otherwise>
+									
+								</c:choose>
+							
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>

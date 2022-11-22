@@ -215,11 +215,11 @@ color: #FFFDFD;
 					<div class="basketprice"><input type="hidden" id="p_price2" class="p_price" value=${dto.ordersSalePrice }>${dto.ordersSalePrice }</div>
 					<div class="num">
 					<c:set var="i" value="${i+1 }"/>
-					<div><input type="text" id="p_num2" class="p_num" size="2" maxlength="4" value="${dto.ordersQuantity }" onkeyup="javascript:basket.changePNum(${i});" style="padding-top: 7px;"></div>
+					<div><input readonly="readonly" type="text" id="p_num2" class="p_num" size="2" maxlength="4" value="${dto.ordersQuantity }" onkeyup="javascript:basket.changePNum(${i});" style="padding-top: 7px;"></div>
 					</div>
 					<div class="subdiv">
 					<div><a href="/Allways/Customer/customerCartDelete?ordersId=${dto.ordersId}" onclick="javascript:basket.delItem();" style="margin-left: 45px;">X</a></div>
-					</div>
+					</div> 
 				</div>
 			</div>
 		</c:forEach>

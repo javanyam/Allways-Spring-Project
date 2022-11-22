@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.springlec.base.model.customerBoardDetailDto;
 import com.springlec.base.model.customerBoardDto;
 
 public class customerBoardDaoImpl implements customerBoardDao {
@@ -29,24 +28,6 @@ public class customerBoardDaoImpl implements customerBoardDao {
 	public void customerBoardWrite(String customerId, String writeTitle, String writeContent, int writeId) throws Exception {
 		// TODO Auto-generated method stub
 		sqlSession.insert(nameSpace + ".customerBoardWrite");
-	}
-
-	@Override
-	public customerBoardDetailDto customerBoardDetail(String customerId, int writeId) throws Exception {
-		// TODO Auto-generated method stub
-		return sqlSession.selectOne(nameSpace + ".customerBoardDetail");
-	}
-
-	@Override
-	public List<customerBoardDetailDto> customerboardCommentList(int writeId) throws Exception {
-		// TODO Auto-generated method stub
-		return sqlSession.selectList(nameSpace + ".customerboardCommentList");
-	}
-
-	@Override
-	public void customerwriteComment(String customerId, int commentId, String writeContent) throws Exception {
-
-		sqlSession.insert(nameSpace + ".customerwriteComment");
 	}
 
 	

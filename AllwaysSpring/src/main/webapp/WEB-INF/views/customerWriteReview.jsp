@@ -104,7 +104,7 @@ function writeReview() {
 	}else {
 		alert("리뷰가 등록 되었습니다.");
 		form.method = "post";
-		form.action = "customerWriteReview";
+		form.action = "customerWriteReview.do";
 		form.submit();
 	}
 	
@@ -140,7 +140,7 @@ function previewFile() {
 		
 			<div class="left" style = "margin-left:140px; margin-top: 70px;">
 				<img src="" id = "cakeImage" height="400" alt="이미지 미리보기..." ><br>
-				<input type="file" name="file" onchange="previewFile(event)">
+				<input type="file" name="cakeviews" onchange="previewFile(event)">
 			</div>
 			
 			<div class="right">
