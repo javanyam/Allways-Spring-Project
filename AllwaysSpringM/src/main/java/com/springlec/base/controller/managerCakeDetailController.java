@@ -21,7 +21,7 @@ public class managerCakeDetailController {
 	@Autowired
 	HttpSession session;
 	
-	// 케이크 검색
+	// 케이크 디테일
 	@RequestMapping("cakeDetail")
 	public String searchCake(HttpServletRequest request, Model model) throws Exception {
 		
@@ -29,14 +29,14 @@ public class managerCakeDetailController {
 		return "managerManageCake";
 	}
 	
-	// 케이크 검색
+	// 케이크 수정
 	@RequestMapping("updateCake")
 	public String updateCake(MultipartHttpServletRequest request, MultipartFile file, Model model) throws Exception {
 		service.updateCake(request, file, model);
 		return "redirect:searchCake";
 	}
 	
-	// 케이크 검색
+	// 케이크 이름 중복체크
 	@RequestMapping("checkName2")
 	public String checkName2(HttpServletRequest request, Model model) throws Exception {
 		System.out.println("1");
@@ -44,7 +44,7 @@ public class managerCakeDetailController {
 		return "managerManageCake";
 	}
 	
-	// 케이크 검색
+	// 케이크 삭제
 	@RequestMapping("deleteCake")
 	public String deleteCake(HttpServletRequest request, Model model) throws Exception {
 		service.deleteCake(request, model);

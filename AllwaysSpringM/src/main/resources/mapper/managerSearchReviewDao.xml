@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.springlec.base.dao.managerSearchReviewDao">
+
+	<select id="searchReview" resultType="com.springlec.base.model.managerReviewListDto">
+		SELECT oreviewId, or_customerId, cakeName, goodsName, oreviewStarrating, oreviewInitdate 
+		FROM cake, goods, ordersreview 
+		WHERE or_cakeId = cakeId AND or_goodsId = goodsId AND oreviewDeletedate IS NULL
+		AND ${query} LIKE #{content}
+	</select>
+
+	<select id="reviewDetail" resultType="com.springlec.base.model.managerReviewDetailDto">
+		SELECT oreviewId, customerName, cakeName, goodsName, oreviewStarrating, oreviewContent, oreviewImage, oreviewInitdate, oreviewUpdatedate 
+		FROM cake, goods, ordersreview, customer 
+		WHERE or_cakeId = cakeId AND or_goodsId = goodsId AND oreviewDeletedate IS NULL
+		AND or_customerId = customerId AND oreviewId = #{oreviewId}
+	</select>
+
+
+</mapper>

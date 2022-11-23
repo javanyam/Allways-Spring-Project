@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.springlec.base.dao.managerGoodsDao">
+
+	<select id="viewGoodsList1" resultType="com.springlec.base.model.managerGoodsDto">
+		SELECT goodsId, goodsName, goodsCategory, goodsPrice FROM goods
+		WHERE goodsDeletedate IS NULL
+	</select>
+
+	<select id="viewGoodsList2" resultType="com.springlec.base.model.managerGoodsDto">
+		SELECT goodsId, goodsName, goodsCategory, goodsPrice FROM goods
+		WHERE goodsDeletedate IS NULL AND goodsCategory = #{goodsCategory}
+	</select>
+
+	<select id="searchGoods1" resultType="com.springlec.base.model.managerGoodsDto">
+		SELECT goodsId, goodsName, goodsCategory, goodsPrice FROM goods
+		WHERE goodsDeletedate IS NULL AND goodsName LIKE #{goodsName}
+	</select>
+
+	<select id="searchGoods2" resultType="com.springlec.base.model.managerGoodsDto">
+		SELECT goodsId, goodsName, goodsCategory, goodsPrice FROM goods
+		WHERE goodsDeletedate IS NULL AND goodsName LIKE #{goodsName} AND goodsCategory = #{goodsCategory}
+	</select>
+
+	<insert id="addGoods">
+		INSERT INTO goods (goodsName, goodsCategory, goodsPrice, goodsDetail, goodsImage, goodsInitdate, goodsLike, goodsView)
+		VALUES (#{goodsName}, #{goodsCategory}, #{goodsPrice}, #{goodsDetail}, #{goodsImage}, now(), 0, 0)
+	</insert>
+
+	<select id="checkGoodsName" resultType="int">
+		SELECT COUNT(*) FROM goods 
+		WHERE goodsName = #{goodsName} AND goodsDeletedate IS NULL
+	</select>
+
+</mapper>
