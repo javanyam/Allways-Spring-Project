@@ -13,9 +13,9 @@ public class customerOrderDaoImpl implements customerOrderDao {
 	public static String namespace = "com.springlec.base.dao.customerOrderDao";
 
 	@Override
-	public List<customerOrderDto> orderList(String customerId, String ordersId) throws Exception {
+	public customerOrderDto orderList(String customerId, String ordersId) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(namespace + ".orderList");
+		return sqlSession.selectOne(namespace + ".orderList");
 	}
 
 	@Override

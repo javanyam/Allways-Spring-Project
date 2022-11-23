@@ -208,7 +208,9 @@ color: #FFFDFD;
 		<c:forEach var = "dto" items="${cakeCartList }">
 			<div class="row data" align="center">
 				<div class="subdiv">
-					<div class="check"><input type="checkbox" name="ordersId" value="${dto.ordersId }" onclick="javascript:basket.checkItem();">&nbsp;</div>
+					<div class="check"><input type="checkbox" name="ordersId" value="${dto.ordersId }" onclick="javascript:basket.checkItem();">&nbsp;
+					<%-- <input type="hidden" name = "cakeId" value ="${dto.cakeId }"> --%>
+					</div>
 					<div class="pname" style="padding-top: 24px;"><span>${dto.cakeName }</span></div>
 				</div>
 				<div class="subdiv">

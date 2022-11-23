@@ -1,5 +1,6 @@
 package com.springlec.base.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,17 +23,17 @@ public class customerOrderDaoServiceImpl implements customerOrderDaoService {
 	public void orderList(HttpSession session, HttpServletRequest request, Model model) throws Exception {
 		
 		String customerId = (String) session.getAttribute("ID");
-		
 		String[] ordersId = request.getParameterValues("ordersId");
 		
-		List<customerOrderDto> dto = null;
-		
+		customerOrderDto dto = null;
+		List<customerOrderDto> dtos  = new ArrayList<customerOrderDto>();
+
 		for (int i = 0; i < ordersId.length; i++) {
-			
-		dto = dao.orderList(customerId, ordersId[i]);
-		session.setAttribute("orderList", dto);
-		
+			dto = (customerOrderDto)dao.orderList(customerId, ordersId[i]);
+			dtos.add(dto);
 		}
+		model.addAttribute("orderList", dtos);
+		
 	}
 
 	@Override

@@ -22,7 +22,7 @@ public class customerPayController {
 		
 		service.cartListUpdate(request);
 		
-		return "customerAbout";
+		return "redirect:customerAboutPage";
 	}
 
 }

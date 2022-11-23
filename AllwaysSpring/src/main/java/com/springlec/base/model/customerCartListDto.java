@@ -3,6 +3,7 @@ package com.springlec.base.model;
 public class customerCartListDto {
 
 	int ordersId;
+	int cakeId;
 	String cakeName;
 	int ordersSalePrice;
 	int ordersQuantity;
@@ -16,9 +17,10 @@ public class customerCartListDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public customerCartListDto(int ordersId, String cakeName, int ordersSalePrice, int ordersQuantity) {
+	public customerCartListDto(int ordersId, int cakeId, String cakeName, int ordersSalePrice, int ordersQuantity) {
 		super();
 		this.ordersId = ordersId;
+		this.cakeId = cakeId;
 		this.cakeName = cakeName;
 		this.ordersSalePrice = ordersSalePrice;
 		this.ordersQuantity = ordersQuantity;
@@ -39,6 +41,14 @@ public class customerCartListDto {
 
 	public void setOrdersId(int ordersId) {
 		this.ordersId = ordersId;
+	}
+
+	public int getCakeId() {
+		return cakeId;
+	}
+
+	public void setCakeId(int cakeId) {
+		this.cakeId = cakeId;
 	}
 
 	public String getCakeName() {

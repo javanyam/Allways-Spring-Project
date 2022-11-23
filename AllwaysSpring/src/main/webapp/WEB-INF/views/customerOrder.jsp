@@ -80,6 +80,7 @@ color: #FFFDFD;
 </div>
 
 <div align="center">
+
 <form action="" name ="detail" method="get">
 	<table>
 		<tr align="center">
@@ -89,13 +90,15 @@ color: #FFFDFD;
 			<!-- <th width="120px">Date</th> -->
 		</tr>
 		<c:forEach items="${orderList}" var="dto">
-		<tr align="center">
-		<%-- <td><input type = "hidden" name = "ordersSize" value ="${ordersSize }"></td> --%>
-			<td>${dto.cakeName }<input type="hidden" name="ordersId" value="${dto.ordersId}"><input type="hidden" name="cakeId" value="${dto.cakeId}"></td>
-			<td>${dto.ordersQuantity }<input type="hidden" name="ordersQuantity" value="${dto.ordersQuantity }"></td>
-			<td>￦ <fmt:formatNumber value="${dto.ordersSalePrice}"/><input type="hidden" name="ordersSalePrice" value="${dto.ordersSalePrice }"></td>
-			<!-- <td>2022-11-11</td> -->
-		</tr>
+			
+			<tr align="center">
+			<%-- <td><input type = "hidden" name = "ordersSize" value ="${ordersSize }"></td> --%>
+				<td>${dto.cakeName }<input type="hidden" name="ordersId" value="${dto.ordersId}"><input type="hidden" name="cakeId" value="${dto.cakeId}"></td>
+				<td>${dto.ordersQuantity }<input type="hidden" name="ordersQuantity" value="${dto.ordersQuantity }"></td>
+				<td>￦ <fmt:formatNumber value="${dto.ordersSalePrice}"/><input type="hidden" name="ordersSalePrice" value="${dto.ordersSalePrice }"></td>
+				<!-- <td>2022-11-11</td> -->
+			</tr>
+		
 		</c:forEach>
 		
 		

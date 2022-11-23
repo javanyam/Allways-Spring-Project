@@ -6,8 +6,8 @@
 <mapper namespace="com.springlec.base.dao.customerOrderDao">
 
 	<select id="orderList" resultType="com.springlec.base.model.customerOrderDto">
-		select o.ordersId, o.o_cakeId, o.ordersQuantity, o.ordersSalePrice, c.cakeName from cake c, orders o
-		where o.o_cakeId = c.cakeId and ordersStatus = '장바구니' and o.o_customerId = #{customerId} and ordersId = #{ordersId}
+		select o.ordersId, c.cakeId, o.ordersQuantity, o.ordersSalePrice, c.cakeName from cake c, orders o
+		where o.o_cakeId = c.cakeId and ordersStatus = '장바구니' and o.o_customerId = #{customerId} and o.ordersId = #{ordersId}
 	</select>
 	
 	<select id="customerInfo" resultType="com.springlec.base.model.customerOrderDto">
