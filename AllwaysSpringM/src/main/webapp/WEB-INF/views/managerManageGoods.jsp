@@ -62,13 +62,13 @@ input[type=file]::file-selector-button{
 			swal("추가상품 이름을 입력하세요",'','success');
 			return;
 		} else{
-			form.action="checkGoodsName2.do";
+			form.action="checkGoodsName2";
 			form.submit();
 		}
 	}
 	function cancelDo(){
 		var form=document.actionForm;
-		form.action="searchGoods.do";
+		form.action="searchGoods";
 		form.submit();
 	}
 	
@@ -78,14 +78,14 @@ input[type=file]::file-selector-button{
 			swal("이름 중복체크를 해주세요.",'','warning');
 			return;
 		}
-		form.action="updateGoods.do";
+		form.action="updateGoods";
 		swal("수정이 완료되었습니다",'','success');
 		form.submit();
 	}
 	
 	function deleteDo(){
 		var form=document.actionForm;
-		form.action="deleteGoods.do";
+		form.action="deleteGoods";
 		swal("삭제가 완료되었습니다",'','success');
 		form.submit();
 	}
@@ -94,7 +94,7 @@ input[type=file]::file-selector-button{
 <body>
 <%@include file="managerHeader.jsp"%>
 <div align="center">
-<form action="addGoods.do" method="post" enctype="multipart/form-data" name="actionForm">
+<form action="addGoods" method="post" enctype="multipart/form-data" name="actionForm">
 	<input type="hidden" name="index" value="${index }">
 	<h1 style="margin-bottom:3%;margin-top:3%"><b>추가상품 관리</b></h1>
 	<div style="display: inline-block;width:60%">
@@ -172,7 +172,7 @@ input[type=file]::file-selector-button{
 			사진
 		</div>
 		<div align="left" style="width:74%;display:inline-block">
-			<input type="file" class="form-control" style="border-color:#fdcdcd" name="goodsImage" onchange="previewFile(event)">
+			<input type="file" class="form-control" style="border-color:#fdcdcd" name="file" value="${goodsImage }" onchange="previewFile(event)">
 		</div>
 	</div>
 	<div style="display:inline-block;width:30%;height:50%" align="center">
@@ -181,7 +181,7 @@ input[type=file]::file-selector-button{
 		</div>
 		<div>
 			<img src="/Allways/${goodsImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
-			<input type="hidden" name="goodsImage" value="${goodsImage }">
+			<input type="hidden" name="file" value="${goodsImage }">
 		</div>
 		<div>
 			<input type="button" class="btn" style="background:#ffffff;border-color:#a87878;color:#a87878" value="취소" onclick="cancelDo()">
