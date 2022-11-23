@@ -78,7 +78,7 @@ color: #766262;
 		  </ul>
 		</div> -->
 
-		<div class="row" style="padding-left: 35px; margin-right: 0px;">
+<%-- 		<div class="row" style="padding-left: 35px; margin-right: 0px;">
 			
 			<c:forEach items="${cakeList}" var="dto">
 				<div class="col-lg-3 col-md-6" style="padding-bottom: 20px;" id="cakeList">
@@ -102,10 +102,9 @@ color: #766262;
 			</c:forEach>
 			
 			
-		</div>
+		</div> 
 
-	</main>
-<%-- 
+	</main> --%>
 	<main>
 	
 
@@ -152,9 +151,9 @@ color: #766262;
 		</div>
 
 
-	</main> --%>
+	</main>
 	
-<%-- 	<div align="center">
+ 	<div align="center">
 
 			<table>
 				<tr align="center" height="20">
@@ -197,7 +196,7 @@ color: #766262;
 					</td>
 				</tr>
 			</table>
-		</div> --%>
+		</div>
 
 	<script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"

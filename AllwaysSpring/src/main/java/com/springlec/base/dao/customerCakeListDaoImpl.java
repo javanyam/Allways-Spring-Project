@@ -13,7 +13,7 @@ public class customerCakeListDaoImpl implements customerCakeListDao {
 	public static String namespace = "com.springlec.base.dao.customerCakeListDao";
 
 	@Override
-	public List<customerCakeListDto> customerCakeList() throws Exception {
+	public List<customerCakeListDto> customerCakeList(String sort1, String sort2) throws Exception {
 
 		return sqlSession.selectList(namespace + ".customerCakeList");
 	}
