@@ -32,9 +32,16 @@ public class customerOrderListDto {
 		this.o_cakeId = o_cakeId;
 	}
 
+	public customerOrderListDto(int ROWNUM, String cakeName, int ordersSalePrice, int ordersQuantity,
+			Date ordersDate) {
+		super();
+		this.ROWNUM = ROWNUM;
+		this.cakeName = cakeName;
+		this.ordersSalePrice = ordersSalePrice;
+		this.ordersQuantity = ordersQuantity;
+		this.ordersDate = ordersDate;
+	}
 
-
-	
 	public int getROWNUM() {
 		return ROWNUM;
 	}

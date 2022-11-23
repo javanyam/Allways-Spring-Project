@@ -261,10 +261,10 @@
 			return;
 		}
 
-		if(form.codecheck.value != 1){
+		/* if(form.codecheck.value != 1){
 			alert("이메일 인증을 해주세요");
 			return;
-		}
+		} */
 		
 		form.submit();
 	}
@@ -325,7 +325,7 @@
 </head>
 <body>
 
-<form action="customerFindId.do" name="customerFindId" method="post" style="height: 1000px;">
+<form action="customerFindId" name="customerFindId" method="post" style="height: 1000px;">
 		<div class="container text-center">
 			<div class="row">
 				<div class="col">

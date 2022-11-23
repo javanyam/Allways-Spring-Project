@@ -97,15 +97,15 @@ function revision(index){
 		var form = document.customerMypage;
 		
 		if(index==1){
-		form.action="customerRevision.do";
+		form.action="customerRevisionPage";
 		}
 		
 		if(index==2){
-		form.action="customerOrderList.do";
+		form.action="customerOrders";
 		}
 		
 		if(index==3){
-		form.action="customerMyPointList.do";
+		form.action="customerMyPointListPage";
 		}
 		
 		form.submit();
@@ -115,7 +115,7 @@ function revision(index){
 /* 	
 function orderlist(){
 		var form = document.customerMypage;
-		form.action="customerOrdersList.do";
+		form.action="customerOrdersList";
 		form.submit();
 	}
 	 */
@@ -126,7 +126,7 @@ function orderlist(){
 </head>
 <body>
 	
-	<form action="customerMypage.do" name="customerMypage" method="post" style="height: 1400px;">
+	<form action="customerMypage" name="customerMypage" method="post" style="height: 1400px;">
 		<div class="container text-center">
 			<div class="row">
 				<div class="col">

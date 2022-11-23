@@ -14,19 +14,19 @@
 
 	function login(){
 		var form = document.customerShowId;
-		form.action="customerLoginPage.do";
+		form.action="customerLoginPage";
 		form.submit();
 	}
 	
 	function join(){
 		var form = document.customerShowId;
-		form.action="customerJoin.jsp";
+		form.action="customerJoinPage";
 		form.submit();
 	}
 	
 	function home(){
 		var form = document.customerShowId;
-		form.action="customerAbout.do";
+		form.action="customerAboutPage";
 		form.submit();
 	}
 	

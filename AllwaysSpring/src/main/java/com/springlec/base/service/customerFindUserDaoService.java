@@ -8,5 +8,6 @@ public interface customerFindUserDaoService {
 
 	public void findIdDao(HttpServletRequest request, Model model) throws Exception;
 	public void userCheckDao(HttpServletRequest request, Model model) throws Exception;
+	public void resetPwDao(HttpServletRequest request) throws Exception;
 	
 }

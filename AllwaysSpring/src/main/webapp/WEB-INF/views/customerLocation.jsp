@@ -43,7 +43,7 @@
 
 </head>
 <body style="background: #FFF1F1">
-	<form action="customerLocation.do" name="customerLocation" method="post">
+	<form action="customerLocation" name="customerLocation" method="post">
 		<div class="container text-center">
 			<div class="row">
 				<div class="col"></div>

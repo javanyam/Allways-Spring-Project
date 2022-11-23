@@ -54,15 +54,15 @@
 	<script type="text/javascript">
 
 	function resetAction(){
-		var form = document.customerShowPw;
-		var pw = document.customerShowPw.customerPw.value;
-		var pwchk = document.customerShowPw.customerPwCheck.value;
+		var form = document.customerResetPw;
+		var pw = document.customerResetPw.customerPw.value;
+		var pwchk = document.customerResetPw.customerPwCheck.value;
 		
 		var regExPw=/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/; //영문 대문자와 소문자, 특수문자, 숫자 모두 포함하여 8글자 이상
 
 		if(pw.length == 0) {
 			alert("비밀번호를 입력해 주세요.");
-			customerJoin.customerPw.focus();
+			form.customerPw.focus();
 			return;
 		}
 		if(!regExPw.test(pw)){
@@ -72,24 +72,23 @@
 		
 		if(pw != pwchk) {
 			alert("비밀번호가 일치하지 않습니다.");
-			customerJoin.customerPw.focus();
+			form.customerPw.focus();
 			return;
 		}
 		
 		alert("변경되었습니다.");
-		form.action="customerPwReset";
 		form.submit();
 	}
 	
 	function join(){
-		var form = document.customerShowPw;
-		form.action="customerJoin.jsp";
+		var form = document.customerResetPw;
+		form.action="customerJoinPage";
 		form.submit();
 	}
 	
 	function home(){
-		var form = document.customerShowPw;
-		form.action="customerAbout";
+		var form = document.customerResetPw;
+		form.action="customerAboutPage";
 		form.submit();
 	}
 	
@@ -141,7 +140,7 @@
 	
 <body>
 
-	<form action="customerShowPw" name="customerShowPw" method="post" style="height: 1400px;">
+	<form action="customerResetPw" name="customerResetPw" method="post" style="height: 1400px;">
 		<div class="container text-center">
 			<div class="row">
 				<div class="col">

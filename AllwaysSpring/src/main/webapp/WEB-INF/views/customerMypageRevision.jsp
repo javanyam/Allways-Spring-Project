@@ -247,7 +247,7 @@
 		}
 		
 		alert("정보가 수정되었습니다.");
-		form.action = "mypageUpdate.do";
+		form.action = "mypageUpdate";
 		form.submit();
 	}
 	
@@ -260,7 +260,7 @@
             alert("취소되었습니다.");
         } else {
             alert("탍퇴되었습니다.");
-            form.action = "deleteAction.do";
+            form.action = "deleteAction";
             form.submit();
         }
     }
@@ -270,7 +270,7 @@
 </head>
 <body>
 
-<form action="customerRevision.do" name="customerRevision" method="post" style="height: 1400px;">
+<form action="customerRevision" name="customerRevision" method="post" style="height: 1400px;">
 		<div class="container text-center">
 			<div class="row">
 				<div class="col">
@@ -305,7 +305,7 @@
 					<input id="input_box" type="text" name="customerPhone" placeholder=" '-' 를 제외하고 숫자만 입력해주세요" value="${USERINFO.customerPhone}"><br><br>
 					
 					<label id="label_design">EMAIL</label>
-					<input id="email_first" type="text" name="email1" value="${USEREMAIL.customerEmailId}"> @ <input id="email_first" type="text" name="email2" value="${USEREMAIL.customerEmailDomain}" placeholder="직접 입력">
+					<input id="email_first" type="text" name="email1" value="${EMAILID}"> @ <input id="email_first" type="text" name="email2" value="${EMAILDOMAIN}" placeholder="직접 입력">
 						<select id="input_box" name="selectemail" style="margin-top: 5px;" onChange="selectEmail(this)">
 							<option value="" selected="selected">선택하세요</option>
 							<option value="naver.com">naver.com</option>

@@ -41,7 +41,7 @@ public class customerLoginController {
 	
 	// 메인페이지
 	@RequestMapping("/customerAboutPage")
-	public String main(HttpSession session) throws Exception{
+	public String main() throws Exception{
 		return "customerAbout";
 	}
 	
@@ -52,6 +52,12 @@ public class customerLoginController {
 			return "customerAbout";
 		}
 
+	// Header > Location 페이지 이동
+		@RequestMapping("/customerLocationPage")
+		public String location() throws Exception{
+			return "customerLocation";
+		}
+		
 	
 	
 	

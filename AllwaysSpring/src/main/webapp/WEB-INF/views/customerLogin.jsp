@@ -174,8 +174,8 @@ function kakaoLogout() {
 			
 								
 				<a href="customerJoinPage" id="TextColor">ALLWAYS 첫 방문이신가요? ▶ JOIN</a><br>
-				<a href="customerFindId" id="TextColor" >ID/PASSWORD를 잊어버리셨나요? ▶ ID찾기 / </a>
-				<a href="customerFindPw" id="TextColor" >PASSWORD 찾기</a><br>
+				<a href="customerFindIdPage" id="TextColor" >ID/PASSWORD를 잊어버리셨나요? ▶ ID찾기 / </a>
+				<a href="customerFindPwPage" id="TextColor" >PASSWORD 찾기</a><br>
 				
 				<a href="customerAboutPage" id="TextColor" style="font-size: 21px;">GO HOME</a>
 				
