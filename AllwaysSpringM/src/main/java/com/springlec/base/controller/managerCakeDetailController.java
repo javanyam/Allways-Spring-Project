@@ -39,9 +39,16 @@ public class managerCakeDetailController {
 	// 케이크 검색
 	@RequestMapping("checkName2")
 	public String checkName2(HttpServletRequest request, Model model) throws Exception {
-		
+		System.out.println("1");
 		service.checkName2(request, model);
 		return "managerManageCake";
+	}
+	
+	// 케이크 검색
+	@RequestMapping("deleteCake")
+	public String deleteCake(HttpServletRequest request, Model model) throws Exception {
+		service.deleteCake(request, model);
+		return "redirect:searchCake";
 	}
 	
 	

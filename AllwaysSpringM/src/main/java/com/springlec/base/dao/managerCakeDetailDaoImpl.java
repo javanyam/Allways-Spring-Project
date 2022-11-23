@@ -39,6 +39,11 @@ public class managerCakeDetailDaoImpl implements managerCakeDetailDao {
 		return sqlSession.selectOne(nameSpace + ".findCakeId");
 	}
 
+	@Override
+	public void deleteCake(int cakeId) throws Exception {
+		sqlSession.update(nameSpace + ".deleteCake");
+	}
+
 	
 	
 }

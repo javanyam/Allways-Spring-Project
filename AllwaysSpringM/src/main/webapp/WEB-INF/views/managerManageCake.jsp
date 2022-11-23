@@ -126,40 +126,48 @@ input[type=file]::file-selector-button{
 				<input type="button" class="btn" style="background:#ffffff;border-color:#a87878;color:#a87878" value="중복체크" onclick="nameCheck()">
 			</div>
 		</div>
-		<div align="left" style="width:20%;display:inline-block">
-			가격
-		</div>
+		
+		<div align="left" style="width:20%;display:inline-block"> 가격 </div>
+		
 		<div align="left" style="width:74%;display:inline-block">
+		
 			<div style="width:30%;display:inline-block">
 				<input type="number" step="1000" name="cakePrice" class="form-control" style="border-color:#fdcdcd" value="${cakePrice }">
 			</div>원
+			
 		</div>
-		<div align="left" style="width:20%;height:20%;display:inline-block">
-			메뉴설명
-		</div>
+		
+		
+		<div align="left" style="width:20%;height:20%;display:inline-block"> 메뉴설명 </div>
+		
 		<div align="left" style="width:74%;height:20%;display:inline-block">
 			<textarea style="width:100%;margin-top:20px;border-color:#fdcdcd" class="form-control" name="cakeDetail">${cakeDetail }</textarea>
 		</div>
-		<div align="left" style="width:20%;display:inline-block">
-			사진
-		</div>
+		
+		
+		<div align="left" style="width:20%;display:inline-block"> 사진 </div>
+		
 		<div align="left" style="width:74%;display:inline-block">
-			<input type="file" class="form-control" name="cakeImage" style="border-color:#fdcdcd" onchange="previewFile(event)">
+			<input type="file" class="form-control" name="file" style="border-color:#fdcdcd" onchange="previewFile(event)">
 		</div>
+		
 	</div>
 	<div style="display:inline-block;width:30%;height:50%" align="center">
-		<div>
-			사진 미리보기
-		</div>
+	
+		<div> 사진 미리보기 </div>
 		<div>
 			<img src="/cakeListImage/${cakeImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
-			<input type="hidden" name="cakeImage" value="${cakeImage }">
+			<input type="text" name="file" value="${cakeImage }">
 		</div>
+		
+		
 		<div>
 			<input type="button" class="btn" style="background:#ffffff;border-color:#a87878;color:#a87878" value="취소" onclick="cancelDo()">
 			<input type="button" class="btn" style="background:#ffffff;border-color:#a87878;color:#a87878" value="수정" onclick="updateDo()">
 			<input type="button" class="btn" style="background:#ffffff;border-color:#a87878;color:#a87878" value="삭제" onclick="deleteDo()">
 		</div>
+		
+		
 	</div>
 </form>
 </div>

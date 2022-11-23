@@ -27,4 +27,8 @@
 		SELECT cakeId FROM cake WHERE cakeName = #{cakeOriginalName}
 	</select>
 
+	<update id="deleteCake">
+		UPDATE cake SET cakeDeletedate = NOW() WHERE cakeId = #{cakeId}
+	</update>
+
 </mapper>

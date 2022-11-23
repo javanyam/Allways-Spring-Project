@@ -16,4 +16,6 @@ public interface managerCakeDetailDaoService {
 	
 	public void checkName2(HttpServletRequest request, Model model) throws Exception;
 	
+	public void deleteCake(HttpServletRequest request, Model model) throws Exception;
+	
 }
