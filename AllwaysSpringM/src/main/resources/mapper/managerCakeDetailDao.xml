@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.springlec.base.dao.managerCakeDetailDao">
+
+	<select id="cakeDetail" resultType="com.springlec.base.model.managerCakeDetailDto">
+		SELECT cakeName, cakePrice, cakeDetail, cakeImage FROM cake 
+		WHERE cakeName = #{cakeName} AND cakeDeletedate IS NULL
+	</select>
+
+	<update id="updateCake1">
+		UPDATE cake SET cakeName = #{cakeName}, cakePrice = #{cakePrice}, cakeDetail = #{cakeDetail}, cakeUpdatedate = now() WHERE cakeId = #{cakeId}
+	</update>
+
+	<update id="updateCake2">
+		UPDATE cake 
+		SET cakeName = #{cakeName}, cakePrice = #{cakePrice}, cakeDetail = #{cakeDetail}, cakeImage = #{cakeImage}, cakeUpdatedate = now() 
+		WHERE cakeId = #{cakeId}
+	</update>
+
+	<select id="checkName2" resultType="int">
+		SELECT COUNT(*) FROM cake WHERE cakeName != #{cakeOriginalName} AND cakeName = #{cakeNewName}
+	</select>
+
+	<select id="findCakeId" resultType="int">
+		SELECT cakeId FROM cake WHERE cakeName = #{cakeOriginalName}
+	</select>
+
+</mapper>
