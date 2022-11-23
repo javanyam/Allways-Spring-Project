@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.springlec.base.dao.managerGoodsDetailDao">
+
+	<select id="viewGoodsDetail" resultType="com.springlec.base.model.managerGoodsDetailDto">
+		SELECT goodsName, goodsCategory, goodsPrice, goodsDetail, goodsImage FROM goods 
+		WHERE goodsName = #{goodsName} AND goodsDeletedate IS NULL
+	</select>
+
+	<select id="checkGoodsName2" resultType="int">
+		SELECT COUNT(*) FROM goods 
+		WHERE goodsName = #{goodsName} AND goodsName != #{goodsOriginalName} AND goodsDeletedate IS NULL
+	</select>
+
+	<update id="deleteGoods">
+		UPDATE goods SET goodsDeletedate=now() WHERE goodsName = #{goodsName}
+	</update>
+
+	<update id="updateGoods">
+		UPDATE goods 
+		SET goodsName = #{goodsName}, goodsCategory = #{goodsCategory}, goodsPrice = #{goodsPrice}, 
+		goodsDetail = #{goodsDetail}, goodsImage = #{originalName}, goodsUpdatedate = now() 
+		WHERE goodsName = #{goodsOriginalname}
+	</update>
+
+</mapper>

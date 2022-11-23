@@ -19,7 +19,7 @@ div{
 <script>
 	function cancelDo(){
 		var form=document.actionForm;
-		form.action="searchReview.do";
+		form.action="searchReview";
 		form.submit();
 	}
 </script>
@@ -28,7 +28,7 @@ div{
 <fmt:setLocale value="ko_kr"/>
 <%@include file="managerHeader.jsp"%>
 <div align="center">
-<form action="addCake.do" method="post" enctype="multipart/form-data" name="actionForm">
+<form action="" method="post" enctype="multipart/form-data" name="actionForm">
 	<h1 style="margin-bottom:3%;margin-top:3%"><b>리뷰 상세</b></h1>
 	<div style="display: inline-block;width:60%">
 		<div align="left" style="width:20%;display:inline-block">
@@ -36,13 +36,13 @@ div{
 		</div>
 		<div align="left" style="width:74%;display:inline-block">
 			<div style="width:50%;display:inline-block">
-				${DTO.or_cakeName }
+				${DTO.cakeName }
 			</div>
 			<div style="display:inline-block">
 				작성자: 
 			</div>
 			<div style="display:inline-block">
-				${DTO.or_customerId }
+				${DTO.customerName }
 			</div>
 		</div>
 		<div align="left" style="width:20%;display:inline-block">
@@ -70,11 +70,9 @@ div{
 		</div>
 	</div>
 	<div style="display:inline-block;width:30%;height:50%" align="center">
+		
 		<div>
-			사진
-		</div>
-		<div>
-			<img src="/Allways/Customer/reviewImageFile/${DTO.oreviewImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
+			<img src="/reviewImageFile/${DTO.oreviewImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
 		</div>
 		<div>
 			<input type="button" class="btn" style="background:#ffffff;border-color:#a87878;color:#a87878" value="뒤로" onclick="cancelDo()">
