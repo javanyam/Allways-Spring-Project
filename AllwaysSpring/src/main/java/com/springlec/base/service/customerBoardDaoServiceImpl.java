@@ -41,7 +41,7 @@ public class customerBoardDaoServiceImpl implements customerBoardDaoService {
 		List<customerBoardDto> dtos = dao.customerBoardList(combo, searchContent);
 		
 		int index = 1; // 시작 페이지 번호
-		int rowcount = 1; // 한 페이지에 출력할 리스트 개수
+		int rowcount = 10; // 한 페이지에 출력할 리스트 개수
 		int pagecount = 10; // 한 페이지에 출력할 페이지 개수
 		int pagepage = 0; // ??
 		
