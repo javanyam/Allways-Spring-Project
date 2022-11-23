@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.springlec.base.dao.managerOptionDao">
+
+	<select id="optionlist" resultType="com.springlec.base.model.managerOptionDto">
+		select cakeoptionId, cakeoptionCategory, cakeoptionValue, cakeoptionPrice from cakeoption where cakeoptionDeletedate is null
+	</select>
+
+	<select id="optioncheck" resultType="int">
+		select count(cakeoptionValue) from cakeoption where cakeoptionValue = #{optionName} and cakeoptionCategory = #{option} and cakeoptionDeletedate is null
+	</select>
+	
+	<insert id="optionadd">
+		insert into cakeoption (cakeoptionCategory, cakeoptionValue, cakeoptionPrice, cakeoptionInitdate) values (#{cakeoptionCategory}, #{cakeoptionValue}, #{cakeoptionPrice}, now())
+	</insert>
+	
+	<select id="optionsearch" resultType="com.springlec.base.model.managerOptionDto">
+		select cakeoptionId, cakeoptionCategory, cakeoptionValue, cakeoptionPrice from cakeoption where ${option} like #{Query} and cakeoptionDeletedate is null
+	</select>
+	
+	<select id="optiondetail" resultType="com.springlec.base.model.managerOptionDto">
+		select cakeoptionId, cakeoptionCategory, cakeoptionValue, cakeoptionPrice from cakeoption where cakeoptionId = #{cakeoptionId}
+	</select>
+	
+	<select id="optionupdatechk" resultType="int">
+		select count(cakeoptionValue) from cakeoption where cakeoptionValue = #{optionName} and cakeoptionCategory = #{option} and cakeoptionDeletedate is null
+	</select>
+	
+	<update id="optionupdate">
+		update cakeoption set cakeoptionCategory = #{cakeoptionCategory}, cakeoptionValue = #{cakeoptionValue}, cakeoptionPrice= #{cakeoptionPrice}, cakeoptionUpdatedate = now() where cakeoptionId = #{cakeoptionId}
+	</update>
+	
+	<update id="optiondelete">
+		update cakeoption set cakeoptionDeletedate = now() where cakeoptionId = #{cakeoptinId}
+	</update>
+	
+</mapper>
