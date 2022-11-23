@@ -33,9 +33,15 @@ public class managerOptionDaoImpl implements managerOptionDao {
 	}
 
 	@Override
-	public managerOptionDto optiondetail(String cakeoptionId) throws Exception {
+	public managerOptionDto optiondetail1(String cakeoptionId) throws Exception {
 		// TODO Auto-generated method stub
-		return (managerOptionDto)sqlSession.selectList(cakeoptionId);
+		return (managerOptionDto)sqlSession.selectList(nameSpace + ".optiondetail1");
+	}
+	
+	@Override
+	public List<managerOptionDto> optiondetail2() throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(nameSpace + ".optiondetail2");
 	}
 
 	@Override

@@ -9,7 +9,8 @@ public interface managerOptionDaoService {
 	public void optioncheck(HttpServletRequest request, Model model) throws Exception;
 	public void optionadd(HttpServletRequest request) throws Exception;
 	public void optionsearch(HttpServletRequest request, Model model) throws Exception;
-	public void optiondetail(HttpServletRequest request, Model model) throws Exception;
+	public void optiondetail1(HttpServletRequest request, Model model) throws Exception;
+	public void optiondetail2(Model model) throws Exception;
 	public void optionupdatechk(HttpServletRequest request, Model model) throws Exception;
 	public void optionupdate(HttpServletRequest request) throws Exception;
 	public void optiondelete(HttpServletRequest request) throws Exception;
