@@ -44,16 +44,6 @@ public class customerUserinfoDto {
 		this.customerAddressDetail = customerAddressDetail;
 	}
 
-	
-
-
-	public customerUserinfoDto(String customerEmailId, String customerEmailDomain) {
-		super();
-		this.customerEmailId = customerEmailId;
-		this.customerEmailDomain = customerEmailDomain;
-	}
-
-
 
 	// M
 	public String getCustomerId() {

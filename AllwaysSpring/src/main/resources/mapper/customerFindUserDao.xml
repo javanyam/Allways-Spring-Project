@@ -9,8 +9,12 @@
 		select customerId from customer where customerName = #{customerName} and customerBirthday = #{customerBirthday} and customerPhone = #{customerPhone} and customerEmail = #{customerEmail} and customerDeletedate is null
 	</select>
 	
-	<select id="userCheckDad" resultType="int">
+	<select id="userCheckDao" resultType="int">
 		select count(*) from customer where customerId = #{customerId} and customerName = #{customerName} and customerBirthday = #{customerBirthday} and customerPhone = #{customerPhone} and customerEmail = #{customerEmail} and customerDeletedate is null
 	</select>
+	
+	<update id="resetPwDao">
+		update customer set customerPw = #{customerPw} where customerId = #{customerId}
+	</update>
 	
 </mapper>

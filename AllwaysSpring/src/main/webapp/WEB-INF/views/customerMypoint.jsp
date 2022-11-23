@@ -55,18 +55,18 @@
 					</c:if>
 				
 					<c:if test="${index != 1 }">
-						<a href="customerMyPointList.do?index=${index-1 }">이전</a>&nbsp;
+						<a href="customerMyPointListPage?index=${index-1 }">이전</a>&nbsp;
 					</c:if> 
 			
 					<c:forEach var="cnt" begin="${pagecount * pagepage + 1}" end="${pagecount * (pagepage + 1)}">
 						<c:if test="${cnt <= Math.ceil(arrsize / rowcount)}">
 						
 							<c:if test="${cnt == index }">
-								<a href="customerMyPointList.do?index=${cnt }" style="font-size:1.3em">[${cnt }]</a>
+								<a href="customerMyPointListPage?index=${cnt }" style="font-size:1.3em">[${cnt }]</a>
 							</c:if>
 					
 							<c:if test = "${cnt != index }">
-								<a href="customerMyPointList.do?index=${cnt }" style="font-size:0.9em">[${cnt }]</a>&nbsp;
+								<a href="customerMyPointListPage?index=${cnt }" style="font-size:0.9em">[${cnt }]</a>&nbsp;
 							</c:if>
 							
 						</c:if>
@@ -79,7 +79,7 @@
 					</c:if>
 					
 					<c:if test="${index < Math.ceil(arrsize / rowcount)}">
-						<a href="customerMyPointList.do?index=${index+1 }">다음</a>&nbsp;
+						<a href="customerMyPointListPage?index=${index+1 }">다음</a>&nbsp;
 					</c:if>
 					
 				</td>

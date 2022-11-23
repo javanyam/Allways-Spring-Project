@@ -19,4 +19,9 @@ public class customerFindUserDaoImpl implements customerFindUserDao {
 		return sqlSession.selectOne(nameSpace + ".userCheckDao");
 	}
 
+	@Override
+	public void resetPwDao(String customerId, String customerPw) throws Exception {
+		sqlSession.update(nameSpace + ".resetPwDao");
+	}
+
 }

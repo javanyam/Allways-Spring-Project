@@ -179,7 +179,7 @@ function signup() {
 	                <a href="customerAboutPage" id="center" class="nav-item nav-link active">HOME</a>
 	                <a href="customerCakeList" id="center" class="nav-item nav-link active">CAKE</a>
 	                <a href="customerBoardList" id="center" class="nav-item nav-link">BOARD</a>
-	                <a href="customerLocation" id="center" class="nav-item nav-link">LOCATION</a>
+	                <a href="customerLocationPage" id="center" class="nav-item nav-link">LOCATION</a>
 	          		<!--   <a href="" id="center" class="nav-item nav-link" style="width: 300px;"></a> -->
 	                <a href="customerCartList" id="center" class="nav-item nav-link">CART</a>
 	                
@@ -226,7 +226,7 @@ function signup() {
             </div>
             <div class="col-lg-6 text-right">
                 <div class="d-inline-flex align-items-center">
-                    <a class="text-primary pl-2" href="customerMypage">
+                    <a class="text-primary pl-2" href="customerMypagePage">
                         <i class="">${NAME}님 환영합니다!&nbsp;&nbsp;&nbsp;</i>
                     </a>
                     <input type="button" class="text-primary pl-2" onclick="logout()" value="LOGOUT">
@@ -249,7 +249,7 @@ function signup() {
 	                <a href="customerAboutPage" id="center" class="nav-item nav-link active">HOME</a>
 	                <a href="customerCakeList" id="center" class="nav-item nav-link active">CAKE</a>
 	                <a href="customerBoardList" id="center" class="nav-item nav-link">BOARD</a>
-	                <a href="customerLocation" id="center" class="nav-item nav-link" >LOCATION</a>
+	                <a href="customerLocationPage" id="center" class="nav-item nav-link" >LOCATION</a>
 	                <!-- <a href="" id="center" class="nav-item nav-link" style="width: 300px;"></a> -->
 	                <a href="customerCartList" id="center" class="nav-item nav-link">CART</a>
 	                
