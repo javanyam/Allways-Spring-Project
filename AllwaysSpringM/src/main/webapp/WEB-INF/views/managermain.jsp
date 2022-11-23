@@ -35,7 +35,7 @@ table tr.header{
 	<div class="main">
 		<h2 class="inner">미처리 주문</h2>
 		<div align="right" style="margin:1px">
-			<a href="MorderStatus.do" class="viewall">전체보기</a>
+			<a href="managerViewOrderList" class="viewall">전체보기</a>
 		</div>
 		<div class="inner">
 			<table class="table">
