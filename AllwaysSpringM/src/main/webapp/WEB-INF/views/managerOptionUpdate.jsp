@@ -32,38 +32,35 @@ input[type=file]::file-selector-button{
 <script type="text/javascript">
 function Return(){
 		var upd = document.upd;
-		upd.action="return.do";
+		upd.action="Mlist";
 		upd.submit();
 		upd.method = "post";
 		}
 function Update(){
 		var upd = document.upd;
-		var Cek = upd.ko.value;
-		console.log(Cek);
-		if(Cek == 1){
-			upd.action="Update.do";
+			upd.action="Update";
+			upd.submit();
 			upd.method = "post";
 			swal("수정이 완료되었습니다",'','success');
-			upd.submit();
-			return;
-		}else if(Cek == 2){
+			
+		/* else if(Cek == 2){
 			swal("사용 불가능한 아이디 입니다.",'','warning');
 			return;
 		}else{
 			swal("중복체크해주세요",'','warning');
 			return;
-		}
+		} */
 }
 function Delete(){
 		var upd = document.upd;
-		upd.action="MO_Delete.do";
+		upd.action="MO_Delete";
 		swal("삭제가 완료되었습니다",'','success');
 		upd.submit();
 		upd.method = "post";
 		}
 function CHECKOPTION(){
 		var upd = document.upd;
-		upd.action="OUpdateCheck.do";
+		upd.action="OUpdateCheck";
 		upd.submit();
 		upd.method = "post";
 
@@ -99,15 +96,15 @@ function previewFile() {
 		<div align="left" style="width:74%;display:inline-block">
 			<div style="width:50%;display:inline-block">
 				<select name="option"  style="background:#ffffff;border-color:#a87878;color:#a87878">
-				<c:if test="${check == null }">
+			<%-- 	<c:if test="${check == null }"> --%>
 					<option value="${cake_option.cakeoptionCategory}">${cake_option.cakeoptionCategory}</option>
-				</c:if>
-				<c:if test="${check == true }">
+				<%-- </c:if> --%>
+				<%-- <c:if test="${check == true }">
 					<option value="${option}">${option}</option>
 				</c:if>
 				<c:if test="${check == false }">
 					<option value="${option}">${option}</option>
-				</c:if>
+				</c:if> --%>
 					<option value="size">size</option>
 					<option value="IcingColor">IcingColor</option>
 					<option value="BorderColor">BorderColor</option>
@@ -122,45 +119,45 @@ function previewFile() {
 		</div>
 		<div align="left" style="width:74%;height:20%;display:inline-block">
 			<div style="width:50%;display:inline-block">
-				<input type="hidden" style="border-color:#FDCDCD" name="optionId" value="${cake_option.cakeoptionId}" readonly/>
-				<c:if test="${check == null }">
+				<input type="text" style="border-color:#FDCDCD" size="30" name="optionId" value="${cake_option.cakeoptionId}" readonly/>
+				<%-- <c:if test="${check == null }">
 				<input type="text" style="border-color:#FDCDCD" size="30" name="optionId" value="${cake_option.cakeoptionId}" readonly/></c:if>
 				<c:if test="${check == true }">
 				<input type="text" style="border-color:#FDCDCD" size="30" name="optionId" value="${optionId}" readonly/></c:if>
 				<c:if test="${check == false }">
-				<input type="text" style="border-color:#FDCDCD" size="30" name="optionId" value="${optionId}" readonly/></c:if>
+				<input type="text" style="border-color:#FDCDCD" size="30" name="optionId" value="${optionId}" readonly/></c:if> --%>
 			</div>
 		</div>
 		<div align="left" style="width:20%;display:inline-block">
 			옵션 이름 :
 		</div>
 			<div align="left" style="width:74%;height:20%;display:inline-block">
-					<input type="hidden" name="optionName" value="${cake_option.cakeoptionValue}" >
-				<c:if test="${check == null }">
+					<input type="text" style="border-color:#FDCDCD" size="30" name="optionName" value="${cake_option.cakeoptionValue}" readonly="readonly" >
+			<%-- 	<c:if test="${check == null }">
 					<input type="hidden" name="ko" value="0"/>
-					<input type="text" style="border-color:#FDCDCD" size="30" name="optionName" value="${cake_option.cakeoptionValue}" ></c:if>
+					<input type="text" style="border-color:#FDCDCD" size="30" name="optionName" value="${cake_option.cakeoptionValue}" readonly="readonly" ></c:if>
 				<c:if test="${check == true }">
 					<input type="hidden" name="ko" value="2"/>
-					<input type="text" style="border-color:#FDCDCD" size="30" name="optionName" value="${optionName}" >
+					<input type="text" style="border-color:#FDCDCD" size="30" name="optionName" value="${optionName}" readonly="readonly" >
 				<br>
 				<span style = " font-size:1.0em;  color: red;"> 사용 불가능한 이름 입니다</span></c:if>
 				<c:if test="${check == false }">
 				<input type="hidden" name="ko" value="1"/>
-				<input type="text" style="border-color:#FDCDCD" size="30" name="optionName" value="${optionName}" >
+				<input type="text" style="border-color:#FDCDCD" size="30" name="optionName" value="${optionName}" readonly="readonly" >
 		 		<br>
-		 		<span style = " font-size:1.0em;  color: blue;"> 사용 가능한 이름 입니다</span></c:if>
+		 		<span style = " font-size:1.0em;  color: blue;"> 사용 가능한 이름 입니다</span></c:if> --%>
 			</div>
 		<div align="left" style="width:20%;display:inline-block">
 			가격 이름 :
 		</div>
 			<div align="left" style="width:74%;height:20%;display:inline-block">
-				<input type="hidden" style="border-color:#FDCDCD" name="optionPrice" value="${cake_option.cakeoptionPrice}" >
-				<c:if test="${check == null }">
-				<input type="text" style="border-color:#FDCDCD" name="optionPrice" value="${cake_option.cakeoptionPrice}" ></c:if>
+				<input type="text" style="border-color:#FDCDCD" name="optionPrice" value="${cake_option.cakeoptionPrice}" >
+				<%-- <c:if test="${check == null }"> --%>
+				<%-- <input type="text" style="border-color:#FDCDCD" name="optionPrice" value="${cake_option.cakeoptionPrice}" ></c:if>
 				<c:if test="${check == true }"> 
 				<input type="text" style="border-color:#FDCDCD" name="optionPrice" value="${optionPrice}" ></c:if>
 				<c:if test="${check == false }"> 
-				<input type="text" style="border-color:#FDCDCD" name="optionPrice" value="${optionPrice}" ></c:if>	
+				<input type="text" style="border-color:#FDCDCD" name="optionPrice" value="${optionPrice}" ></c:if>	 --%>
 			</div>
 			<div align="left" style="width:20%;display:inline-block">
 				사진
@@ -189,7 +186,7 @@ function previewFile() {
 		</div>
 		<div align="center" style="width:74%;display:inline-block">
 			<input type="button" style="background:#ffffff;border-color:#a87878;color:#a87878" value="돌아가기" onclick="Return()">
-			<input type="button" style="background:#ffffff;border-color:#a87878;color:#a87878" value="중복체크" onclick="CHECKOPTION()">
+		<!-- 	<input type="button" style="background:#ffffff;border-color:#a87878;color:#a87878" value="중복체크" onclick="CHECKOPTION()"> -->
 			<input type="button" style="background:#ffffff;border-color:#a87878;color:#a87878" value="수정" onclick="Update()">
 			<input type="button" style="background:#ffffff;border-color:#a87878;color:#a87878" value="삭제" onclick="Delete()">
 		</div>

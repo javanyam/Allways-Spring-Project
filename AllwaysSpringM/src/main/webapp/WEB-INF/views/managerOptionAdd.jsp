@@ -34,12 +34,12 @@ var num = /^[0-9]*$/;
 document.optionPrice;
 function Return(){
 		var add = document.add;
-		add.action="return.do";
+		add.action="Mlist";
 		add.submit();
 		}
 function CHECKOPTION(){
 		var add = document.add;
-		add.action="ONameCheck.do";
+		add.action="ONameCheck";
 		add.submit();
 
 }
@@ -54,7 +54,7 @@ function ADDOPTION() {
 		var Cek = add.ko.value;
 		console.log(Cek);
 		if(Cek == 1){
-			add.action="addOption.do";
+			add.action="addOption";
 			add.method = "post";
 			swal("추가가 완료되었습니다",'','success');
 			add.submit();
@@ -122,7 +122,7 @@ function previewFile() {
 			<input type="hidden" name="ko" style="border-color:#fdcdcd" value="0"/></c:if>
 		<c:if test="${check == true }"> 
 				<span style = " font-size:1.0em;  color: red;"> 사용 불가능한 이름 입니다</span>
-			<<input type="hidden" name="ko" style="border-color:#fdcdcd" value="2"/></c:if>
+			<input type="hidden" name="ko" style="border-color:#fdcdcd" value="2"/></c:if>
 		<c:if test="${check == false }"> 
 				<span style = " font-size:1.0em;  color:  blue;"> 사용 가능한 이름 입니다</span>
 			<input type="hidden" name="ko" style="border-color:#fdcdcd" value="1"/></c:if>

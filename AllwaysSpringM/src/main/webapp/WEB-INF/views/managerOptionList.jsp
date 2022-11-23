@@ -31,13 +31,13 @@ input[type=file]::file-selector-button{
 <script type="text/javascript">
 function SELECT1() {
 	var Olist = document.Olist;
-	Olist.action="Mselect.do";
+	Olist.action="Mselect";
 	Olist.submit();
 	
 }
 function Addoption(){
 		var Olist = document.Olist;
-		Olist.action="addList.do";
+		Olist.action="addList";
 		Olist.submit();
 		}
 		
@@ -76,7 +76,7 @@ function Addoption(){
 			<c:forEach items = "${OptionList}" var = "dto" begin="${(index-1)*rowcount }" end="${(index)*rowcount-1}">
 			
 		<tr>
-			<td><a href="optionId.do?cakeoptionId=${dto.cakeoptionId}" class="tablebutton">${dto.cakeoptionId}</a></td>
+			<td><a href="optionId?cakeoptionId=${dto.cakeoptionId}" class="tablebutton">${dto.cakeoptionId}</a></td>
 			<td>${dto.cakeoptionCategory}</td>
 			<td>${dto.cakeoptionValue}</td>
 			<td><fmt:formatNumber value="${dto.cakeoptionPrice}" type="currency"/></td>
@@ -87,51 +87,51 @@ function Addoption(){
 </div>
 <c:if test="${Query==null }">
 	<div class="tablediv" align="center">
-		<a href="Mlist.do?index=1">처음으로</a>
+		<a href="Mlist?index=1">처음으로</a>
 		<c:if test="${index!=1 }">
-			<a href="Mlist.do?index=${index-1 }">이전</a>
+			<a href="Mlist?index=${index-1 }">이전</a>
 		</c:if>
 		<c:forEach var="dto" begin="${pagecount*pagepage+1}" end="${pagecount*(pagepage+1) }">
 			<c:if test="${dto<=Math.ceil(Size/rowcount) }">
 				<c:if test="${dto==index }">
 					<span style="display:inline">
-						<a href="Mlist.do?index=${dto }" style="font-size:1.3em">${dto }</a>
+						<a href="Mlist?index=${dto }" style="font-size:1.3em">${dto }</a>
 					</span>
 				</c:if>
 				<c:if test="${dto!=index }">
-					<a href="Mlist.do?index=${dto }" style="font-size:0.9em">${dto }</a>
+					<a href="Mlist?index=${dto }" style="font-size:0.9em">${dto }</a>
 				</c:if>
 			</c:if>
 		</c:forEach>
 		<c:if test="${index<Math.ceil(Size/rowcount) }">
-			<a href="Mlist.do?index=${index+1 }">다음</a>
+			<a href="Mlist?index=${index+1 }">다음</a>
 		</c:if>
-		<a href="Mlist.do?index=${Math.ceil(Size/rowcount) }">끝으로</a>
+		<a href="Mlist?index=${Math.ceil(Size/rowcount) }">끝으로</a>
 	</div>
 	</c:if>
 	
 	<c:if test="${Query!=null }">
 	<div class="tablediv" align="center">
-		<a href="Mselect.do?index=1&query=${Query}">처음으로</a>
-		<c:if test="${index!=1 }">
-			<a href="Mselect.do?index=${index-1 }&query=${Query}">이전</a>
+		<a href="Mselect?index=1&query=${Query}">처음으로</a>
+		<c:if test="${index!=1}">
+			<a href="Mselect?index=${index-1}&query=${Query}">이전</a>
 		</c:if>
-		<c:forEach var="cnt" begin="${pagecount*pagepage+1}" end="${pagecount*(pagepage+1) }">
-			<c:if test="${cnt<=Math.ceil(Size/rowcount) }">
-				<c:if test="${cnt==index }">
+		<c:forEach var="cnt" begin="${pagecount*pagepage+1}" end="${pagecount*(pagepage+1)}">
+			<c:if test="${cnt<=Math.ceil(Size/rowcount)}">
+				<c:if test="${cnt==index}">
 					<span style="display:inline">
-						<a href="Mselect.do?index=${cnt }&query=${Query}" style="font-size:1.3em">${cnt }</a>
+						<a href="Mselect?index=${cnt}&query=${Query}" style="font-size:1.3em">${cnt}</a>
 					</span>
 				</c:if>
 				<c:if test="${cnt!=index }">
-					<a href="Mselect.do?index=${cnt }&query=${Query}" style="font-size:0.9em">${cnt }</a>
+					<a href="Mselect?index=${cnt}&query=${Query}" style="font-size:0.9em">${cnt}</a>
 				</c:if>
 			</c:if>
 		</c:forEach>
 		<c:if test="${index<Math.ceil(Size/rowcount) }">
-			<a href="Mselect.do?index=${index+1 }&query=${Query}">다음</a>
+			<a href="Mselect?index=${index+1}&query=${Query}">다음</a>
 		</c:if>
-		<a href="Mselect.do?index=${Math.ceil(Size/rowcount) }&query=${Query}">끝으로</a>
+		<a href="Mselect?index=${Math.ceil(Size/rowcount)}&query=${Query}">끝으로</a>
 	</div>
 	</c:if>
 </form>
