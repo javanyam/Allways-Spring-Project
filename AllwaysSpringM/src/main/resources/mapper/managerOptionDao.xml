@@ -21,8 +21,12 @@
 		select cakeoptionId, cakeoptionCategory, cakeoptionValue, cakeoptionPrice from cakeoption where ${option} like #{Query} and cakeoptionDeletedate is null
 	</select>
 	
-	<select id="optiondetail" resultType="com.springlec.base.model.managerOptionDto">
+ 	<select id="optiondetail1" resultType="com.springlec.base.model.managerOptionDto">
 		select cakeoptionId, cakeoptionCategory, cakeoptionValue, cakeoptionPrice from cakeoption where cakeoptionId = #{cakeoptionId}
+	</select>
+	
+	<select id="optiondetail2" resultType="com.springlec.base.model.managerOptionDto">
+		select cakeoptionCategory from cakeoption group by cakeoptionCategory
 	</select>
 	
 	<select id="optionupdatechk" resultType="int">

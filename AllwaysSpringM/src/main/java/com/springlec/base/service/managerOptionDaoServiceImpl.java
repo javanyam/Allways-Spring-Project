@@ -110,13 +110,21 @@ public class managerOptionDaoServiceImpl implements managerOptionDaoService {
 	}
 
 	@Override
-	public void optiondetail(HttpServletRequest request, Model model) throws Exception {
+	public void optiondetail1(HttpServletRequest request, Model model) throws Exception {
 		String cakeoptionId = request.getParameter("cakeoptionId");
-		managerOptionDto dto = dao.optiondetail(cakeoptionId);
+		managerOptionDto dto = dao.optiondetail1(cakeoptionId);
 		model.addAttribute("cake_option", dto);
 		
 	}
 
+	@Override
+	public void optiondetail2(Model model) throws Exception {
+
+		List<managerOptionDto> dtos = dao.optiondetail2();
+		
+		model.addAttribute("optiondetail", dtos);
+	}
+	
 	@Override
 	public void optionupdatechk(HttpServletRequest request, Model model) throws Exception {
 		String optionId = request.getParameter("optionId");
@@ -156,5 +164,7 @@ public class managerOptionDaoServiceImpl implements managerOptionDaoService {
 		String cakeoptionId = request.getParameter("optionId");
 		dao.optiondelete(cakeoptionId);
 	}
+
+	
 
 }

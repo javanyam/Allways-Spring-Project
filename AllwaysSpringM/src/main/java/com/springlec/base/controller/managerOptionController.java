@@ -56,7 +56,8 @@ public class managerOptionController {
 	// 케이크 옵션 추가
 	@RequestMapping("optionId")
 	public String optiondetail(HttpServletRequest request, Model model) throws Exception{
-		service.optiondetail(request, model);
+		service.optiondetail1(request, model);
+		service.optiondetail2(model);
 		return "managerOptionUpdate";
 	}
 	

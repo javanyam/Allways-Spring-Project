@@ -14,6 +14,13 @@ public class managerOptionDto {
 	
 	
 	
+	public managerOptionDto(String cakeoptionCategory) {
+		super();
+		this.cakeoptionCategory = cakeoptionCategory;
+	}
+
+
+
 	public managerOptionDto(int cakeoptionId, String cakeoptionCategory, String cakeoptionValue, int cakeoptionPrice) {
 		super();
 		this.cakeoptionId = cakeoptionId;
