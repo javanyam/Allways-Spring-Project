@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.springlec.base.dao.managerCakeDao">
+
+	<select id="searchCake" resultType="com.springlec.base.model.managerCakeListDto">
+		SELECT cakeId, cakeName, cakePrice, cakeViews, cakeLike FROM cake WHERE cakeName LIKE #{cakeName}
+		AND cakeDeletedate IS NULL
+	</select>
+	
+	<insert id="addCake">
+		INSERT INTO cake (cakeName, cakePrice, cakeImage, cakeDetail, cakeInitdate, cakeViews, cakeLike) 
+		VALUES (#{cakeName}, #{cakePrice}, #{originalName}, #{cakeDetail}, now(), 0, 0)
+	</insert>
+
+	<select id="cakeNameCheck" resultType="int">
+		SELECT COUNT(*) FROM cake WHERE cakeName = #{cakeName} AND cakeDeleteDate IS NULL
+	</select>
+
+</mapper>
