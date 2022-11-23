@@ -183,29 +183,8 @@ function signup() {
 	          		<!--   <a href="" id="center" class="nav-item nav-link" style="width: 300px;"></a> -->
 	                <a href="customerCartList" id="center" class="nav-item nav-link">CART</a>
 	                
-	               <%--  <div class="col-md-4 text-end" style="margin-right: 30px;">
-						<%if (session.getAttribute("ID") == null) { %>
-							<form name="loginbtn" method="post">
-								<input id="center" type="button" class="nav-item nav-link" onclick="login()" value="LOGIN"> 
-								<input id="center" type="button" class="nav-item nav-link" onclick="signup()" value="JOIN">
-							</form>
-						<%} %>
-						
-						<%if (session.getAttribute("ID") != null) { %>
-							<form name="loginokay" method="post" style="position: absolute; right: 0px; top: 30px;">
-								<%=session.getAttribute("NAME") %>님, 안녕하세요! 
-								<input id="center" type="submit" class="nav-item nav-link" onclick="mypage()" value="마이페이지">
-								<input id="center" type="submit" class="nav-item nav-link" onclick="javascript: form.action='CustomerMain'" value="로그아웃">
-							</form>
-						<%} %>
-					</div>
-	                 --%>
-	                	
-	               <!--  <a href="customerJoin" id="center" class="nav-item nav-link">JOIN</a>
-	                <a href="customerLoginPage" id="center" class="nav-item nav-link">LOGIN</a> -->
 	                
 	            </div>
-	            	<!-- <a href="" class="btn btn-primary d-none d-lg-block">Book Now</a> -->
 	        </div>
 	    </nav>
 					 <hr id="Line" style="right: 0px; left: 40px; margin-top: 0px;">
@@ -230,7 +209,6 @@ function signup() {
                         <i class="">${NAME}님 환영합니다!&nbsp;&nbsp;&nbsp;</i>
                     </a>
                     <input type="button" class="text-primary pl-2" onclick="logout()" value="LOGOUT">
-                       <!--  <i class="text-primary pl-2" >LOGOUT</i> -->
                 </div>
             </div>
         </div>
@@ -244,35 +222,19 @@ function signup() {
 	       	 	<div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
 	            <div class="navbar-nav m-auto py-0">
 		            <a href="customerAboutPage" class="navbar-brand ml-lg-3">
-		       			 <img src="./images/HeaderLogo.png"><!--  style="padding-left: 90px;"></img> -->
+		       			 <img src="./images/HeaderLogo.png">
 		        	</a>
 	                <a href="customerAboutPage" id="center" class="nav-item nav-link active">HOME</a>
 	                <a href="customerCakeList" id="center" class="nav-item nav-link active">CAKE</a>
 	                <a href="customerBoardList" id="center" class="nav-item nav-link">BOARD</a>
 	                <a href="customerLocationPage" id="center" class="nav-item nav-link" >LOCATION</a>
-	                <!-- <a href="" id="center" class="nav-item nav-link" style="width: 300px;"></a> -->
 	                <a href="customerCartList" id="center" class="nav-item nav-link">CART</a>
 	                
 	              
-						<%-- <%if (session.getAttribute("ID") == null) { %>
-							<form name="loginbtn" method="post">
-								<input id="center" type="button" class="nav-item nav-link" onclick="login()" value="LOGIN"> 
-								<input id="center" type="button" class="nav-item nav-link" onclick="signup()" value="JOIN">
-							</form>
-						<%} %>
-						 --%>
-					<%-- <%=session.getAttribute("NAME") %>님, 안녕하세요!  --%>
-					
-<!-- 					<a href="customerMypage" id="center" class="nav-item nav-link" onclick="mypage()">MYPAGE</a>
- -->                	<!-- <a href="customerLogout" id="center" class="nav-item nav-link" onclick="logout()">LOGOUT</a> -->
-	                
-			               <!--  <a href="customerJoin" id="center" class="nav-item nav-link">JOIN</a>
-			                <a href="customerLoginPage" id="center" class="nav-item nav-link">LOGIN</a> -->
 	            </div>
-	            	<!-- <a href="" class="btn btn-primary d-none d-lg-block">Book Now</a> -->
 	        </div>
 	    </nav>
-					 <hr id="Line" style="right: 0px; left: 40px; margin-top: 0px;">
+		 <hr id="Line" style="right: 0px; left: 40px; margin-top: 0px;">
 	</div>
 	</form>
 	</c:if>
