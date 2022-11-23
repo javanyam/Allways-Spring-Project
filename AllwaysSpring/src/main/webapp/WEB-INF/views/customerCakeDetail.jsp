@@ -11,7 +11,7 @@
 	function login() {
 		alert('Available after login.');
 		var form = document.detail;
-		form.action = "customerLoginPage.do";
+		form.action = "customerLoginPage";
 		form.submit();
 	}
 
@@ -48,7 +48,7 @@
 				return;
 			}
 			alert("set in cartlist.");
-			form.action = "customerCakeCart.do";
+			form.action = "cakeCartInsert";
 		}
 		if (index == 2) {
 			if (form.detailoptionPickupDate.value.length == 0) {
@@ -75,7 +75,7 @@
 				alert("Please select a quantity.");
 				return;
 			}
-			form.action = "customerCakeQuickOrder.do";
+			form.action = "customerCakeBuyNow";
 		}
 		form.submit();
 	}

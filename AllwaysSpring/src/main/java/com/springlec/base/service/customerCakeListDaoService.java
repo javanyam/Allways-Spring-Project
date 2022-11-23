@@ -1,11 +1,12 @@
 package com.springlec.base.service;
 
-import java.util.List;
 
-import com.springlec.base.model.customerCakeListDto;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.ui.Model;
 
 public interface customerCakeListDaoService {
 	
-	public List<customerCakeListDto> customerCakeList () throws Exception;
+	public void customerCakeList (Model model, HttpServletRequest request) throws Exception;
 
 }

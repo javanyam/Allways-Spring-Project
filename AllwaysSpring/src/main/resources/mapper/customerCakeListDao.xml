@@ -5,15 +5,15 @@
 
 <mapper namespace="com.springlec.base.dao.customerCakeListDao">
 
-<!-- 	<select id="customerReviewList"
+ 	<select id="customerCakeList"
 		resultType="com.springlec.base.model.customerCakeListDto">
-		select cakeId, cakeName, cakePrice, cakeImage, cakeLike,
-		cakeViews from cake where cakeDeletedate is null and ${queryName} like #{content} order by #{sort1} #{sort2}
-	</select> -->
+		select cakeId, cakeName, cakePrice, cakeImage, cakeLike, cakeViews from cake where cakeDeletedate is null 
+		order by #{sort1} #{sort2}
+	</select>
 
-	<select id="customerCakeList"
+<!-- 	<select id="customerCakeList"
 		resultType="com.springlec.base.model.customerCakeListDto">
 		select cakeId, cakeName, cakePrice, cakeImage, cakeLike, cakeViews from cake where cakeDeletedate is null
-	</select>
+	</select> -->
 
 </mapper>

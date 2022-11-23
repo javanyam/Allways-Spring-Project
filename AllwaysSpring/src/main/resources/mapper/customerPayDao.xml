@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springlec.base.dao.customerPayDao">
+
+	<insert id="pay">
+		insert into orders (ordersId, ordersStatus, o_customerId, o_cakeId, o_goodsId, ordersSalePrice, ordersQuantity, ordersDate, ordersPoint)
+		values (#{ordersId}, '구매', #{customerId}, #{cakeId}, '1', #{ordersSalePrice}, #{ordersQuantity}, now(), #{ordersPoint})
+	</insert>
+	
+	<update id="cartListUpdate">
+		update orders set ordersPoint = 0 where ordersStatus = '장바구니' and ordersId = #{ordersId}
+	</update>
+
+</mapper>

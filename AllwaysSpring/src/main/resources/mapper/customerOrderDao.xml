@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springlec.base.dao.customerOrderDao">
+
+	<select id="orderList" resultType="com.springlec.base.model.customerOrderDto">
+		select o.ordersId, c.cakeId, o.ordersQuantity, o.ordersSalePrice, c.cakeName from cake c, orders o
+		where o.o_cakeId = c.cakeId and ordersStatus = '장바구니' and o.o_customerId = #{customerId} and o.ordersId = #{ordersId}
+	</select>
+	
+	<select id="customerInfo" resultType="com.springlec.base.model.customerOrderDto">
+		select customerName, customerPhone, customerEmail, customerPostcode, customerAddress, customerAddressDetail 
+		from customer where customerId = #{customerId}
+	</select>
+
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springlec.base.dao.customerCartDeleteDao">
+
+	<update id="optionDelete">
+		delete from detailoption where d_ordersId = #{ordersId}
+	</update>
+	
+	<update id="cartDelete">
+		delete from orders where ordersId = #{ordersId}
+	</update>
+
+</mapper>

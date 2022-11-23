@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springlec.base.dao.customerCakeBuyNowDao">
+
+	<insert id="buyNow">
+		insert into orders (ordersStatus, o_customerId, o_cakeId, o_goodsId, ordersSalePrice, ordersQuantity, ordersDate)
+		values ('장바구니', #{customerId}, #{cakeId}, 1, #{cakePrice}, #{ordersQuantity}, now())
+	</insert>
+
+	<select id="buyNowInfo" resultType="int">
+		select ordersId from orders where ordersStatus = '장바구니' 
+		and o_customerId = #{customerId} order by ordersDate desc limit 1
+	</select>
+	
+	<insert id="detailOptionInsert">
+		insert into detailoption (d_ordersId, d_ordersStatus, d_cakeoptionId, d_customerId, d_cakeId, d_goodsId, detailoptionLettering, 
+		detailoptionPickupDate) values (#{ordersId}, '장바구니', #{cakeoptionId}, #{customerId}, #{cakeId}, 1, #{detailoptionLettering}, #{detailoptionPickupDate})
+	</insert>
+	
+	<select id="selectOptionPrice" resultType="int">
+		select sum(co.cakeoptionPrice) from cake c, cakeoption co, orders o, detailoption d 
+		where cakeoptionId = d.d_cakeoptionId and c.cakeId = d.d_cakeId and d.d_ordersId = o.ordersId 
+		and o.ordersStatus = '장바구니' and o.ordersId = #{ordersId} group by o.ordersId, c.cakePrice
+	</select>
+	
+	<update id="salePriceUpdate">
+		update orders set ordersSalePrice = #{ordersSalePrice} where ordersId = #{ordersId}
+	</update>
+	
+	<select id="orderList" resultType="com.springlec.base.model.customerOrderDto">
+		select o.ordersId, o.o_cakeId, o.ordersQuantity, o.ordersSalePrice, c.cakeName from cake c, orders o
+		where o.o_cakeId = c.cakeId and ordersStatus = '장바구니' and o.o_customerId = #{customerId} and ordersId = #{ordersId}
+	</select>
+	
+	<select id="customerInfo" resultType="com.springlec.base.model.customerOrderDto">
+		select customerName, customerPhone, customerEmail, customerPostcode, customerAddress, customerAddressDetail 
+		from customer where customerId = #{customerId}
+	</select>
+
+</mapper>
