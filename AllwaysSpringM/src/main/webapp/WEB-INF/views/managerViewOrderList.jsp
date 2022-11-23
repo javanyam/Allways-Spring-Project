@@ -14,7 +14,7 @@
 <body>
 <script type="text/javascript">
 	function Final(){
-			RET.action = "MorderStatus.do";
+			RET.action = "managerViewOrderList";
 			RET.method = "post";
 			RET.submit();
 			
@@ -40,7 +40,7 @@
 			<th>주문취소</th>
 		</tr>	
 		</thead>
-			<c:forEach items = "${OrdersList}" var = "dto">
+			<c:forEach items = "${orderList1}" var = "dto">
 		<tr>
 			<td>${dto.ordersId}</td>
 			<td>${dto.ordersStatus}</td>
@@ -52,8 +52,8 @@
 			<td>${dto.ordersSalePrice}</td>
 			<td>${dto.ordersQuantity}</td>
 			<td>${dto.ordersPoint}</td>
-			<td><a href="Status.do?ordersId=${dto.ordersId}"><input type="button" value="선택"></a></td>
-			<td><a href="deleteOrder.do?ordersId=${dto.ordersId}"><input type="button" value="취소"></a></td>
+			<td><a href="orderSelect?ordersId=${dto.ordersId}"><input type="button" value="선택"></a></td>
+			<td><a href="orderDelete?ordersId=${dto.ordersId}"><input type="button" value="취소"></a></td>
 		</tr>
 			</c:forEach>
 			
@@ -78,20 +78,20 @@
 			<th>주문취소</th>
 		</tr>	
 		</thead>
-			<c:forEach items = "${OrdersList2}" var = "dto2">
+			<c:forEach items = "${orderList2}" var = "dto">
 		<tr>
-			<td>${dto2.ordersId}</td>
-			<td>${dto2.ordersStatus}</td>
-			<td>${dto2.o_customerId}</td>
-			<td>${dto2.o_cakeId}</td>
-			<td>${dto2.cakeName}</td>
-			<td>${dto2.o_goodsId}</td>
-			<td>${dto2.goodsName}</td>
-			<td>${dto2.ordersSalePrice}</td>
-			<td>${dto2.ordersQuantity}</td>
-			<td>${dto2.ordersPoint}</td>
-			<td><a href="Status.do?ordersId=${dto2.ordersId}"><input type="button" value="선택"></a></td>
-			<td><a href="deleteOrder.do?ordersId=${dto2.ordersId}"><input type="button" value="취소"></a></td>
+			<td>${dto.ordersId}</td>
+			<td>${dto.ordersStatus}</td>
+			<td>${dto.o_customerId}</td>
+			<td>${dto.o_cakeId}</td>
+			<td>${dto.cakeName}</td>
+			<td>${dto.o_goodsId}</td>
+			<td>${dto.goodsName}</td>
+			<td>${dto.ordersSalePrice}</td>
+			<td>${dto.ordersQuantity}</td>
+			<td>${dto.ordersPoint}</td>
+			<td><a href="orderSelect?ordersId=${dto.ordersId}"><input type="button" value="선택"></a></td>
+			<td><a href="orderDelete?ordersId=${dto.ordersId}"><input type="button" value="취소"></a></td>
 		</tr>
 			</c:forEach>
 			
@@ -114,19 +114,19 @@
 			<th>제작선택</th>
 		</tr>	
 		</thead>
-			<c:forEach items = "${OrdersList3}" var = "dto3" begin="${(index-1)*rowcount }" end="${(index)*rowcount-1}">
+			<c:forEach items = "${orderList3}" var = "dto"> <%-- begin="${(index-1)*rowcount }" end="${(index)*rowcount-1}" --%>
 		<tr>
-			<td>${dto3.ordersId}</td>
-			<td>${dto3.ordersStatus}</td>
-			<td>${dto3.o_customerId}</td>
-			<td>${dto3.o_cakeId}</td>
-			<td>${dto3.cakeName}</td>
-			<td>${dto3.o_goodsId}</td>
-			<td>${dto3.goodsName}</td>
-			<td>${dto3.ordersSalePrice}</td>
-			<td>${dto3.ordersQuantity}</td>
-			<td>${dto3.ordersPoint}</td>
-			<td><a href="Sold.do?ordersId=${dto3.ordersId}"><input type="button" value="선택"></a></td>
+			<td>${dto.ordersId}</td>
+			<td>${dto.ordersStatus}</td>
+			<td>${dto.o_customerId}</td>
+			<td>${dto.o_cakeId}</td>
+			<td>${dto.cakeName}</td>
+			<td>${dto.o_goodsId}</td>
+			<td>${dto.goodsName}</td>
+			<td>${dto.ordersSalePrice}</td>
+			<td>${dto.ordersQuantity}</td>
+			<td>${dto.ordersPoint}</td>
+			<td><a href="Sold.do?ordersId=${dto.ordersId}"><input type="button" value="선택"></a></td>
 		</tr>
 			</c:forEach>
 			<tr>
@@ -134,7 +134,7 @@
 			
 </table>
 </div>
-<c:if test="${Query==null }">
+<%-- <c:if test="${Query==null }">
 	<div class="tablediv" align="center">
 		<a href="MorderStatus.do?index=1">처음으로</a>
 		<c:if test="${index!=1 }">
@@ -157,6 +157,6 @@
 		</c:if>
 		<a href="MorderStatus.do?index=${Math.ceil(Size/rowcount) }">끝으로</a>
 	</div>
-	</c:if>
+	</c:if> --%>
 </body>
 </html>

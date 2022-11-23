@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springlec.base.dao.managerViewOrderListDao">
+
+	<select id="orderList1" resultType="com.springlec.base.model.managerViewOrderListDto">
+		select ordersId,ordersStatus,o_customerId,o_cakeId,cakeName,o_goodsId,goodsName,ordersSalePrice,ordersQuantity,ordersPoint 
+		from orders as o, cake as c, goods as g where o.o_cakeId = c.cakeId and g.goodsId = o.o_goodsId and ordersStatus = '구매' 
+		and ordersDeletedate is null and ordersSoldOutdate is null and ordersMakedate is null
+	</select>
+
+	<select id="orderList2" resultType="com.springlec.base.model.managerViewOrderListDto">
+		select ordersId,ordersStatus,o_customerId,o_cakeId,cakeName,o_goodsId,goodsName,ordersSalePrice,ordersQuantity,ordersPoint 
+		from orders as o, cake as c, goods as g where o.o_cakeId = c.cakeId and g.goodsId = o.o_goodsId and ordersStatus = '제작중' 
+		and ordersDeletedate is null and ordersSoldOutdate is null
+	</select>
+
+	<select id="orderList3" resultType="com.springlec.base.model.managerViewOrderListDto">
+		select ordersId,ordersStatus,o_customerId,o_cakeId,cakeName,o_goodsId,goodsName,ordersSalePrice,ordersQuantity,ordersPoint 
+		from orders as o, cake as c, goods as g where o.o_cakeId = c.cakeId and g.goodsId = o.o_goodsId and ordersStatus = '제작완료' 
+		and ordersDeletedate is null
+	</select>
+	
+	<select id="orderSelect" resultType="com.springlec.base.model.managerViewOrderListDto">
+		select ordersId,ordersStatus,o_customerId,o_cakeId,cakeName,o_goodsId,goodsName,ordersSalePrice,ordersQuantity,ordersPoint 
+		from orders as o, goods as g, cake as c where o.o_cakeId = c.cakeId and g.goodsId = o.o_goodsId and ordersPoint > 0 and ordersId = #{ordersId}
+	</select>
+	
+	<update id="orderDelete">
+		update orders set ordersDeletedate = now(), ordersPoint = 0 where ordersId = #{ordersId}
+	</update>
+	
+	<insert id="orderUpdateToMaking">
+		insert into orders (ordersId, ordersStatus,o_customerId,o_cakeId,o_goodsId,ordersSalePrice,ordersQuantity,ordersPoint) 
+		values (#{ordersId}, #{ordersStatus}, #{o_customerId}, #{o_cakeId}, #{o_goodsId}, #{ordersSalePrice}, #{ordersQuantity}, 0)
+	</insert>
+	
+	<update id="orderUpdateMakedate">
+		update orders set ordersMakedate = now() where ordersId = #{ordersId}
+	</update>
+	
+	<insert id="orderUpdateToDone">
+		insert into orders (ordersId, ordersStatus,o_customerId,o_cakeId,o_goodsId,ordersSalePrice,ordersQuantity,ordersPoint) 
+		values (#{ordersId}, #{ordersStatus}, #{o_customerId}, #{o_cakeId}, #{o_goodsId}, #{ordersSalePrice}, #{ordersQuantity}, 0)
+	</insert>
+	
+	<update id="orderUpdateDonedate">
+		update orders set ordersSoldOutdate = now() where ordersId = #{ordersId}
+	</update>
+	
+</mapper>

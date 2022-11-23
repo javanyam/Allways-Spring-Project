@@ -14,29 +14,36 @@
 
 	function Return(){
 		var RET = document.ADDR;
-		RET.action = "MorderStatus.do";
+		RET.action = "managerViewOrderList";
 		RET.method = "post";
 		RET.submit();
 	}
 
-		function Delete2() {
-			var DEL = document.ADDR;
-			DEL.action = "DeleteOrder.do";
-			DEL.method = "post";
-			DEL.submit();
-		}
-	</script>
+	function Delete() {
+		var DEL = document.ADDR;
+		DEL.action = "orderDelete";
+		DEL.method = "post";
+		DEL.submit();
+	}
+	
+	function Update(){
+		var UPD = document.ADDR;
+		UPD.action = "orderUpdate"
+		UPD.method = "post";
+		UPD.submit();
+	}
+</script>
 </head>
 <body>
 <h1>주문 상태 변환</h1>
-	<form method="post" action="ADDR.do" name = "ADDR">
+	<form method="post" action="ADDR" name = "ADDR">
 	<table border="0">
 <thead>
 	<tr>
 	<td>
 	<tr>
 		<th>주문 번호 :
-		<input type="text" name=ordersId value="${add_Order.ordersId}" readonly/>
+		<input type="text" name=ordersId value="${selectInfo.ordersId}" readonly/>
 		</th>
 	</tr>
 	
@@ -51,45 +58,45 @@
 	</tr>
 	<tr>
 		<th>구매자 :
-		<input type="text" name="o_customerId" value="${add_Order.o_customerId}" readonly="readonly" >
+		<input type="text" name="o_customerId" value="${selectInfo.o_customerId}" readonly="readonly" >
 		</th>
 	</tr>
 	
 	<tr>
 		<th>케이크번호 :
-		<input type="text" name="o_cakeId" value="${add_Order.o_cakeId}" readonly="readonly">
+		<input type="text" name="o_cakeId" value="${selectInfo.o_cakeId}" readonly="readonly">
 		</th>
 	</tr>
 	<tr>
 		<th>케이크이름 :
-		<input type="text" name="cakeName" value="${add_Order.cakeName}" readonly="readonly">
+		<input type="text" name="cakeName" value="${selectInfo.cakeName}" readonly="readonly">
 		</th>
 	</tr>
 	
 	<tr>
 		<th>추가상품번호:
-		<input type="text" name="o_goodsId" value="${add_Order.o_goodsId}" readonly="readonly">
+		<input type="text" name="o_goodsId" value="${selectInfo.o_goodsId}" readonly="readonly">
 		</th>
 	</tr>
 	<tr>
 		<th>추가상품이름:
-		<input type="text" name="goodsName" value="${add_Order.goodsName}" readonly="readonly">
+		<input type="text" name="goodsName" value="${selectInfo.goodsName}" readonly="readonly">
 		</th>
 	</tr>
 	
 	<tr>
 		<th>주문가격 :
-		<input type="text" name="ordersSalePrice" value="${add_Order.ordersSalePrice}" readonly="readonly">
+		<input type="text" name="ordersSalePrice" value="${selectInfo.ordersSalePrice}" readonly="readonly">
 		</th>
 	</tr>
 	<tr>
 		<th>주문개수 :
-		<input type="text" name="ordersQuantity" value="${add_Order.ordersQuantity}" readonly="readonly">
+		<input type="text" name="ordersQuantity" value="${selectInfo.ordersQuantity}" readonly="readonly">
 		</th>
 	</tr>
 	<tr>
 		<th>포인트 :
-		<input type="text" name="ordersPoint" value="${add_Order.ordersPoint}" readonly="readonly">
+		<input type="text" name="ordersPoint" value="${selectInfo.ordersPoint}" readonly="readonly">
 		</th>
 	</tr>
 	<tr>
@@ -97,7 +104,6 @@
 			<input type="button" value="돌아가기" onclick="Return()">
 			<input type="button" value="수정" onclick="Update()">
 			<input type="button" value="삭제" onclick="Delete()">
-			<input type="submit" value="추가">
 		</th>
 	</tr>
 	</table>
