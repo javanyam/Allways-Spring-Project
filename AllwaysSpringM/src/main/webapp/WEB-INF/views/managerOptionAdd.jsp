@@ -133,26 +133,14 @@ function previewFile() {
 		<div align="left" style="width:74%;display:inline-block">
 			<input type="text" name="optionPrice" style="border-color:#fdcdcd" value="${optionPrice}" >원
 		</div><br>
-		<div align="left" style="width:20%;display:inline-block">
-			사진
-			</div>
-		<div align="left" style="width:74%;display:inline-block">	
-			<input type="file" name="cakeoptionImage" onchange="previewFile(event)">
-		</div>
 	</div>
-		<div style="display:inline-block;width:30%;height:50%" align="center">
-			<div>
-			사진 미리보기
-			</div>
-		<div>
-			<img src="" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
-		</div>
+		
 		<div align="center" style="width:74%;display:inline-block">
 			<input type="button" value="돌아가기" style="background:#ffffff;border-color:#a87878;color:#a87878" onclick="Return()">
 			<input type="button" value="중복체크" style="background:#ffffff;border-color:#a87878;color:#a87878" onclick="CHECKOPTION()">
 			<input type="button" value="추가" style="background:#ffffff;border-color:#a87878;color:#a87878" onclick="ADDOPTION()">
 		</div>
-		</div>
+		
 		
 	</form>
 	</div>

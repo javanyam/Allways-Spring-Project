@@ -81,73 +81,51 @@ function previewFile() {
 	
 	<div align="center">
 		<form method="post"  enctype="multipart/form-data" name ="upd">
-		<h1 align="center">옵션 관리</h1>
-		<div style="display: inline-block;width:60%">
-		<div align="left" style="width:20%;display:inline-block">	
+		<h1 align="center">옵션 관리</h1><br><br><br>
+		<!-- <div style="display: inline-block;width:60%">
+		<div align="center" style="width:20%;display:inline-block">	 -->
 			카테고리 :
-		</div>
-		<div align="left" style="width:74%;display:inline-block">
-			<div style="width:50%;display:inline-block">
+		<!-- </div> -->
+		<!-- <div  style="width:74%;display:inline-block">
+			<div style="width:50%;display:inline-block"> -->
 				<select name="option"  style="background:#ffffff;border-color:#a87878;color:#a87878">
 				
 					<c:forEach var = "dto" items="${optiondetail}">
 						<option value="${dto.cakeoptionCategory}">${dto.cakeoptionCategory}</option>
 					</c:forEach>
 				
-				</select>
-			</div>
+				</select><br><br>
+			<!-- </div>
 		</div>
-		<div align="left" style="width:20%;display:inline-block">
+		<div  style="width:20%;display:inline-block"> -->
 			CAKE ID :
+		<!-- </div> -->
+		<!-- <div  style="width:74%;height:20%;display:inline-block">
+			<div style="width:50%;display:inline-block"> -->
+				<input type="text" style="border-color:#FDCDCD" size="30" name="optionId" value="${cake_option.cakeoptionId}" readonly/><br><br>
+			<!-- </div>
 		</div>
-		<div align="left" style="width:74%;height:20%;display:inline-block">
-			<div style="width:50%;display:inline-block">
-				<input type="text" style="border-color:#FDCDCD" size="30" name="optionId" value="${cake_option.cakeoptionId}" readonly/>
-			</div>
-		</div>
-		<div align="left" style="width:20%;display:inline-block">
+		<div  style="width:20%;display:inline-block"> -->
 			옵션 이름 :
+		<!-- </div>
+			<div  style="width:74%;height:20%;display:inline-block"> -->
+					<input type="text" style="border-color:#FDCDCD" size="30" name="optionName" value="${cake_option.cakeoptionValue}" readonly="readonly" ><br><br>
+			<!-- </div>
+		<div  style="width:20%;display:inline-block"> -->
+			가격 :
+		<!-- </div>
+			<div  style="width:74%;height:20%;display:inline-block"> -->
+				<input type="text" style="border-color:#FDCDCD" name="optionPrice" value="${cake_option.cakeoptionPrice}" ><br><br>
+			<!-- </div>
 		</div>
-			<div align="left" style="width:74%;height:20%;display:inline-block">
-					<input type="text" style="border-color:#FDCDCD" size="30" name="optionName" value="${cake_option.cakeoptionValue}" readonly="readonly" >
-			</div>
-		<div align="left" style="width:20%;display:inline-block">
-			가격 이름 :
-		</div>
-			<div align="left" style="width:74%;height:20%;display:inline-block">
-				<input type="text" style="border-color:#FDCDCD" name="optionPrice" value="${cake_option.cakeoptionPrice}" >
-			</div>
-			<div align="left" style="width:20%;display:inline-block">
-				사진
-			</div>
-			<div align="left" style="width:74%;display:inline-block">
-				<input type="file" name="cakeoptionImage" onchange="previewFile(event)">
-			</div>
-		</div>
-		<div style="display:inline-block;width:30%;height:50%" align="center">
-		<div>
-			사진 미리보기
-		</div>
-		<div>
-		<c:if test="${check == null }"> 
-		<img src="/Allways/${cake_option.cakeoptionImage}" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
-			<input type="hidden" name="cakeoptionImage" value="${cake_option.cakeoptionImage}">
-		</c:if>
-		<c:if test="${check == true }"> 
-		<img src="/Allways/${cakeoptionImage}" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
-			<input type="hidden" name="cakeoptionImage" value="${cakeoptionImage}">
-		</c:if>
-		<c:if test="${check == false }"> 
-		<img src="/Allways/${cakeoptionImage}" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
-			<input type="hidden" name="cakeoptionImage" value="${cakeoptionImage}">	
-		</c:if>
-		</div>
-		<div align="center" style="width:74%;display:inline-block">
+		<div style="display:inline-block;width:30%;height:50%" align="center"> -->
+		
+	<!-- 	<div align="center" style="width:74%;display:inline-block"> -->
 			<input type="button" style="background:#ffffff;border-color:#a87878;color:#a87878" value="돌아가기" onclick="Return()">
 			<input type="button" style="background:#ffffff;border-color:#a87878;color:#a87878" value="수정" onclick="Update()">
 			<input type="button" style="background:#ffffff;border-color:#a87878;color:#a87878" value="삭제" onclick="Delete()">
-		</div>
-	</div>
+		<!-- </div> -->
+	<!-- </div> -->
 		
 	</form>
 	</div>
