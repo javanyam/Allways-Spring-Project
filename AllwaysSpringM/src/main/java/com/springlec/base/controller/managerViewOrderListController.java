@@ -19,17 +19,13 @@ public class managerViewOrderListController {
 	managerViewOrderListDaoService service;
 
 	@RequestMapping("/managerViewOrderList")
-	public String managerViewOrderList(Model model) throws Exception {
-
-		List<managerViewOrderListDto> orderList1 = service.orderList1();
-		model.addAttribute("orderList1", orderList1);
+	public String managerViewOrderList(HttpServletRequest request, Model model) throws Exception {
+		
+		service.orderList1(request, model);
 
 		List<managerViewOrderListDto> orderList2 = service.orderList2();
 		model.addAttribute("orderList2", orderList2);
-
-		List<managerViewOrderListDto> orderList3 = service.orderList3();
-		model.addAttribute("orderList3", orderList3);
-
+		
 		return "managerViewOrderList";
 	}
 
@@ -39,7 +35,7 @@ public class managerViewOrderListController {
 		managerViewOrderListDto orderSelect = service.orderSelect(request);
 		model.addAttribute("selectInfo", orderSelect);
 
-		return "ManagerAddStatus";
+		return "managerUpdateStatus";
 	}
 
 	@RequestMapping("/orderDelete")
