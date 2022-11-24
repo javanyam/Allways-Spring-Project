@@ -27,11 +27,13 @@ public class customerCakeDetailController {
 		List<customerCakeDetailDto> cakeShape = service.customerCakeShape();
 		model.addAttribute("shapeList", cakeShape);
 		
-		List<customerCakeDetailDto> cakeSize = service.customerCakeShape();
+		List<customerCakeDetailDto> cakeSize = service.customerCakeSize();
 		model.addAttribute("sizeList", cakeSize);
 		
-		List<customerCakeDetailDto> cakeFlavor = service.customerCakeShape();
+		List<customerCakeDetailDto> cakeFlavor = service.customerCakeFlavor();
 		model.addAttribute("flavorList", cakeFlavor);
+		
+		service.viewsUpdate(request);
 		
 		return "customerCakeDetail";
 	}

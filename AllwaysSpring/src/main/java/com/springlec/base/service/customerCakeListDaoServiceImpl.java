@@ -23,6 +23,9 @@ public class customerCakeListDaoServiceImpl implements customerCakeListDaoServic
 		String sort1 = request.getParameter("sort1");
 		String sort2 = request.getParameter("sort2");
 		
+		System.out.println(sort1);
+		System.out.println(sort2);
+		
 		if (sort1 == null) {
 			sort1 = "cakeInitdate";
 			sort2 = "desc";

@@ -13,5 +13,7 @@ public interface customerCakeDetailDao {
 	public List<customerCakeDetailDto> customerCakeSize() throws Exception;
 	
 	public List<customerCakeDetailDto> customerCakeFlavor() throws Exception;
+	
+	public void viewsUpdate(int cakeId) throws Exception;
 
 }

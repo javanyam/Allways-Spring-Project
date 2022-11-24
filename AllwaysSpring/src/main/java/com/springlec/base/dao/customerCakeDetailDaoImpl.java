@@ -36,4 +36,11 @@ public class customerCakeDetailDaoImpl implements customerCakeDetailDao {
 		return sqlSession.selectList(namespace + ".customerCakeFlavor");
 	}
 
+	@Override
+	public void viewsUpdate(int cakeId) throws Exception {
+		// TODO Auto-generated method stub
+		
+		sqlSession.update(namespace + ".viewsUpdate");
+	}
+
 }

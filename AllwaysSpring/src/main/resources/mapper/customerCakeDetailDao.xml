@@ -26,5 +26,9 @@
 	<select id="customerCakeFlavor" resultType="com.springlec.base.model.customerCakeDetailDto">
 		select cakeoptionId, cakeoptionCategory, cakeoptionValue, cakeoptionPrice from cakeoption where cakeoptionCategory = 'flavor' and cakeoptionDeletedate is null
 	</select>
+	
+	<update id="viewsUpdate">
+		update cake set cakeViews = cakeViews +1 where cakeId = #{cakeId}
+	</update>	
 
 </mapper>
