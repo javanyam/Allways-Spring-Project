@@ -33,7 +33,7 @@ table tr.header{
 		</div>
 	</div>
 	<div class="main">
-		<h2 class="inner">미처리 주문</h2>
+		<h2 class="inner">주문현황</h2>
 		<div align="right" style="margin:1px">
 			<a href="managerViewOrderList" class="viewall">전체보기</a>
 		</div>
