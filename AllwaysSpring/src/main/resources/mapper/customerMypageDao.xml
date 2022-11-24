@@ -24,7 +24,7 @@
 	<select id="myOrderListDao" resultType="com.springlec.base.model.customerOrderListDto">
 		select @rownum:=@rownum+1 AS ROWNUM, c.cakeName, o.ordersSalePrice, o.ordersQuantity, o.ordersDate 
 		from orders o, cake c 
-		where (@rownum:=0)=0 and o.o_customerId = #{customerId} and o.ordersStatus = '구매' and o.o_cakeId = c.cakeId
+		where (@rownum:=0)=0 and o.o_customerId = #{customerId} and o.ordersStatus = '구매' and o.o_cakeId = c.cakeId order by o.ordersDate desc
 	</select>
 
 	<select id="myPointDao" resultType="com.springlec.base.model.customerMyPointDto">
