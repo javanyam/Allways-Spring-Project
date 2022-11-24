@@ -31,6 +31,10 @@
 				alert("Please choose a size.");
 				return;
 			}
+			if (form.flavor.value.length == 0) {
+				alert("Please choose a Flavor.");
+				return;
+			}
 			if (form.detailoptionLettering.value.length == 0) {
 				alert("Please enter a phrase.");
 				return;

@@ -42,4 +42,13 @@ public class customerCakeDetailDaoServiceImpl implements customerCakeDetailDaoSe
 		return dao.customerCakeFlavor();
 	}
 
+	@Override
+	public void viewsUpdate(HttpServletRequest request) throws Exception {
+		// TODO Auto-generated method stub
+		
+		int cakeId = Integer.parseInt(request.getParameter("cakeId"));
+		
+		dao.viewsUpdate(cakeId);
+	}
+	
 }

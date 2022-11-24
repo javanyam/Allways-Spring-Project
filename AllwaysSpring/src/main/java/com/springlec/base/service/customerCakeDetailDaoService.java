@@ -16,4 +16,5 @@ public interface customerCakeDetailDaoService {
 	
 	public List<customerCakeDetailDto> customerCakeFlavor() throws Exception;
 
+	public void viewsUpdate(HttpServletRequest request) throws Exception;
 }
