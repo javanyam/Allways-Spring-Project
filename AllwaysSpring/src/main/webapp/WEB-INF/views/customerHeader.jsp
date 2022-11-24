@@ -156,7 +156,7 @@ function signup() {
                 <div class="d-inline-flex align-items-center">
                 	<a class="text-primary pl-2" href="customerJoinPage">
                         <i class="text-primary pl-2">JOIN</i>
-                    </a>
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
                 	<a class="text-primary pl-2" href="customerLoginPage">
                         <i class="text-primary pl-2">LOGIN</i>
                     </a>
