@@ -34,7 +34,7 @@
 	font-family: 'EF_Diary';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 26px;
+	font-size: 23px;
 	line-height: 48px;
 	text-align: center;
 	color: #4E4D4D;
@@ -59,12 +59,14 @@
 					<img src="./images/About.png" /><br>
 				</div>
 	
-				<div class="col2" id="font" style="padding-left: 210px; padding-top: 1000px; padding-right: 430px; padding-bottom: 700px">
+				<div class="col2" id="font" style="padding-left: 400px; padding-top: 1000px; padding-right: 430px; padding-bottom: 700px">
 					“ALLWAYS”는 <br><br>
 	
 					ALL과 WAYS의 합성어이자 ALWAYS의 동음이의어로,<br><br>
 	 
-					사랑하는 사람들과 행복한 순간에 항상 함께하고 싶은 모든 마음을<br><br>
+					사랑하는 사람들과 행복한 순간에 <br><br>
+					
+					항상 함께하고 싶은 모든 마음을<br><br>
 	
 					ALLWAYS에서 <br><br>
 	
