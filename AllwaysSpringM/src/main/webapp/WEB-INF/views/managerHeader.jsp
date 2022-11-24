@@ -23,7 +23,7 @@
           <a class="nav-link active" aria-current="page" href="managerMain">MAIN</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="MorderStatus">주문 현황 관리</a>
+          <a class="nav-link" href="managerViewOrderList">주문 현황 관리</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
