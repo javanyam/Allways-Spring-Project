@@ -4,13 +4,15 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.ui.Model;
+
 import com.springlec.base.model.managerViewOrderListDto;
 
 public interface managerViewOrderListDaoService {
 	
-	public List<managerViewOrderListDto> orderList1() throws Exception;
+	public void orderList1(HttpServletRequest request, Model model) throws Exception;
 	public List<managerViewOrderListDto> orderList2() throws Exception;
-	public List<managerViewOrderListDto> orderList3() throws Exception;
+	public void orderList3(HttpServletRequest request, Model model) throws Exception;
 	
 	public managerViewOrderListDto orderSelect(HttpServletRequest request) throws Exception;
 	
