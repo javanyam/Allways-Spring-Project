@@ -14,6 +14,7 @@ YouTube 영상</a>
 
 <br>
 
-# 기존에 진행하였던 JSP 프로젝트를 Spring FrameWork로 변경하는 프로젝트를 진행하였다.
+# 기존에 진행하였던 JSP 프로젝트를 
+# Spring FrameWork로 변경하는 프로젝트를 진행하였다.
 
-<a href="https://youtu.be/1le8L2dUijY" rel="nofollow">JSP Project URL Address</a>
+<a href="https://github.com/Left3to4/Allways" rel="nofollow">JSP Project GitHub</a>
